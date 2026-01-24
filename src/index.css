@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dotted background pattern */
+.bg-dot-light {
+  background-color: #f1f5f9;
+  background-image: radial-gradient(#5e648282 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.bg-dot-dark {
+  background-color: #3a3b42;
+  background-image: radial-gradient(#767982 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Global fallback */
+html,
+body,
+#root {
+  @apply text-gray-900 dark:text-gray-50;
+}
+
+/* Hero background image */
+.hero-bg-image {
+  background-image: url("/hero.png"); /* put image in /public */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Dark mode adjustment */
+.dark .hero-bg-image {
+  opacity: 0.9;
+}
+
+/* Overlay for readability */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(173, 173, 173, 0.266),
+    rgba(203, 203, 203, 0.202)
+  );
+}
+
+.dark .hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 6, 23, 0.5),
+    rgba(2, 6, 23, 0.5)
+  );
+}
+button,
+input,
+textarea {
+  outline: none;
+}
