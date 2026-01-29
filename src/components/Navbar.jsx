@@ -29,14 +29,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-2 left-16 right-16 rounded-md z-50 transition-all ${
+      className={`fixed top-2 left-14 right-14 rounded-md z-50 transition-all ${
         isScrolled
           ? "bg-transparent  backdrop-blur shadow-md"
           : "bg-transparent backdrop-blur"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-14 lg:h-20">
+        <div className="flex items-center justify-between h-20">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-3xl font-bold text-[#0F766E]"
