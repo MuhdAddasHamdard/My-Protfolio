@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,11 +28,30 @@ const Navbar = () => {
     { label: "Let's Chat", id: "contact" },
   ];
 
+  const menuVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.25,
+        ease: "easeOut",
+        staggerChildren: 0.08,
+      },
+    },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.2 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <nav
-      className={`fixed top-2 left-14 right-14 rounded-md z-50 transition-all ${
+      className={`fixed top-2 left-12 right-12 rounded-md z-50 transition-all ${
         isScrolled
-          ? "bg-transparent  backdrop-blur shadow-md"
+          ? "bg-transparent backdrop-blur shadow-md"
           : "bg-transparent backdrop-blur"
       }`}
     >
@@ -49,7 +69,7 @@ const Navbar = () => {
               <button
                 key={l.id}
                 onClick={() => scrollToSection(l.id)}
-                className="text-lg  text-gray-900 dark:text-gray-200"
+                className="text-lg text-gray-900 dark:text-gray-200"
               >
                 {l.label}
               </button>
@@ -59,33 +79,44 @@ const Navbar = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 "
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700"
             >
               {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
             </button>
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden dark:text-gray-400  p-2"
+              className="md:hidden dark:text-gray-400 p-2"
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
             </button>
           </div>
         </div>
 
-        {isMobileMenuOpen && (
-          <div className="md:hidden border-t dark:border-gray-800">
-            {navLinks.map((l) => (
-              <button
-                key={l.id}
-                onClick={() => scrollToSection(l.id)}
-                className="block w-full px-4 py-3 text-left text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-400"
-              >
-                {l.label}
-              </button>
-            ))}
-          </div>
-        )}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              variants={menuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="md:hidden absolute top-full left-0 w-full shadow-lg border-t dark:border-gray-800"
+            >
+              <div className="flex flex-col py-4">
+                {navLinks.map((l) => (
+                  <motion.button
+                    key={l.id}
+                    variants={itemVariants}
+                    onClick={() => scrollToSection(l.id)}
+                    className="w-full px-6 py-3 text-left text-gray-700 bg-transparent backdrop-blur dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  >
+                    {l.label}
+                  </motion.button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
