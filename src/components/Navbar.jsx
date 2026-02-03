@@ -4,7 +4,6 @@ import { useTheme } from "../context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
@@ -49,11 +48,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-2 left-12 right-12 rounded-md z-50 transition-all ${
-        isScrolled
-          ? "bg-transparent backdrop-blur shadow-md"
-          : "bg-transparent backdrop-blur"
-      }`}
+      className="fixed top-2 left-12 right-12 rounded-xl z-50 transition-all
+       bg-transparent backdrop-blur shadow-md"
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
@@ -92,29 +88,55 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div
-              variants={menuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="md:hidden absolute top-full left-0 w-full shadow-lg border-t dark:border-gray-800"
-            >
-              <div className="flex flex-col py-4">
-                {navLinks.map((l) => (
-                  <motion.button
-                    key={l.id}
-                    variants={itemVariants}
-                    onClick={() => scrollToSection(l.id)}
-                    className="w-full px-6 py-3 text-left text-gray-700 bg-transparent backdrop-blur dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
-                  >
-                    {l.label}
-                  </motion.button>
-                ))}
-              </div>
-            </motion.div>
+            <>
+              {/* BACKGROUND BLUR OVERLAY */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="
+          fixed inset-0 z-30
+          backdrop-blur-2xl backdrop-saturate-150
+           dark:bg-black/30 rounded bg-transparent
+        "
+              />
+
+              {/* APPLE GLASS MENU */}
+              <motion.div
+                variants={menuVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                className="
+          md:hidden absolute top-full left-0 w-full z-40
+          backdrop-blur-xl backdrop-saturate-150
+          bg-white/60 dark:bg-neutral-900/60
+          border border-white/30 dark:border-white/10
+          shadow-2xl rounded-xl
+        "
+              >
+                <div className="flex flex-col py-4 text-gray-900 dark:text-white">
+                  {navLinks.map((l) => (
+                    <motion.button
+                      key={l.id}
+                      variants={itemVariants}
+                      onClick={() => scrollToSection(l.id)}
+                      className="
+                w-full px-6 py-3 text-left
+                hover:bg-white/30 dark:hover:bg-white/10
+                transition-colors
+              "
+                    >
+                      {l.label}
+                    </motion.button>
+                  ))}
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>

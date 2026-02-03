@@ -25,7 +25,7 @@ const Teaching = () => {
 
           {/* Impact Stats */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <iv className="dark:bg-gray-900 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border-white/20 dark:border-gray-700/40 rounded-2xl shadow-lg p-6 transition hover:bg-white/80 dark:hover:bg-gray-900/80   text-center">
+            <div className="dark:bg-gray-900 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border-white/20 dark:border-gray-700/40 rounded-2xl shadow-lg p-6 transition hover:bg-white/80 dark:hover:bg-gray-900/80   text-center">
               <Users className="w-8 h-8 text-blue-900 mx-auto mb-3" />
               <div className="text-3xl font-bold text-blue-900 mb-1">
                 {teaching.impact.studentsReached}
@@ -33,7 +33,7 @@ const Teaching = () => {
               <div className="text-sm text-gray-600 font-medium">
                 Students Reached
               </div>
-            </iv>
+            </div>
             <div className="dark:bg-gray-900  bg-white dark:bg-gray-900/60 backdrop-blur-md border-white/20 dark:border-gray-700/40 rounded-2xl shadow-lg p-6 dark:hover:bg-gray-900 80 text-center">
               <Award className="w-8 h-8 text-teal-700 mx-auto mb-3" />
               <div className="text-3xl font-bold text-teal-700 mb-1">
