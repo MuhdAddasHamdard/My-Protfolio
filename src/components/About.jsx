@@ -19,16 +19,20 @@ const About = () => {
             <div className="w-20 h-1 bg-blue-900 mx-auto"></div>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 items-center">
             {/* Story */}
-            <div>
-              <p className="text-lg text-gray-700  bg-white dark:bg-gray-900/60 backdrop-blur-md border border-white/20 dark:border-gray-700/40 rounded-2xl shadow-lg p-6 transition dark:hover:bg-gray-900/80 leading-relaxed">
-                {about.story}
-              </p>
+            <div className="h-full text-lg border dark:hover:border-[#0f766e] shadow-lg dark:text-gray-400 bg-white dark:bg-[#111827] p-6 rounded-2xl transition-all">
+              <p className="leading-relaxed">{about.story}</p>
             </div>
 
             {/* picture for about section */}
-            <img className="rounded-lg shadow-lg " src="/about.jpg" alt="" />
+            <div className="">
+              <img
+                className="rounded-lg w-full shadow-lg "
+                src="/about.jpg"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>

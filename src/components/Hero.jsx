@@ -24,18 +24,17 @@ const Hero = () => {
         {/* Hero content here */}
         <div className="container text-center mx-auto px-2 lg:px-12 py-20">
           <div className="max-w-4xl mx-auto ">
-            {/* Name */}
-            <h1 className="text-5xl lg:text-7xl font-bold dark:text-gray-400 mb-4">
-              {hero.name}
-            </h1>
-
             {/* Title */}
             <h2 className="text-2xl md:text-3xl text-[#0F766E]">
               <RotatingText />
             </h2>
+            {/* Name */}
+            <h1 className="text-5xl lg:text-7xl font-bold dark:text-gray-300 mb-4">
+              {hero.name}
+            </h1>
 
             {/* Description */}
-            <p className="text-lg lg:text-xl font-bold mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg lg:text-xl  font-bold mb-10 max-w-3xl mx-auto leading-relaxed">
               {hero.description}
             </p>
 
