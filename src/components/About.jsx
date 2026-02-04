@@ -26,9 +26,9 @@ const About = () => {
             </div>
 
             {/* picture for about section */}
-            <div className="">
+            <div className="transition-all dark:hover:border-[#0f766e]">
               <img
-                className="rounded-lg w-full shadow-lg "
+                className=" rounded-lg w-full shadow-lg "
                 src="/about.jpg"
                 alt=""
               />

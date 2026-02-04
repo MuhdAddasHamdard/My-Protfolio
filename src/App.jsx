@@ -11,6 +11,7 @@ import Vision from "./components/Vision";
 import Teaching from "./components/Teaching";
 import Projects from "./components/Projects";
 import CursorDot from "./components/CursorDot";
+// import { Toaster } from "./components/Toaster";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Teaching />
       <Vision />
       <Contact />
+      {/* <Toaster /> */}
       <Footer />
     </div>
   );

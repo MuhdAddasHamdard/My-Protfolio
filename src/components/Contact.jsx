@@ -127,12 +127,6 @@ const Contact = () => {
               </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Your Name
-                  </label>
                   <input
                     type="text"
                     id="name"
@@ -140,18 +134,12 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg dark:bg-sky-950 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    placeholder="John Doe"
+                    className="w-full px-4 py-3 rounded-lg bg-transparent ring-1 focus:ring-[#0F766E] border-transparent transition-all"
+                    placeholder="Your name"
                   />
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Your Email
-                  </label>
                   <input
                     type="email"
                     id="email"
@@ -159,18 +147,12 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 dark:bg-sky-950 focus:ring-blue-500 focus:border-transparent transition-all"
-                    placeholder="john@example.com"
+                    className="w-full px-4 py-3 rounded-lg ring-1 bg-transparent fill-transparent focus:ring-[#0F766E] focus:border-transparent transition-all"
+                    placeholder="Your email"
                   />
                 </div>
 
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    Message
-                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -178,7 +160,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows="5"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 dark:bg-sky-950 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-lg ring-1 bg-transparent focus:ring-[#0F766E] focus:border-transparent transition-all resize-none"
                     placeholder="Your message here..."
                   ></textarea>
                 </div>
