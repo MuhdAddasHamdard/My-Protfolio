@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 1);
@@ -48,12 +45,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav
+    <header
       className="fixed top-2 left-12 right-12 rounded-xl z-50 transition-all
        bg-transparent backdrop-blur shadow-md"
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
+          {/* logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-3xl font-bold text-[#0F766E]"
@@ -61,7 +59,7 @@ const Navbar = () => {
             GKH
           </button>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((l) => (
               <button
                 key={l.id}
@@ -71,16 +69,9 @@ const Navbar = () => {
                 {l.label}
               </button>
             ))}
-          </div>
+          </nav>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700"
-            >
-              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
-
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden dark:text-gray-400 p-2"
@@ -141,7 +132,7 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
-    </nav>
+    </header>
   );
 };
 

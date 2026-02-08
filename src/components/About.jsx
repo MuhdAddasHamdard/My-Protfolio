@@ -29,7 +29,7 @@ const About = () => {
             <div className="transition-all dark:hover:border-[#0f766e]">
               <img
                 className=" rounded-lg w-full shadow-lg "
-                src="/about.jpg"
+                src="/hero.jpg"
                 alt=""
               />
             </div>
