@@ -14,10 +14,10 @@ const Skills = () => {
       </h2>
 
       {/* Animated row */}
-      <div className="relative overflow-hidden">
+      <div className="relative">
         <motion.div
           className="flex gap-8 w-max p-0"
-          animate={{ x: ["0%", "-50%"] }}
+          animate={{ x: ["0%", "-40%"] }}
           transition={{
             repeat: Infinity,
             duration: 20,
@@ -30,11 +30,11 @@ const Skills = () => {
               <div
                 key={index}
                 className="
-                  flex items-center flex-col justify-center w-36 h-36 rounded-2xl bg-white/70 dark:bg-black/30 backdrop-blur-md border-[#0f766e] dark:border-white/10
-                  shadow-sm hover:shadow-lg transition-all
+                  flex items-center flex-col py-1 justify-center w-36 h-36 rounded-2xl bg-white/70 dark:bg-[#111827]
+                  shadow-sm hover:shadow-2xl transition-all
                 "
               >
-                <Icon className={`text-5xl ${skill.color}`} />
+                <Icon className={`text-5xl  ${skill.color}`} />
               </div>
             );
           })}

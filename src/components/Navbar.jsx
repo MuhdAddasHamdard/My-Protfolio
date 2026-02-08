@@ -66,7 +66,7 @@ const Navbar = () => {
               <button
                 key={l.id}
                 onClick={() => scrollToSection(l.id)}
-                className="text-lg dark:text-gray-100 hover:text-[#0F766E] dark:hover:text-[#0F766E] transition-all"
+                className="text-lg dark:text-white hover:text-[#0F766E] dark:hover:text-[#0F766E] transition-all"
               >
                 {l.label}
               </button>

@@ -29,7 +29,7 @@ const Hero = () => {
               <RotatingText />
             </h2>
             {/* Name */}
-            <h1 className="text-5xl lg:text-7xl font-bold dark:text-gray-300 mb-4">
+            <h1 className="text-5xl lg:text-7xl font-bold dark:text-white mb-4">
               {hero.name}
             </h1>
 

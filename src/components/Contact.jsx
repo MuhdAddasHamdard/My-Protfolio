@@ -126,30 +126,32 @@ const Contact = () => {
                 Send a Message
               </h3>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-transparent ring-1 focus:ring-[#0F766E] border-transparent transition-all"
-                    placeholder="Your name"
-                  />
-                </div>
+                <div className="gap-4  lg:flex lg:justify-center">
+                  <div className="lg:flex-grow">
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 mb-3 rounded-lg bg-transparent ring-1 focus:ring-[#0F766E] border-transparent transition-all"
+                      placeholder="Your name"
+                    />
+                  </div>
 
-                <div>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg ring-1 bg-transparent fill-transparent focus:ring-[#0F766E] focus:border-transparent transition-all"
-                    placeholder="Your email"
-                  />
+                  <div className="lg:flex-grow">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 rounded-lg ring-1 bg-transparent fill-transparent focus:ring-[#0F766E] focus:border-transparent transition-all"
+                      placeholder="Your email"
+                    />
+                  </div>
                 </div>
 
                 <div>
