@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Mail, Github, Linkedin, MapPin, Send } from "lucide-react";
 import { portfolioData } from "../mock";
-import { toast } from "../../src/hooks/use-toast";
 
 const Contact = () => {
   const { contact } = portfolioData;
@@ -20,11 +19,6 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Mock form submission
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
     setFormData({ name: "", email: "", message: "" });
   };
 
