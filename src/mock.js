@@ -19,40 +19,25 @@ export const portfolioData = {
     {
       id: 1,
       title: "Shopper ecommerce",
-      technologies: ["React", "tailwindcss"],
-      link: "#",
-      github: "#",
+      pic: "",
+      link: "https://shopper-sage.vercel.app/",
+      github: "https://github.com/MuhdAddasHamdard/shopper",
     },
     {
       id: 2,
       title: "Digital Library Initiative",
-      category: "Open Education",
-      description:
-        "An open-source digital library providing free access to educational resources, textbooks, and learning materials in Dari and Pashto languages.",
-      technologies: ["Next.js", "PostgreSQL", "Tailwind CSS"],
-      impact: "10,000+ resources accessed monthly",
       link: "#",
       github: "#",
     },
     {
       id: 3,
       title: "Teacher Training Portal",
-      category: "Professional Development",
-      description:
-        "An interactive platform for continuous professional development, offering courses, workshops, and certification programs for educators.",
-      technologies: ["React", "Express", "MySQL", "AWS"],
-      impact: "Trained 200+ teachers",
       link: "#",
       github: "#",
     },
     {
       id: 4,
       title: "STEM Learning Hub",
-      category: "Interactive Education",
-      description:
-        "Gamified learning platform for science, technology, engineering, and mathematics education with interactive simulations and quizzes.",
-      technologies: ["React", "Three.js", "Node.js"],
-      impact: "Improved engagement by 65%",
       link: "#",
       github: "#",
     },

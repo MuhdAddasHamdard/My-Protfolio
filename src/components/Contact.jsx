@@ -43,73 +43,55 @@ const Contact = () => {
           <div className="  lg:flex gap-6 ">
             {/* Contact Info */}
             <div className=" bg-white mb-6 lg:w-1/2 dark:bg-gray-900/60 backdrop-blur-md border border-white/20 dark:border-gray-700/40 rounded-2xl shadow-lg p-6 dark:hover:bg-gray-900/80">
-              <h3 className="text-2xl font-bold dark:text-gray-400 mb-6">
+              <h3 className="text-2xl text-center font-bold dark:text-gray-400 mb-6">
                 Contact Information
               </h3>
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-blue-900" />
-                  </div>
-                  <div className="text-wrap">
-                    <p className="text-sm text-wrap text-gray-600 font-medium">
-                      Email
-                    </p>
-                    <a
-                      href={`mailto:${contact.email}`}
-                      className="text-blue-900 hover:text-blue-700 transition-colors"
-                    >
-                      {contact.email}
-                    </a>
-                  </div>
+              <div className=" flex justify-center gap-3 items-center">
+                <div className="flex flex-col justify-center items-center">
+                  <a
+                    href={`mailto:${contact.email}`}
+                    className="text-blue-900 hover:text-blue-700 transition-colors"
+                  >
+                    <div className="w-12 h-12 bg-slate-300 rounded-lg flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-blue-900" />
+                    </div>
+                  </a>
+                  <p>Email</p>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
-                    <Github className="w-6 h-6 text-white" />
-                  </div>
+                <div className="flex flex-col items-center justify-center">
+                  <a
+                    href={contact.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-900 hover:text-blue-700 transition-colors"
+                  >
+                    <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
+                      <Github className="w-6 h-6 text-white" />
+                    </div>
+                  </a>
+                  <p>GitHub</p>
+                </div>
+
+                <div className="flex flex-col items-center justify-center">
+                  <a
+                    href={contact.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-900 hover:text-blue-700 transition-colors"
+                  >
+                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                      <Linkedin className="w-6 h-6 text-white" />
+                    </div>
+                  </a>
+                  <p>LinkedIn</p>
+                </div>
+
+                <div className=" bg-teal-100 rounded-lg flex items-center flex-col justify-center">
                   <div>
-                    <p className="text-sm text-gray-600 font-medium">GitHub</p>
-                    <a
-                      href={contact.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-900 hover:text-blue-700 transition-colors"
-                    >
-                      View Profile
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <Linkedin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600 font-medium">
-                      LinkedIn
-                    </p>
-                    <a
-                      href={contact.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-900 hover:text-blue-700 transition-colors"
-                    >
-                      Connect with me
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-teal-700" />
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-600 font-medium">
-                      Location
-                    </p>
-                    <p className="text-gray-900">{contact.location}</p>
-                  </div>
+                  <p>Kabul</p>
                 </div>
               </div>
             </div>
@@ -124,7 +106,6 @@ const Contact = () => {
                   <div className="lg:flex-grow">
                     <input
                       type="text"
-                      id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
@@ -137,7 +118,6 @@ const Contact = () => {
                   <div className="lg:flex-grow">
                     <input
                       type="email"
-                      id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
@@ -150,7 +130,6 @@ const Contact = () => {
 
                 <div>
                   <textarea
-                    id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
