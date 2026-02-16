@@ -15,7 +15,7 @@ import CursorDot from "./components/CursorDot";
 
 function App() {
   return (
-    <div className="min-h-screen bg-dot-dark dark:bg-dot-light">
+    <div className="min-h-screen bg-dot-dark">
       <CursorDot />
       <Navbar />
       <Hero />

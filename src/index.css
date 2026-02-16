@@ -4,7 +4,7 @@
 
 /* Dotted background pattern */
 .bg-dot-light {
-  background-color: #f1f5f9;
+  background-color: #0b1220;
   background-image: radial-gradient(#5e648282 1px, transparent 1px);
   background-size: 20px 20px;
 }
@@ -21,4 +21,9 @@ button,
 input,
 textarea {
   outline: none;
+}
+h1,
+h2,
+h3 {
+  color: #e5e7eb;
 }

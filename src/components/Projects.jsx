@@ -1,5 +1,5 @@
 import React from "react";
-import { ExternalLink, Github, TrendingUp } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { portfolioData } from "../mock";
 
 const Projects = () => {
@@ -28,29 +28,47 @@ const Projects = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="dark:bg-gray-900  bg-white dark:bg-gray-900/60 backdrop-blur-md border-white/20 dark:border-gray-700/40 shadow-lg p-2 hover:bg-white/80 dark:hover:bg-gray-900/80 border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
+                className="group bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-200 dark:border-gray-700/40 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
-                <div className="p-8">
-                  {/* Title */}
-                  <h3 className="text-2xl font-bold dark:text-gray-400 mb-3 group-hover:text-blue-900 transition-colors">
-                    {project.title}
-                  </h3>
+                {/* Image Section */}
+                <div className="relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
 
-                  {/* Links */}
-                  <div className="flex gap-4">
+                  {/* Dark overlay on hover */}
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  {/* Icons centered on hover */}
+                  <div className="absolute inset-0 flex items-center justify-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <a
+                      target="_blank"
                       href={project.link}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-blue-900 hover:text-blue-700 transition-colors"
+                      className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-5 h-5 text-blue-900" />
                     </a>
+
                     <a
+                      target="_blank"
                       href={project.github}
-                      className="inline-flex items-center gap-2 text-sm font-medium dark:text-gray-300 hover:dark:text-gray-400 transition-colors"
+                      className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition"
                     >
-                      <Github className="w-4 h-4" />
+                      <Github className="w-5 h-5 text-gray-800" />
                     </a>
                   </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold dark:text-gray-300 mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    {project.description}
+                  </p>
                 </div>
               </div>
             ))}

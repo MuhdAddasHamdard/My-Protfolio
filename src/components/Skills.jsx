@@ -6,10 +6,10 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative w-full py-20 overflow-hidden dark:bg-dot-dark bg-slate-100  dark:bg-[#111827] transition-colors"
+      className="relative w-full py-20 overflow-hidden bg-[#0F172A] transition-colors"
     >
       {/* Title only */}
-      <h2 className="text-center mb-12 text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+      <h2 className="text-center mb-12 text-3xl md:text-4xl font-bold text-white">
         Skills & Technologies
       </h2>
 
@@ -30,7 +30,7 @@ const Skills = () => {
               <div
                 key={index}
                 className="
-                  flex items-center flex-col py-1 justify-center w-36 h-36 rounded-2xl bg-white/70 dark:bg-[#111827]
+                  flex items-center flex-col py-1 justify-center w-36 h-36 rounded-2xl bg-[#111827]
                   shadow-sm hover:shadow-2xl transition-all
                 "
               >
