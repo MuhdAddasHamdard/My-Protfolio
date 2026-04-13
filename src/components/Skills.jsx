@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import skills from "../skills";
 
 const Skills = () => {
@@ -25,7 +24,6 @@ const Skills = () => {
           }}
         >
           {[...skills, ...skills].map((skill, index) => {
-            const Icon = skill.icon;
             return (
               <div
                 key={index}
@@ -34,7 +32,8 @@ const Skills = () => {
                   shadow-sm hover:shadow-2xl transition-all
                 "
               >
-                {/* <Icon className={`text-5xl  ${skill.color}`} />  */}
+                {skill.icon}
+                {skill.name}
               </div>
             );
           })}
