@@ -109,7 +109,6 @@ export const portfolioData = {
     github: "https://github.com/MuhdAddasHamdard",
     linkedin: "https://www.linkedin.com/in/gula-khan-hamdard-553b59291/",
     location: "Kabul, Afghanistan",
-    availability:
-      "Open to educational technology projects and teaching opportunities",
+    whatsApp: "https://wa.me/93748160312",
   },
 };

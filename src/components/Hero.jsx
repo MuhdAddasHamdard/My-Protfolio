@@ -1,7 +1,6 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { portfolioData } from "../mock";
-import { Mail, Github, Linkedin, MapPin } from "lucide-react";
 import RotatingText from "./TextRotation";
 
 const Hero = () => {
@@ -47,53 +46,6 @@ const Hero = () => {
               {hero.cta}
               <ArrowRight className="w-5 h-5" />
             </button>
-          </div>
-        </div>
-      </div>
-      <div className=" z-50  bg-red-300 px-6 rounded flex flex-wrap justify-center gap-3 items-center">
-        <div className="flex flex-col justify-center items-center">
-          <a
-            href={`mailto:${contact.email}`}
-            className="text-blue-900 hover:text-blue-700 transition-colors"
-          >
-            <div className="w-10 h-10 bg-[#14B8A6] rounded-lg flex items-center justify-center">
-              <Mail className="w-6 h-6 text-blue-900" />
-            </div>
-          </a>
-          <p>Email</p>
-        </div>
-
-        <div className="flex flex-col items-center justify-center">
-          <a
-            href={contact.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-900 hover:text-blue-700 transition-colors"
-          >
-            <div className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center">
-              <Github className="w-6 h-6 text-white" />
-            </div>
-          </a>
-          <p>GitHub</p>
-        </div>
-
-        <div className="flex flex-col items-center justify-center">
-          <a
-            href={contact.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-900 hover:text-blue-700 transition-colors"
-          >
-            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Linkedin className="w-6 h-6 text-white" />
-            </div>
-          </a>
-          <p>LinkedIn</p>
-        </div>
-
-        <div className=" bg-teal-100 h-10 w-10 rounded-lg flex items-center flex-col justify-center">
-          <div className="w-10 h-10  rounded-lg flex items-center justify-center">
-            <MapPin className="w-6 h-6 text-teal-700" />
           </div>
         </div>
       </div>

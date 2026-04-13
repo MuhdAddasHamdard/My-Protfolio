@@ -1,5 +1,5 @@
 import React from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { GithubLogoIcon, EyeIcon } from "@phosphor-icons/react";
 import { portfolioData } from "../mock";
 
 const Projects = () => {
@@ -48,7 +48,7 @@ const Projects = () => {
                       href={project.link}
                       className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition"
                     >
-                      <ExternalLink className="w-5 h-5 text-blue-900" />
+                      <EyeIcon size={24} color="#040102" weight="thin" />
                     </a>
 
                     <a
@@ -56,7 +56,7 @@ const Projects = () => {
                       href={project.github}
                       className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition"
                     >
-                      <Github className="w-5 h-5 text-gray-800" />
+                      <GithubLogoIcon size={24} color="#040102" weight="thin" />
                     </a>
                   </div>
                 </div>

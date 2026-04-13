@@ -1,5 +1,5 @@
 import React from "react";
-import { Target, Lightbulb } from "lucide-react";
+import { Target, Lightbulb } from "@phosphor-icons/react";
 import { portfolioData } from "../mock";
 
 const Vision = () => {

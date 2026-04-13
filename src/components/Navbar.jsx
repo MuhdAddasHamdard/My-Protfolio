@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { ListIcon, XIcon } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
@@ -77,7 +77,11 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden dark:text-gray-400 p-2"
             >
-              {isMobileMenuOpen ? <X /> : <Menu />}
+              {isMobileMenuOpen ? (
+                <XIcon size={24} color="#040102" weight="thin" />
+              ) : (
+                <ListIcon size={24} color="#040102" weight="thin" />
+              )}
             </button>
           </div>
         </div>

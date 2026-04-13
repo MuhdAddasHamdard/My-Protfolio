@@ -1,5 +1,10 @@
 import React from "react";
-import { Calendar, Award, Users, BarChart3 } from "lucide-react";
+import {
+  HourglassIcon,
+  UserPlusIcon,
+  CertificateIcon,
+  BriefcaseIcon,
+} from "@phosphor-icons/react";
 import { portfolioData } from "../mock";
 
 const Teaching = () => {
@@ -25,8 +30,8 @@ const Teaching = () => {
 
           {/* Impact Stats */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <div className="dark:bg-gray-900 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border-white/20 dark:border-gray-700/40 rounded-2xl shadow-lg p-6 transition hover:bg-white/80 dark:hover:bg-gray-900/80   text-center">
-              <Users className="w-8 h-8 text-blue-900 mx-auto mb-3" />
+            <div className="dark:bg-gray-900 bg-white/60 dark:bg-gray-900/60 backdrop-blur-md border-white/20 dark:border-gray-700/40 rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center transition hover:bg-white/80 dark:hover:bg-gray-900/80   text-center">
+              <UserPlusIcon size={40} color="#040102" weight="thin" />
               <div className="text-3xl font-bold text-blue-900 mb-1">
                 {teaching.impact.studentsReached}
               </div>
@@ -34,8 +39,8 @@ const Teaching = () => {
                 Students Reached
               </div>
             </div>
-            <div className="dark:bg-gray-900  bg-white dark:bg-gray-900/60 backdrop-blur-md border-white/20 dark:border-gray-700/40 rounded-2xl shadow-lg p-6 dark:hover:bg-gray-900 80 text-center">
-              <Award className="w-8 h-8 text-teal-700 mx-auto mb-3" />
+            <div className="dark:bg-gray-900  bg-white dark:bg-gray-900/60 backdrop-blur-md border-white/20 dark:border-gray-700/40 rounded-2xl flex flex-col items-center justify-center shadow-lg p-6 dark:hover:bg-gray-900 80 text-center">
+              <CertificateIcon size={40} color="#040102" weight="thin" />
               <div className="text-3xl font-bold text-teal-700 mb-1">
                 {teaching.impact.coursesCreated}
               </div>
@@ -43,8 +48,8 @@ const Teaching = () => {
                 Courses Created
               </div>
             </div>
-            <div className="dark:bg-gray-900   bg-white dark:bg-gray-900/60 backdrop-blur-md border-white/20 dark:border-gray-700/40 rounded-2xl shadow-lg  p-6 transition hover:bg-white/80 dark:hover:bg-gray-900/80 text-center">
-              <Calendar className="w-8 h-8 text-blue-900 mx-auto mb-3" />
+            <div className="dark:bg-gray-900   bg-white dark:bg-gray-900/60 backdrop-blur-md border-white/20 dark:border-gray-700/40 rounded-2xl shadow-lg  flex flex-col items-center justify-center p-6 transition hover:bg-white/80 dark:hover:bg-gray-900/80 text-center">
+              <HourglassIcon size={40} color="#040102" weight="thin" />
               <div className="text-3xl font-bold text-blue-900 mb-1">
                 {teaching.impact.hoursOfInstruction}
               </div>
@@ -52,17 +57,8 @@ const Teaching = () => {
                 Teaching Hours
               </div>
             </div>
-            <div
-              className="dark:bg-gray-900    bg-white dark:bg-gray-900/60
-  backdrop-blur-md
-   border-white/20 dark:border-gray-700/40
-  rounded-2xl
-  shadow-lg
-  p-6
-  transition
-  hover:bg-white/80 dark:hover:bg-gray-900/80  text-center"
-            >
-              <BarChart3 className="w-8 h-8 text-teal-700 mx-auto mb-3" />
+            <div className="dark:bg-gray-900    bg-white dark:bg-gray-900/60 backdrop-blur-md border-white/20 dark:border-gray-700/40 rounded-2xl shadow-lg p-6 transition hover:bg-white/80 dark:hover:bg-gray-900/80 text-center flex flex-col items-center justify-center">
+              <BriefcaseIcon size={40} weight="thin" />
               <div className="text-3xl font-bold text-teal-700 mb-1">
                 {teaching.impact.placementRate}
               </div>
@@ -75,15 +71,11 @@ const Teaching = () => {
           {/* Teaching Experience */}
           <div className="space-y-8">
             {teaching.experience.map((exp, index) => (
-              <div
+              <div  
                 key={index}
-                className="  bg-white dark:bg-gray-900/60
-  backdrop-blur-md
+                className="  bg-white dark:bg-gray-900/60 backdrop-blur-md
   border border-white/20 dark:border-gray-700/40
-  
-  transition
-  hover:bg-white/80 dark:hover:bg-gray-900/80
-                p-8 rounded-xl shadow-lg"
+  transition hover:bg-white/80 dark:hover:bg-gray-900/80 p-8 rounded-xl shadow-lg"
               >
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4 ">
                   <div>
@@ -95,7 +87,7 @@ const Teaching = () => {
                     </p>
                   </div>
                   <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-200 dark:bg-blue-500 text-blue-900 text-sm font-medium rounded-lg">
-                    <Calendar className="w-4 h-4" />
+                    {/* < className="w-4 h-4" /> */}
                     {exp.period}
                   </div>
                 </div>

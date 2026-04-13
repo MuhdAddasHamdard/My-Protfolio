@@ -34,7 +34,7 @@ const Skills = () => {
                   shadow-sm hover:shadow-2xl transition-all
                 "
               >
-                <Icon className={`text-5xl  ${skill.color}`} />
+                {/* <Icon className={`text-5xl  ${skill.color}`} />  */}
               </div>
             );
           })}

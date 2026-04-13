@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Mail, Github, Linkedin, MapPin, Send } from "lucide-react";
+// import {Send } from "@phosphor-icons/react";
 import { portfolioData } from "../mock";
 
 const Contact = () => {
@@ -89,7 +89,7 @@ const Contact = () => {
                   type="submit"
                   className="w-full inline-flex items-center justify-center gap-2 px-2 py-4 bg-amber-500 text-white font-semibold rounded-lg hover:bg-amber-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
                 >
-                  <Send className="w-5 h-5" />
+                  {/* <Send className="w-5 h-5" /> */}
                   Send Message
                 </button>
               </form>
