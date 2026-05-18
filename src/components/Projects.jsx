@@ -13,7 +13,7 @@ const Projects = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <header className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold dark:text-gray-400 mb-4">
               Featured Projects
             </h2>
@@ -21,14 +21,14 @@ const Projects = () => {
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Education-focused projects making a real impact in Afghanistan
             </p>
-          </div>
+          </header>
 
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="group bg-white dark:bg-gray-900/60 backdrop-blur-md border border-gray-200 dark:border-gray-700/40 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                className="group bg-white  backdrop-blur-md border border-gray-200 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
                 {/* Image Section */}
                 <div className="relative overflow-hidden">
@@ -63,12 +63,10 @@ const Projects = () => {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold dark:text-gray-300 mb-3">
+                  <h3 className="text-xl text-black  font-bold mb-3">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    {project.description}
-                  </p>
+                  <p className=" text-sm">{project.description}</p>
                 </div>
               </div>
             ))}

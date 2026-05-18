@@ -58,7 +58,7 @@ export const portfolioData = {
       {
         institution: "Upskill Learning Center",
         role: "Web Development Instructor",
-        period: "2024 - Present",
+        period: "july-2024 - Present",
         description:
           "Teaching full-stack web development to university students, covering modern JavaScript frameworks, databases, and deployment strategies.",
         achievements: [
@@ -105,7 +105,7 @@ export const portfolioData = {
   },
 
   contact: {
-    email: "gulakhanhamdard440@gmail.com",
+    email: "muhdabbaskan@gmail.com",
     github: "https://github.com/MuhdAddasHamdard",
     linkedin: "https://www.linkedin.com/in/gula-khan-hamdard-553b59291/",
     location: "Kabul, Afghanistan",

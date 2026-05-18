@@ -15,19 +15,19 @@ import CursorDot from "./components/CursorDot";
 
 function App() {
   return (
-    <div className="min-h-screen bg-dot-dark">
+    <>
       <CursorDot />
       <Navbar />
       <Hero />
       <About />
       <Skills />
       <Projects />
-      <Teaching />
+      {/* <Teaching /> */}
       <Vision />
       <Contact />
       {/* <Toaster /> */}
       <Footer />
-    </div>
+    </>
   );
 }
 

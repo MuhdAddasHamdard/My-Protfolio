@@ -23,17 +23,20 @@ const Skills = () => {
             ease: "linear",
           }}
         >
-          {[...skills, ...skills].map((skill, index) => {
+          {skills.map((skill, index) => {
+            const Icon = skill.icon;
+
             return (
               <div
                 key={index}
                 className="
-                  flex items-center flex-col py-1 justify-center w-36 h-36 rounded-2xl bg-[#111827]
-                  shadow-sm hover:shadow-2xl transition-all
-                "
+        flex items-center flex-col py-1 justify-center
+        w-36 h-36 rounded-2xl bg-[#111827]
+        shadow-sm hover:shadow-2xl transition-all
+      "
               >
-                {skill.icon}
-                {skill.name}
+                <Icon className={`text-5xl mb-3 ${skill.color}`} />
+                <div className={skill.color}>{skill.name}</div>
               </div>
             );
           })}
