@@ -22,10 +22,9 @@ function App() {
       <About />
       <Skills />
       <Projects />
-      {/* <Teaching /> */}
+      <Teaching />
       <Vision />
       <Contact />
-      {/* <Toaster /> */}
       <Footer />
     </>
   );

@@ -36,16 +36,9 @@ const Vision = () => {
             {vision.goals.map((goal, index) => (
               <div
                 key={index}
-                className="dark:bg-gray-900  bg-white/60 dark:bg-gray-900/60
-  backdrop-blur-md
-   border-white/20 dark:border-gray-700/40
-  
-  shadow-lg
-  
-  
-  hover:bg-white/80 dark:hover:bg-gray-900/80 p-8 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition-colors duration-300"
+                className="bg-white/80 backdrop-blur-md  border-white/20 shadow-lg p-8 rounded-xl border-2 border-gray-200 hover:border-blue-500 transition-all duration-300"
               >
-                <div className="flex  items-start gap-4">
+                <div className="flex  items-start items-center gap-4">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Target className="w-6 h-6 text-blue-900" />
                   </div>
@@ -53,7 +46,7 @@ const Vision = () => {
                     <h4 className="text-xl font-bold dark:text-gray-400 mb-3">
                       {goal.title}
                     </h4>
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed">
                       {goal.description}
                     </p>
                   </div>

@@ -18,7 +18,7 @@ const Projects = () => {
               Featured Projects
             </h2>
             <div className="w-20 h-1 bg-blue-900 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               Education-focused projects making a real impact in Afghanistan
             </p>
           </header>

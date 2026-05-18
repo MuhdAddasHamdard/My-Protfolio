@@ -68,10 +68,11 @@ export const portfolioData = {
         ],
       },
     ],
+
     impact: {
-      studentsReached: "2,000+",
-      coursesCreated: "12",
-      hoursOfInstruction: "500+",
+      studentsReached: "150+",
+      coursesCreated: "10+",
+      hoursOfInstruction: "2000+",
       placementRate: "85%",
     },
   },
