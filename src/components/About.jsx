@@ -16,7 +16,7 @@ const About = () => {
 
           <div className="grid lg:grid-cols-2 gap-6 items-center">
             {/* Story */}
-            <div className="h-full text-lg hover:border  hover:border-[#0f766e] shadow-lg text-gray-400 bg-[#111827] p-6 rounded-2xl transition-transform ease-in ">
+            <div className="h-full text-lg  border border-[#0f766e]  hover:border-[#07514a] shadow-lg text-gray-400 bg-[#111827] p-6 rounded-2xl transition-all ease-in ">
               <p className="leading-relaxed">{about.story}</p>
             </div>
 
