@@ -12,7 +12,7 @@ const impactStats = [
     title: "Students Reached",
     value: teaching.impact.studentsReached,
     icon: UserPlusIcon,
-    color: "text-blue-900",
+    color: "text-[#5EEAD4]",
   },
   {
     title: "Courses Created",
@@ -24,7 +24,7 @@ const impactStats = [
     title: "Teaching Hours",
     value: teaching.impact.hoursOfInstruction,
     icon: HourglassIcon,
-    color: "text-blue-900",
+    color: "text-[#5EEAD4]",
   },
   {
     title: "Placement Rate",
@@ -38,7 +38,7 @@ const Teaching = () => {
   const { teaching } = portfolioData;
 
   return (
-    <section id="teaching" className="py-20 bg-dot-light bg-slate-100 ">
+    <section id="teaching" className="py-20 bg-dot-light bg-[#0B1220] ">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -61,7 +61,8 @@ const Teaching = () => {
               return (
                 <div
                   key={index}
-                  className="bg-white backdrop-blur-md rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center transition text-center"
+                  className="bg-[#111827]
+border border-white/5 backdrop-blur-md rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center transition text-center"
                 >
                   <Icon size={40} color="#040102" weight="thin" />
 
@@ -82,19 +83,18 @@ const Teaching = () => {
             {teaching.experience.map((exp, index) => (
               <div
                 key={index}
-                className="  bg-white  backdrop-blur-md border transition  p-8 rounded-xl shadow-lg"
+                className="bg-[#111827] border border-white/5  backdrop-blur-md transition  p-8 rounded-xl shadow-lg"
               >
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4 ">
                   <div>
-                    <h3 className="text-2xl font-bold text-black  mb-2">
+                    <h3 className="text-2xl font-bold text-text  mb-2">
                       {exp.role}
                     </h3>
                     <p className="text-lg text-teal-700 font-semibold mb-2">
                       {exp.institution}
                     </p>
                   </div>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-200  text-blue-900 text-sm font-medium rounded-lg">
-                    {/* < className="w-4 h-4" /> */}
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#0F766E]/20  text-[#5EEAD4] text-sm font-medium rounded-lg">
                     {exp.period}
                   </div>
                 </div>

@@ -29,14 +29,10 @@ const Skills = () => {
             return (
               <div
                 key={index}
-                className="
-        flex items-center flex-col py-1 justify-center
-        w-36 h-36 rounded-2xl bg-[#111827]
-        shadow-sm hover:shadow-2xl transition-all
-      "
+                className="group flex flex-col items-center justify-center w-36 h-36 rounded-2xl bg-[#111827] border border-white/5 transition-all duration-300 hover:border-[#0F766E]/40 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(15,118,110,0.18)]"
               >
-                <Icon className={`text-5xl mb-3 ${skill.color}`} />
-                <div className={skill.color}>{skill.name}</div>
+                <Icon className="text-5xl mb-3 text-slate-300 group-hover:text-[#14B8A6] transition-colors duration-300" />
+                <p className="text-text"> {skill.name}</p>
               </div>
             );
           })}
