@@ -47,15 +47,25 @@ const Navbar = () => {
 
   return (
     <header
-      className="fixed top-2 left-12 right-12 rounded-xl z-50 transition-all
-       bg-transparent backdrop-blur shadow-md"
+      className="
+  fixed top-3 left-3 right-3 lg:left-12 lg:right-12
+  rounded-2xl z-50 transition-all duration-300
+  bg-[#0B1220]/75
+  backdrop-blur-xl
+  border border-white/5
+  shadow-[0_8px_30px_rgba(0,0,0,0.35)]
+"
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-3xl font-bold text-[#0F766E]"
+            className="
+text-lg text-slate-300
+hover:text-[#5EEAD4]
+transition-colors duration-300
+"
           >
             GKH
           </button>
@@ -65,7 +75,7 @@ const Navbar = () => {
               <button
                 key={l.id}
                 onClick={() => scrollToSection(l.id)}
-                className="text-lg text hover:text-[#5EEAD4]  transition-all"
+                className="text-lg text hover:text-[#5EEAD4] text-slate-300  transition-all"
               >
                 {l.label}
               </button>
@@ -78,9 +88,9 @@ const Navbar = () => {
               className="md:hidden dark:text-gray-400 p-2"
             >
               {isMobileMenuOpen ? (
-                <XIcon size={24} color="#040102" weight="thin" />
+                <XIcon size={24} color="#E5E7EB" weight="thin" />
               ) : (
-                <ListIcon size={24} color="#040102" weight="thin" />
+                <ListIcon size={24} color="#E5E7EB" weight="thin" />
               )}
             </button>
           </div>
@@ -98,7 +108,7 @@ const Navbar = () => {
                 className="
           fixed inset-0 z-30
           backdrop-blur-2xl backdrop-saturate-150
-           dark:bg-black/30 rounded bg-transparent
+           rounded bg-transparent
         "
               />
 
@@ -111,12 +121,12 @@ const Navbar = () => {
                 className="
           md:hidden absolute top-full left-0 w-full z-40
           backdrop-blur-xl backdrop-saturate-150
-          bg-white/60 dark:bg-neutral-900/60
-          border border-white/30 dark:border-white/10
+        bg-[#111827]/95
+border border-white/5
           shadow-2xl rounded-xl
         "
               >
-                <div className="flex flex-col py-4 text-gray-900 dark:text-white">
+                <div className="flex flex-col py-4 text-slate-200">
                   {navLinks.map((l) => (
                     <motion.button
                       key={l.id}
@@ -124,7 +134,7 @@ const Navbar = () => {
                       onClick={() => scrollToSection(l.id)}
                       className="
                 w-full px-6 py-3 text-left
-                hover:bg-white/30 dark:hover:bg-white/10
+              hover:bg-[#0F766E]/20
                 transition-colors
               "
                     >

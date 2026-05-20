@@ -17,6 +17,9 @@
   background-position: center;
 }
 
+.hero-overlay {
+  background: rgba(11, 18, 32, 0.72);
+}
 button,
 input,
 textarea {
