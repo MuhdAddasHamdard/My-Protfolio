@@ -64,13 +64,17 @@ const Teaching = () => {
                   className="bg-[#111827]
 border border-white/5 backdrop-blur-md rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center transition text-center"
                 >
-                  <Icon size={40} color="#040102" weight="thin" />
+                  <Icon
+                    size={40}
+                    className="text-slate-300 group-hover:text-white transition-colors"
+                    weight="thin"
+                  />
 
                   <div className={`text-3xl font-bold mb-1 ${stat.color}`}>
                     {stat.value}
                   </div>
 
-                  <div className="text-sm text-gray-600 font-medium">
+                  <div className="text-sm text-muted font-medium">
                     {stat.title}
                   </div>
                 </div>
@@ -99,7 +103,7 @@ border border-white/5 backdrop-blur-md rounded-2xl shadow-lg p-6 flex flex-col i
                   </div>
                 </div>
 
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-muted mb-6 leading-relaxed">
                   {exp.description}
                 </p>
 
@@ -110,7 +114,7 @@ border border-white/5 backdrop-blur-md rounded-2xl shadow-lg p-6 flex flex-col i
                   {exp.achievements.map((achievement, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-teal-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-gray-700">{achievement}</p>
+                      <p className="text-muted">{achievement}</p>
                     </div>
                   ))}
                 </div>

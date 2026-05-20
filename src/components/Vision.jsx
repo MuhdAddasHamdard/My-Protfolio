@@ -19,8 +19,9 @@ const Vision = () => {
 
           {/* Vision Statement */}
           <div
-            className="bg-gradient-to-br from-[#111827]
-to-[#172033] p-12 rounded-2xl text-white mb-16 shadow-xl"
+            className=" bg-gradient-to-br
+from-[#0F172A]
+to-[#0F766E] p-12 rounded-2xl text-white mb-16 shadow-xl"
           >
             <div className="flex items-center gap-3 mb-6">
               <Lightbulb className="w-10 h-10" />
@@ -46,7 +47,7 @@ to-[#172033] p-12 rounded-2xl text-white mb-16 shadow-xl"
                     <h4 className="text-xl font-bold text-text mb-3">
                       {goal.title}
                     </h4>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-muted leading-relaxed">
                       {goal.description}
                     </p>
                   </div>
