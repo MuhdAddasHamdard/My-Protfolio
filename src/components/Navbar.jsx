@@ -85,7 +85,7 @@ transition-colors duration-300
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden dark:text-gray-400 p-2"
+              className="md:hidden  p-2"
             >
               {isMobileMenuOpen ? (
                 <XIcon size={24} color="#E5E7EB" weight="thin" />
