@@ -11,15 +11,21 @@
 
 /* Hero background image */
 .hero-bg-image {
-  background-image: url("/hero.png");
-  background-size: cover;
+  background-image: url("/bgremove.png");
+  background-size: 500px;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: right;
 }
 
-.hero-overlay {
-  background: rgba(11, 18, 32, 0.72);
+@media screen and (max-width: 1024px) {
+  .hero-bg-image {
+    background-image: url("/bgremove.png");
+    background-position: top;
+    background-size: 400px;
+    padding-top: 330px;
+  }
 }
+
 button,
 input,
 textarea {

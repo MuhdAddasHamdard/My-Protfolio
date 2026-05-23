@@ -23,10 +23,7 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-20 bg-dot-light dark:bg-dot-dark  dark:bg-gray-900"
-    >
+    <section id="contact" className="py-20 bg-dot-light dark:bg-dot-dark ">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -34,8 +31,8 @@ const Contact = () => {
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
               Get In Touch
             </h2>
-            <div className="w-20 h-1 bg-blue-900 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <div className="w-20 h-1 bg-[#0F766E] mx-auto mb-6"></div>
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
               {contact.availability}
             </p>
           </div>
@@ -44,7 +41,13 @@ const Contact = () => {
             {/* Contact Info */}
 
             {/* Contact Form */}
-            <div className=" container backdrop-blur-md transition  border p-6 rounded-xl shadow-lg">
+            <div
+              className=" container backdrop-blur-md transition  bg-[#111827]
+border border-white/5
+p-6
+rounded-2xl
+shadow-lg"
+            >
               <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="gap-4 lg:flex lg:justify-center">
@@ -55,7 +58,21 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 mb-3 rounded-lg bg-transparent ring-1 focus:ring-[#0F766E] border-transparent transition-all"
+                      className="
+w-full
+px-4
+py-3
+rounded-xl
+bg-[#0B1220]
+text-slate-200
+placeholder:text-slate-500
+border border-white/5
+focus:border-[#0F766E]
+focus:ring-2
+focus:ring-[#0F766E]/30
+transition-all
+outline-none
+"
                       placeholder="Your name"
                     />
                   </div>
@@ -67,7 +84,21 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-lg ring-1 bg-transparent fill-transparent focus:ring-[#0F766E] focus:border-transparent transition-all"
+                      className="
+w-full
+px-4
+py-3
+rounded-xl
+bg-[#0B1220]
+text-slate-200
+placeholder:text-slate-500
+border border-white/5
+focus:border-[#0F766E]
+focus:ring-2
+focus:ring-[#0F766E]/30
+transition-all
+outline-none
+"
                       placeholder="Your email"
                     />
                   </div>
@@ -80,14 +111,45 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows="5"
-                    className="w-full px-4 py-3 rounded-lg ring-1 bg-transparent focus:ring-[#0F766E] focus:border-transparent transition-all resize-none"
+                    className="
+w-full
+px-4
+py-3
+rounded-xl
+bg-[#0B1220]
+text-slate-200
+placeholder:text-slate-500
+border border-white/5
+focus:border-[#0F766E]
+focus:ring-2
+focus:ring-[#0F766E]/30
+transition-all
+outline-none
+"
                     placeholder="Your message here..."
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 px-2 py-4 bg-amber-500 text-white font-semibold rounded-lg hover:bg-amber-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  className="
+w-full
+inline-flex
+items-center
+justify-center
+gap-2
+px-2
+py-4
+bg-[#0F766E]
+text-white
+font-semibold
+rounded-xl
+hover:bg-[#115E59]
+hover:scale-[1.02]
+transition-all
+duration-300
+shadow-[0_10px_30px_rgba(15,118,110,0.25)]
+"
                 >
                   {/* <Send className="w-5 h-5" /> */}
                   Send Message
