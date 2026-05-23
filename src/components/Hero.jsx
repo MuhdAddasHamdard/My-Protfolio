@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "@phosphor-icons/react";
+import { ArrowRight, DownloadSimpleIcon } from "@phosphor-icons/react";
 import { portfolioData } from "../mock";
 import RotatingText from "./TextRotation";
 
@@ -130,6 +130,32 @@ const Hero = () => {
                 "
               >
                 Contact Me
+              </a>
+
+              <a
+                href="/gula-khan-hamdard-cv.txt"
+                download
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+                  gap-3
+                  px-8
+                  py-4
+                  border
+                  border-gray-300
+                  hover:border-gray-900
+                  rounded-2xl
+                  text-gray-700
+                  hover:text-black
+                  font-semibold
+                  transition-all
+                  duration-300
+                  bg-white
+                "
+              >
+                Download CV
+                <DownloadSimpleIcon size={20} />
               </a>
             </div>
           </div>

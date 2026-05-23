@@ -25,6 +25,9 @@ export const portfolioData = {
       description:
         "A responsive e-commerce storefront with product browsing, modern UI patterns, and a smooth shopping experience.",
       tech: ["React", "Tailwind CSS", "Vercel"],
+      impact: "Designed a clean shopping flow with fast product discovery, reusable UI cards, and a deployment-ready frontend.",
+      role: "Frontend development, responsive UI, product layout, and deployment.",
+      features: ["Product grid", "Responsive layout", "Modern shopping UI"],
     },
     {
       id: 2,
@@ -35,6 +38,9 @@ export const portfolioData = {
       description:
         "A polished brand and content website concept focused on clear presentation, responsive layout, and simple navigation.",
       tech: ["React", "Tailwind CSS", "UI Design"],
+      impact: "Created a focused digital presence that makes brand information easier to scan and navigate.",
+      role: "Landing page structure, visual design, and frontend implementation.",
+      features: ["Brand presentation", "Responsive sections", "Clean navigation"],
     },
     {
       id: 3,
@@ -45,6 +51,9 @@ export const portfolioData = {
       description:
         "A certificate-focused platform concept for presenting credentials with a clean, trustworthy user interface.",
       tech: ["React", "JavaScript", "Tailwind CSS"],
+      impact: "Built a credible interface concept for highlighting certificates and learning achievements.",
+      role: "Interface design, component layout, and frontend polish.",
+      features: ["Certificate cards", "Trust-focused UI", "Accessible layout"],
     },
     {
       id: 4,
@@ -55,6 +64,9 @@ export const portfolioData = {
       description:
         "An education website for showcasing courses, programs, and learning opportunities for students.",
       tech: ["React", "Education", "Responsive UI"],
+      impact: "Improved course presentation with a clear learning-focused layout and stronger calls to action.",
+      role: "Frontend development, education content layout, and responsive design.",
+      features: ["Course showcase", "Student-focused content", "Mobile-friendly pages"],
     },
     {
       id: 5,
@@ -65,6 +77,30 @@ export const portfolioData = {
       description:
         "A professional community website designed to present members, events, and organization information clearly.",
       tech: ["React", "Tailwind CSS", "Vercel"],
+      impact: "Created a professional web presence for a business community with clear information architecture.",
+      role: "UI implementation, visual polish, and deployment support.",
+      features: ["Organization profile", "Event-ready layout", "Professional branding"],
+    },
+  ],
+
+  testimonials: [
+    {
+      name: "Upskill Student",
+      role: "Web Development Learner",
+      quote:
+        "Gula Khan explains difficult frontend topics in a simple way and helps students build real projects, not just follow theory.",
+    },
+    {
+      name: "Learning Center Team",
+      role: "Education Partner",
+      quote:
+        "He brings patience, structure, and practical coding experience into the classroom. Students leave with confidence and working portfolio projects.",
+    },
+    {
+      name: "Workshop Participant",
+      role: "Beginner Developer",
+      quote:
+        "The workshops helped me understand HTML, CSS, JavaScript, and how to think like a developer when solving problems.",
     },
   ],
 

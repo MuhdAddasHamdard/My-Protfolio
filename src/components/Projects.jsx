@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   GithubLogoIcon,
   EyeIcon,
   ArrowUpRightIcon,
+  XIcon,
 } from "@phosphor-icons/react";
 
 import { portfolioData } from "../mock";
@@ -10,6 +11,7 @@ import { portfolioData } from "../mock";
 const Projects = () => {
   const { projects } = portfolioData;
   const hasLink = (href) => href && href !== "#";
+  const [selectedProject, setSelectedProject] = useState(null);
 
   return (
     <section id="projects" className="relative overflow-hidden py-24 bg-white">
@@ -195,20 +197,26 @@ const Projects = () => {
                       </p>
                     </div>
 
-                    <ArrowUpRightIcon
-                      size={24}
-                      className="
-                        text-gray-400
-                        group-hover:text-black
-                        group-hover:translate-x-1
-                        group-hover:-translate-y-1
-                        transition-all
-                        duration-300
-                        hidden
-                        md:block
-                      "
-                    />
+                    <button
+                      type="button"
+                      onClick={() => setSelectedProject(project)}
+                      aria-label={`View details for ${project.title}`}
+                      className="hidden rounded-xl bg-gray-100 p-3 text-gray-500 transition-all duration-300 hover:bg-gray-900 hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 md:block"
+                    >
+                      <ArrowUpRightIcon size={20} />
+                    </button>
                   </div>
+
+                  {project.impact && (
+                    <div className="mt-5 rounded-2xl border border-gray-200 bg-gray-50 p-4">
+                      <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">
+                        Impact
+                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                        {project.impact}
+                      </p>
+                    </div>
+                  )}
 
                   {/* Footer */}
                   <div className="flex items-center justify-between mt-8">
@@ -283,6 +291,91 @@ const Projects = () => {
           </div>
         </div>
       </div>
+
+      {selectedProject && (
+        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/40 px-4 py-8 backdrop-blur-sm">
+          <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[2rem] border border-gray-200 bg-white p-6 shadow-2xl md:p-8">
+            <div className="mb-6 flex items-start justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
+                  Project Details
+                </p>
+                <h3 className="mt-2 text-3xl font-black text-gray-900">
+                  {selectedProject.title}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedProject(null)}
+                aria-label="Close project details"
+                className="rounded-xl bg-gray-100 p-3 text-gray-700 transition hover:bg-gray-900 hover:text-white"
+              >
+                <XIcon size={20} weight="bold" />
+              </button>
+            </div>
+
+            <img
+              src={selectedProject.image}
+              alt={selectedProject.title}
+              className="mb-6 h-64 w-full rounded-3xl object-cover"
+            />
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="rounded-3xl border border-gray-200 bg-gray-50 p-5">
+                <h4 className="font-bold text-gray-900">Role</h4>
+                <p className="mt-2 leading-relaxed text-gray-600">
+                  {selectedProject.role}
+                </p>
+              </div>
+              <div className="rounded-3xl border border-gray-200 bg-gray-50 p-5">
+                <h4 className="font-bold text-gray-900">Result</h4>
+                <p className="mt-2 leading-relaxed text-gray-600">
+                  {selectedProject.impact}
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <h4 className="mb-3 font-bold text-gray-900">Highlights</h4>
+              <div className="flex flex-wrap gap-3">
+                {selectedProject.features?.map((feature) => (
+                  <span
+                    key={feature}
+                    className="rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              {hasLink(selectedProject.link) && (
+                <a
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-gray-900 px-5 py-3 font-semibold text-white transition hover:bg-black"
+                >
+                  Live Project
+                  <EyeIcon size={18} weight="bold" />
+                </a>
+              )}
+              {hasLink(selectedProject.github) && (
+                <a
+                  href={selectedProject.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-2xl border border-gray-300 px-5 py-3 font-semibold text-gray-800 transition hover:border-gray-900"
+                >
+                  GitHub
+                  <GithubLogoIcon size={18} weight="bold" />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

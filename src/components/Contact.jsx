@@ -3,6 +3,7 @@ import {
   PaperPlaneTiltIcon,
   EnvelopeSimpleIcon,
   UserIcon,
+  WhatsappLogoIcon,
 } from "@phosphor-icons/react";
 import { portfolioData } from "../mock";
 
@@ -87,7 +88,10 @@ const Contact = () => {
 
                   {/* Small Info Cards */}
                   <div className="space-y-4">
-                    <div className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-4">
+                    <a
+                      href={`mailto:${contact.email}`}
+                      className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4 transition hover:border-gray-900 hover:bg-white"
+                    >
                       <div className="p-3 rounded-xl bg-white shadow">
                         <EnvelopeSimpleIcon
                           size={22}
@@ -103,18 +107,37 @@ const Contact = () => {
                           {contact.email}
                         </p>
                       </div>
-                    </div>
+                    </a>
 
-                    <div className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-4">
+                    <a
+                      href={contact.whatsApp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4 transition hover:border-gray-900 hover:bg-white"
+                    >
                       <div className="p-3 rounded-xl bg-white shadow">
-                        <UserIcon size={22} className="text-gray-800" />
+                        <WhatsappLogoIcon size={22} className="text-gray-800" />
                       </div>
 
                       <div>
                         <h4 className="font-semibold text-gray-900">
-                          Availability
+                          WhatsApp
                         </h4>
                         <p className="text-gray-500 text-sm">
+                          Fastest way to reach me
+                        </p>
+                      </div>
+                    </a>
+
+                    <div className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4">
+                      <div className="rounded-xl bg-white p-3 shadow">
+                        <UserIcon size={22} className="text-gray-800" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">
+                          Availability
+                        </h4>
+                        <p className="text-sm text-gray-500">
                           Open for freelance projects
                         </p>
                       </div>
