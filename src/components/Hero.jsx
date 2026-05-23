@@ -21,7 +21,6 @@ const Hero = () => {
       className="
         relative
         overflow-hidden
-        min-h-screen
         flex
         items-center
         bg-white
@@ -35,7 +34,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:6rem_6rem] opacity-40"></div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-screen py-24">
+        <div className="grid lg:grid-cols-2 gap-16 items-center py-24">
           {/* Left Content */}
           <div className="text-center lg:text-left">
             {/* Small Heading */}
