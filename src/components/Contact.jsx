@@ -43,7 +43,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-24 bg-white">
+    <section id="contact" className="relative overflow-hidden py-16 md:py-20 bg-white">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
@@ -51,7 +51,7 @@ const Contact = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 md:mb-16">
             <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
               Contact Me
             </span>
@@ -72,11 +72,11 @@ const Contact = () => {
             {/* Glow Border */}
             <div className="absolute -inset-1 bg-gray-300 rounded-3xl blur opacity-40"></div>
 
-            <div className="relative bg-white border border-gray-200 rounded-3xl shadow-2xl p-8 lg:p-12">
+            <div className="relative bg-white border border-gray-200 rounded-3xl shadow-2xl p-5 sm:p-8 lg:p-12">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Side */}
                 <div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6 leading-tight sm:text-3xl">
                     Let's Build Something Amazing Together
                   </h3>
 
@@ -123,7 +123,7 @@ const Contact = () => {
                         <h4 className="font-semibold text-gray-900">
                           WhatsApp
                         </h4>
-                        <p className="text-gray-500 text-sm">
+                        <p className="break-all text-sm text-gray-500">
                           Fastest way to reach me
                         </p>
                       </div>

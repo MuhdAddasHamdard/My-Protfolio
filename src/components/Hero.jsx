@@ -50,7 +50,8 @@ const Hero = () => {
             {/* Main Heading */}
             <h1
               className="
-                text-5xl
+                text-4xl
+                sm:text-5xl
                 md:text-6xl
                 lg:text-7xl
                 font-black
@@ -78,7 +79,7 @@ const Hero = () => {
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start gap-4 [&>*]:w-full sm:[&>*]:w-auto">
               {/* Main Button */}
               <button
                 onClick={scrollToProjects}

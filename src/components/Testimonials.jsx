@@ -5,13 +5,13 @@ const Testimonials = () => {
   const { testimonials } = portfolioData;
 
   return (
-    <section className="relative overflow-hidden bg-white py-24">
+    <section className="relative overflow-hidden bg-white py-16 md:py-20">
       <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-gray-100 blur-3xl"></div>
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-gray-200 blur-3xl"></div>
 
       <div className="container relative z-10 mx-auto px-6 lg:px-12">
         <div className="mx-auto max-w-7xl">
-          <header className="mb-16 text-center">
+          <header className="mb-12 md:mb-16 text-center">
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
               Student Feedback
             </span>

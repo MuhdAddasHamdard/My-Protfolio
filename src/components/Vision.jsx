@@ -7,7 +7,7 @@ const Vision = () => {
   const { vision } = portfolioData;
 
   return (
-    <section id="vision" className="relative overflow-hidden py-24 bg-white">
+    <section id="vision" className="relative overflow-hidden py-16 md:py-20 bg-white">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
 
@@ -16,7 +16,7 @@ const Vision = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 md:mb-16">
             <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
               Future Goals
             </span>
@@ -41,10 +41,12 @@ const Vision = () => {
               rounded-[2.5rem]
               bg-gray-900
               text-white
-              p-10
+              p-6
+              sm:p-10
               md:p-16
               shadow-2xl
-              mb-20
+              mb-12
+              md:mb-16
             "
           >
             {/* Glow */}
@@ -65,8 +67,10 @@ const Vision = () => {
               {/* Icon */}
               <div
                 className="
-                  w-20
-                  h-20
+                  w-16
+                  h-16
+                  sm:w-20
+                  sm:h-20
                   rounded-3xl
                   bg-white/10
                   backdrop-blur-md
@@ -84,7 +88,7 @@ const Vision = () => {
               </div>
 
               {/* Title */}
-              <h3 className="text-3xl md:text-5xl font-black leading-tight mb-8">
+              <h3 className="text-2xl sm:text-3xl md:text-5xl font-black leading-tight mb-8">
                 {vision.title}
               </h3>
 
@@ -116,7 +120,8 @@ const Vision = () => {
                   border
                   border-gray-200
                   rounded-[2rem]
-                  p-8
+                  p-6
+                  sm:p-8
                   shadow-lg
                   hover:shadow-2xl
                   hover:-translate-y-3

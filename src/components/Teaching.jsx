@@ -93,7 +93,7 @@ const Teaching = () => {
   };
 
   return (
-    <section id="teaching" className="relative overflow-hidden py-24 bg-white">
+    <section id="teaching" className="relative overflow-hidden py-16 md:py-20 bg-white">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
 
@@ -102,7 +102,7 @@ const Teaching = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <header className="text-center mb-20">
+          <header className="text-center mb-12 md:mb-16">
             <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
               Education Journey
             </span>
@@ -120,7 +120,7 @@ const Teaching = () => {
           </header>
 
           {/* Stats */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 md:mb-16">
             {impactStats.map((stat, index) => {
               const Icon = stat.icon;
 

@@ -14,7 +14,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="relative overflow-hidden py-24 bg-white">
+    <section id="projects" className="relative overflow-hidden py-16 md:py-20 bg-white">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
@@ -22,7 +22,7 @@ const Projects = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <header className="text-center mb-20">
+          <header className="text-center mb-12 md:mb-16">
             <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
               My Work
             </span>
@@ -183,11 +183,11 @@ const Projects = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-7">
+                <div className="p-5 sm:p-7">
                   {/* Title */}
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">
                         {project.title}
                       </h3>
 
@@ -219,7 +219,7 @@ const Projects = () => {
                   )}
 
                   {/* Footer */}
-                  <div className="flex items-center justify-between mt-8">
+                  <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2">
                       {project.tech?.slice(0, 3).map((tech, index) => (
@@ -241,7 +241,14 @@ const Projects = () => {
                     </div>
 
                     {/* Mobile Icons */}
-                    <div className="flex items-center gap-3 md:hidden">
+                    <div className="flex flex-wrap items-center gap-3 md:hidden">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProject(project)}
+                        className="inline-flex h-11 items-center justify-center rounded-xl bg-gray-900 px-4 text-sm font-semibold text-white md:hidden"
+                      >
+                        Details
+                      </button>
                       {hasLink(project.link) && (
                         <a
                           href={project.link}
@@ -294,13 +301,13 @@ const Projects = () => {
 
       {selectedProject && (
         <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/40 px-4 py-8 backdrop-blur-sm">
-          <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[2rem] border border-gray-200 bg-white p-6 shadow-2xl md:p-8">
+          <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[2rem] border border-gray-200 bg-white p-5 shadow-2xl sm:p-6 md:p-8">
             <div className="mb-6 flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
                   Project Details
                 </p>
-                <h3 className="mt-2 text-3xl font-black text-gray-900">
+                <h3 className="mt-2 text-2xl font-black text-gray-900 sm:text-3xl">
                   {selectedProject.title}
                 </h3>
               </div>
@@ -317,7 +324,7 @@ const Projects = () => {
             <img
               src={selectedProject.image}
               alt={selectedProject.title}
-              className="mb-6 h-64 w-full rounded-3xl object-cover"
+              className="mb-6 h-44 w-full rounded-3xl object-cover sm:h-64"
             />
 
             <div className="grid gap-5 md:grid-cols-2">

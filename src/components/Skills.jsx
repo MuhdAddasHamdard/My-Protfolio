@@ -2,7 +2,7 @@ import skills from "../skills";
 
 const Skills = () => {
   return (
-    <section id="skills" className="relative overflow-hidden py-24 bg-white">
+    <section id="skills" className="relative overflow-hidden py-16 md:py-20 bg-white">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
 
@@ -10,7 +10,7 @@ const Skills = () => {
 
       <div className="relative z-10">
         {/* Header */}
-        <div className="text-center mb-20 px-6">
+        <div className="text-center mb-12 md:mb-16 px-6">
           <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
             My Expertise
           </span>
