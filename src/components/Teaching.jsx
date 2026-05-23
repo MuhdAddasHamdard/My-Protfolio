@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   HourglassIcon,
   UserPlusIcon,
@@ -9,9 +9,11 @@ import {
 
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { portfolioData } from "../mock";
 
 const { teaching } = portfolioData;
+const MotionDiv = motion.div;
 
 const impactStats = [
   {
@@ -52,6 +54,44 @@ const AnimatedStat = ({ value, suffix = "" }) => {
 };
 
 const Teaching = () => {
+  const timelineRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 80%", "end 35%"],
+  });
+  const timelineScale = useSpring(scrollYProgress, {
+    stiffness: 90,
+    damping: 24,
+    restDelta: 0.001,
+  });
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 70, scale: 0.96, filter: "blur(10px)" },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        duration: 0.75,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const achievementVariants = {
+    hidden: { opacity: 0, x: -16 },
+    visible: (idx) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: 0.2 + idx * 0.08,
+        duration: 0.45,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
     <section id="teaching" className="relative overflow-hidden py-24 bg-white">
       {/* Background Glow */}
@@ -184,7 +224,7 @@ const Teaching = () => {
           </div>
 
           {/* Experience Timeline */}
-          <div className="relative">
+          <div ref={timelineRef} className="relative">
             {/* Vertical Line */}
             <div
               className="
@@ -198,18 +238,44 @@ const Teaching = () => {
                 md:block
               "
             ></div>
+            <MotionDiv
+              style={{ scaleY: timelineScale }}
+              className="
+                absolute
+                left-4
+                top-0
+                bottom-0
+                w-px
+                origin-top
+                bg-gray-900
+                hidden
+                md:block
+              "
+            />
 
             <div className="space-y-10">
               {teaching.experience.map((exp, index) => (
-                <div
+                <MotionDiv
                   key={index}
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.35 }}
                   className="
                     relative
                     md:pl-16
                   "
                 >
                   {/* Timeline Dot */}
-                  <div
+                  <MotionDiv
+                    initial={{ scale: 0, rotate: -45 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    viewport={{ once: true, amount: 0.7 }}
+                    transition={{
+                      delay: 0.18 + index * 0.16,
+                      duration: 0.5,
+                      ease: "backOut",
+                    }}
                     className="
                       hidden
                       md:flex
@@ -226,12 +292,15 @@ const Teaching = () => {
                     "
                   >
                     <div className="w-3 h-3 rounded-full bg-white"></div>
-                  </div>
+                  </MotionDiv>
 
                   {/* Card */}
-                  <div
+                  <MotionDiv
+                    whileHover={{ y: -8, rotateX: 1.5, rotateY: -1.5 }}
                     className="
                       group
+                      relative
+                      overflow-hidden
                       bg-white
                       border
                       border-gray-200
@@ -244,8 +313,10 @@ const Teaching = () => {
                       duration-500
                     "
                   >
+                    <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-gray-900/30 to-transparent"></div>
+                    <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gray-100 blur-2xl transition-transform duration-700 group-hover:scale-150"></div>
                     {/* Top */}
-                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-6">
+                    <div className="relative flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-6">
                       <div>
                         <h3 className="text-3xl font-bold text-gray-900 mb-3">
                           {exp.role}
@@ -276,20 +347,25 @@ const Teaching = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-600 leading-relaxed mb-8">
+                    <p className="relative text-gray-600 leading-relaxed mb-8">
                       {exp.description}
                     </p>
 
                     {/* Achievements */}
-                    <div>
+                    <div className="relative">
                       <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-gray-500 mb-5">
                         Key Achievements
                       </h4>
 
                       <div className="space-y-4">
                         {exp.achievements.map((achievement, idx) => (
-                          <div
+                          <MotionDiv
                             key={idx}
+                            variants={achievementVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.6 }}
+                            custom={idx}
                             className="
                                 flex
                                 items-start
@@ -326,12 +402,12 @@ const Teaching = () => {
                             <p className="text-gray-600 leading-relaxed">
                               {achievement}
                             </p>
-                          </div>
+                          </MotionDiv>
                         ))}
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </MotionDiv>
+                </MotionDiv>
               ))}
             </div>
           </div>
