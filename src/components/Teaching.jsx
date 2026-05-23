@@ -93,7 +93,10 @@ const Teaching = () => {
   };
 
   return (
-    <section id="teaching" className="relative overflow-hidden py-16 md:py-20 bg-white">
+    <section
+      id="teaching"
+      className="relative overflow-hidden py-16 md:py-20 bg-white"
+    >
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
 
@@ -120,7 +123,7 @@ const Teaching = () => {
           </header>
 
           {/* Stats */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 md:mb-16">
+          <div className="grid lg:grid-cols-4 gap-6 mb-12 md:mb-16">
             {impactStats.map((stat, index) => {
               const Icon = stat.icon;
 

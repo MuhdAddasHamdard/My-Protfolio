@@ -78,7 +78,7 @@ const Hero = () => {
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start gap-4 [&>*]:w-full sm:[&>*]:w-auto">
+            <div className="flex flex-col lg:flex-row flex-wrap  items-center justify-center lg:justify-start gap-4 [&>*]:w-full sm:[&>*]:w-auto">
               {/* Main Button */}
               <button
                 onClick={scrollToProjects}
