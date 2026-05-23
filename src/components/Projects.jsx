@@ -71,8 +71,8 @@ const Projects = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 flex justify-between">
-                  <h3 className="mb-4 text-xl font-bold text-slate-100">
+                <div className="p-6 flex justify-between items-center">
+                  <h3 className=" text-xl font-bold text-slate-100">
                     {project.title}
                   </h3>
 

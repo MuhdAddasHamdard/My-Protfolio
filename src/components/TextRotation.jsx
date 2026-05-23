@@ -15,7 +15,7 @@ export default function RotatingText() {
   }, []);
 
   return (
-    <div className="h-[40px] overflow-hidden">
+    <div className="h-[40px] mt-5 m-0 overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.span
           key={words[index]}

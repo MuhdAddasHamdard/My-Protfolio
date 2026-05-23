@@ -20,7 +20,7 @@ const Hero = () => {
       <div className=" min-h-screen bg-dot-light hero-bg-image container mx-auto">
         {/* Hero content here */}
 
-        <div className="flex flex-col items-center lg:h-screen pt-24 lg:justify-center text-center lg:w-1/2">
+        <div className="flex flex-col justify-end  items-center h-screen pt-28 lg:justify-center text-center lg:w-1/2">
           {/* Title */}
           <h2 className="text-2xl md:text-3xl text-[#5EEAD4] font-semibold mb-4 tracking-wide">
             <RotatingText />

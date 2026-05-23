@@ -70,7 +70,7 @@ transition-colors duration-300
             GKH
           </button>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex  items-center space-x-8">
             {navLinks.map((l) => (
               <button
                 key={l.id}
@@ -82,7 +82,7 @@ transition-colors duration-300
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className=" md:hidden flex  items-center gap-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden  p-2"

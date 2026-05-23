@@ -37,17 +37,19 @@ to-[#0F766E] p-12 rounded-2xl text-white mb-16 shadow-xl"
             {vision.goals.map((goal, index) => (
               <div
                 key={index}
-                className="bg-[#111827] border border-white/5 hover:border-[#0F766E]/30 backdrop-blur-md  shadow-lg p-8 rounded-xl transition-all duration-300"
+                className="bg-[#111827] border border-white/5 hover:border-[#0F766E]/30 backdrop-blur-md  shadow-lg p-3 rounded-xl transition-all duration-300"
               >
-                <div className="flex  items-center gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Target className="w-6 h-6 text-blue-900" />
-                  </div>
-                  <div>
+                <div className=" ">
+                  <div className="flex gap-4 items-center flex-col">
+                    <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Target className="w-6 h-6 text-blue-900" />
+                    </div>
                     <h4 className="text-xl font-bold text-text mb-3">
                       {goal.title}
                     </h4>
-                    <p className="text-muted leading-relaxed">
+                  </div>
+                  <div>
+                    <p className="text-muted text-center leading-relaxed">
                       {goal.description}
                     </p>
                   </div>
