@@ -3,6 +3,7 @@ import {
   PaperPlaneTiltIcon,
   EnvelopeSimpleIcon,
   UserIcon,
+  WhatsappLogoIcon,
 } from "@phosphor-icons/react";
 import { portfolioData } from "../mock";
 
@@ -14,6 +15,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -25,17 +27,23 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Add your form logic here
+    const subject = encodeURIComponent(`Portfolio message from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`,
+    );
+
+    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
 
     setFormData({
       name: "",
       email: "",
       message: "",
     });
+    setStatus("Your email app is opening with the message ready to send.");
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-24 bg-white">
+    <section id="contact" className="relative overflow-hidden py-16 md:py-20 bg-white">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
@@ -43,13 +51,13 @@ const Contact = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 md:mb-16">
             <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
               Contact Me
             </span>
 
             <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">
-              Get In Touch
+              Get in Touch
             </h2>
 
             <p className="max-w-2xl mx-auto mt-6 text-lg text-gray-600 leading-relaxed">
@@ -64,23 +72,26 @@ const Contact = () => {
             {/* Glow Border */}
             <div className="absolute -inset-1 bg-gray-300 rounded-3xl blur opacity-40"></div>
 
-            <div className="relative bg-white border border-gray-200 rounded-3xl shadow-2xl p-8 lg:p-12">
+            <div className="relative bg-white border border-gray-200 rounded-3xl shadow-2xl p-5 sm:p-8 lg:p-12">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Side */}
                 <div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
-                    Let’s Build Something Amazing Together
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6 leading-tight sm:text-3xl">
+                    Let's Build Something Amazing Together
                   </h3>
 
                   <p className="text-gray-600 leading-relaxed mb-8">
                     Feel free to contact me for collaborations, freelance
-                    projects, or just to say hello. I’m always open to
+                    projects, or just to say hello. I'm always open to
                     discussing new ideas and opportunities.
                   </p>
 
                   {/* Small Info Cards */}
                   <div className="space-y-4">
-                    <div className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-4">
+                    <a
+                      href={`mailto:${contact.email}`}
+                      className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4 transition hover:border-gray-900 hover:bg-white"
+                    >
                       <div className="p-3 rounded-xl bg-white shadow">
                         <EnvelopeSimpleIcon
                           size={22}
@@ -93,21 +104,40 @@ const Contact = () => {
                           Email Me
                         </h4>
                         <p className="text-gray-500 text-sm">
-                          yourmail@gmail.com
+                          {contact.email}
                         </p>
                       </div>
-                    </div>
+                    </a>
 
-                    <div className="flex items-center gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-4">
+                    <a
+                      href={contact.whatsApp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4 transition hover:border-gray-900 hover:bg-white"
+                    >
                       <div className="p-3 rounded-xl bg-white shadow">
-                        <UserIcon size={22} className="text-gray-800" />
+                        <WhatsappLogoIcon size={22} className="text-gray-800" />
                       </div>
 
                       <div>
                         <h4 className="font-semibold text-gray-900">
+                          WhatsApp
+                        </h4>
+                        <p className="break-all text-sm text-gray-500">
+                          Fastest way to reach me
+                        </p>
+                      </div>
+                    </a>
+
+                    <div className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4">
+                      <div className="rounded-xl bg-white p-3 shadow">
+                        <UserIcon size={22} className="text-gray-800" />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900">
                           Availability
                         </h4>
-                        <p className="text-gray-500 text-sm">
+                        <p className="text-sm text-gray-500">
                           Open for freelance projects
                         </p>
                       </div>
@@ -243,6 +273,11 @@ const Contact = () => {
                       className="group-hover:translate-x-1 transition"
                     />
                   </button>
+                  {status && (
+                    <p className="text-center text-sm text-gray-600">
+                      {status}
+                    </p>
+                  )}
                 </form>
               </div>
             </div>

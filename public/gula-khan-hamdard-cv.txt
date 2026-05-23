@@ -1,0 +1,42 @@
+Gula Khan Hamdard
+Frontend Developer & Educator
+Kabul, Afghanistan
+
+Email: muhdabbaskan@gmail.com
+GitHub: https://github.com/MuhdAddasHamdard
+LinkedIn: https://www.linkedin.com/in/gula-khan-hamdard-553b59291/
+
+Profile
+Frontend developer and educator focused on building responsive web experiences,
+education platforms, and practical learning programs for students and teams.
+
+Core Skills
+React, JavaScript, TypeScript, Tailwind CSS, HTML5, CSS3, Node.js, Express,
+MongoDB, Firebase, Git, GitHub, responsive UI, teaching, mentoring.
+
+Experience
+Web Development Instructor - Upskill Learning Center
+July 2024 - Present
+- Teaching full-stack web development to university students.
+- Mentored 150+ students through project-based learning.
+- Built curriculum covering JavaScript, React, databases, and deployment.
+
+Frontend Development Mentor - Upskill Learning Academy
+January 2024 - June 2024
+- Guided learners through HTML, CSS, JavaScript, React, and responsive UI.
+- Helped students create portfolio-ready projects.
+
+Programming Workshop Trainer - Community Tech Workshops
+September 2023 - December 2023
+- Delivered beginner-friendly web development workshops.
+- Created practical exercises for JavaScript and responsive layout skills.
+
+Selected Projects
+Shopper E-commerce
+- Responsive e-commerce storefront built with React and Tailwind CSS.
+
+Upskill Learning Academy
+- Education website for showcasing courses and student opportunities.
+
+CEO Club Afghanistan
+- Professional community website with clear organization content.

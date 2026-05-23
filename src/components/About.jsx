@@ -6,7 +6,7 @@ const About = () => {
   const { about } = portfolioData;
 
   return (
-    <section id="about" className="relative overflow-hidden py-24 bg-white">
+    <section id="about" className="relative overflow-hidden py-16 md:py-20 bg-white">
       {/* Soft Background Blurs */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
@@ -14,7 +14,7 @@ const About = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-12 md:mb-16">
             <span className="text-gray-500 uppercase tracking-[0.2em] text-sm font-semibold">
               Get To Know Me
             </span>
@@ -41,7 +41,7 @@ const About = () => {
               <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl">
                 <img
                   src="/hero.jpg"
-                  alt="About"
+                  alt="Gula Khan Hamdard"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
@@ -54,7 +54,7 @@ const About = () => {
                     Frontend Developer
                   </p>
                   <p className="text-sm text-gray-500">
-                    React • Tailwind • UI/UX
+                    React / Tailwind / UI/UX
                   </p>
                 </div>
               </div>
@@ -95,7 +95,14 @@ const About = () => {
                 </div>
 
                 {/* CTA Button */}
-                <button className="group inline-flex items-center gap-2 bg-gray-900 hover:bg-black transition-all duration-300 text-white px-6 py-3 rounded-xl font-medium shadow-lg">
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById("projects")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="group inline-flex items-center gap-2 bg-gray-900 hover:bg-black transition-all duration-300 text-white px-6 py-3 rounded-xl font-medium shadow-lg"
+                >
                   Learn More
                   <ArrowRightIcon
                     size={18}

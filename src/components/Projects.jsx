@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   GithubLogoIcon,
   EyeIcon,
   ArrowUpRightIcon,
+  XIcon,
 } from "@phosphor-icons/react";
 
 import { portfolioData } from "../mock";
 
 const Projects = () => {
   const { projects } = portfolioData;
+  const hasLink = (href) => href && href !== "#";
+  const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="relative overflow-hidden py-24 bg-white">
+    <section id="projects" className="relative overflow-hidden py-16 md:py-20 bg-white">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
@@ -19,7 +22,7 @@ const Projects = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <header className="text-center mb-20">
+          <header className="text-center mb-12 md:mb-16">
             <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
               My Work
             </span>
@@ -85,8 +88,9 @@ const Projects = () => {
                   ></div>
 
                   {/* Floating Buttons */}
-                  <div
-                    className="
+                  {(hasLink(project.link) || hasLink(project.github)) && (
+                    <div
+                      className="
                       absolute
                       top-5
                       right-5
@@ -99,14 +103,14 @@ const Projects = () => {
                       transition-all
                       duration-500
                     "
-                  >
-                    {/* Live Demo */}
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`View ${project.title}`}
-                      className="
+                    >
+                      {hasLink(project.link) && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`View live demo of ${project.title}`}
+                          className="
                         w-12
                         h-12
                         rounded-2xl
@@ -122,17 +126,18 @@ const Projects = () => {
                         duration-300
                         shadow-lg
                       "
-                    >
-                      <EyeIcon size={22} weight="bold" />
-                    </a>
+                        >
+                          <EyeIcon size={22} weight="bold" />
+                        </a>
+                      )}
 
-                    {/* Github */}
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Github repository of ${project.title}`}
-                      className="
+                      {hasLink(project.github) && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`GitHub repository of ${project.title}`}
+                          className="
                         w-12
                         h-12
                         rounded-2xl
@@ -148,10 +153,12 @@ const Projects = () => {
                         duration-300
                         shadow-lg
                       "
-                    >
-                      <GithubLogoIcon size={22} weight="bold" />
-                    </a>
-                  </div>
+                        >
+                          <GithubLogoIcon size={22} weight="bold" />
+                        </a>
+                      )}
+                    </div>
+                  )}
 
                   {/* Bottom Badge */}
                   <div
@@ -176,11 +183,11 @@ const Projects = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-7">
+                <div className="p-5 sm:p-7">
                   {/* Title */}
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 sm:text-2xl">
                         {project.title}
                       </h3>
 
@@ -190,23 +197,29 @@ const Projects = () => {
                       </p>
                     </div>
 
-                    <ArrowUpRightIcon
-                      size={24}
-                      className="
-                        text-gray-400
-                        group-hover:text-black
-                        group-hover:translate-x-1
-                        group-hover:-translate-y-1
-                        transition-all
-                        duration-300
-                        hidden
-                        md:block
-                      "
-                    />
+                    <button
+                      type="button"
+                      onClick={() => setSelectedProject(project)}
+                      aria-label={`View details for ${project.title}`}
+                      className="hidden rounded-xl bg-gray-100 p-3 text-gray-500 transition-all duration-300 hover:bg-gray-900 hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 md:block"
+                    >
+                      <ArrowUpRightIcon size={20} />
+                    </button>
                   </div>
 
+                  {project.impact && (
+                    <div className="mt-5 rounded-2xl border border-gray-200 bg-gray-50 p-4">
+                      <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">
+                        Impact
+                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                        {project.impact}
+                      </p>
+                    </div>
+                  )}
+
                   {/* Footer */}
-                  <div className="flex items-center justify-between mt-8">
+                  <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2">
                       {project.tech?.slice(0, 3).map((tech, index) => (
@@ -228,12 +241,21 @@ const Projects = () => {
                     </div>
 
                     {/* Mobile Icons */}
-                    <div className="flex items-center gap-3 md:hidden">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="
+                    <div className="flex flex-wrap items-center gap-3 md:hidden">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProject(project)}
+                        className="inline-flex h-11 items-center justify-center rounded-xl bg-gray-900 px-4 text-sm font-semibold text-white md:hidden"
+                      >
+                        Details
+                      </button>
+                      {hasLink(project.link) && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`View live demo of ${project.title}`}
+                          className="
                           w-11
                           h-11
                           rounded-xl
@@ -243,15 +265,18 @@ const Projects = () => {
                           justify-center
                           text-gray-700
                         "
-                      >
-                        <EyeIcon size={20} weight="bold" />
-                      </a>
+                        >
+                          <EyeIcon size={20} weight="bold" />
+                        </a>
+                      )}
 
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="
+                      {hasLink(project.github) && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`GitHub repository of ${project.title}`}
+                          className="
                           w-11
                           h-11
                           rounded-xl
@@ -261,9 +286,10 @@ const Projects = () => {
                           justify-center
                           text-gray-700
                         "
-                      >
-                        <GithubLogoIcon size={20} weight="bold" />
-                      </a>
+                        >
+                          <GithubLogoIcon size={20} weight="bold" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -272,6 +298,91 @@ const Projects = () => {
           </div>
         </div>
       </div>
+
+      {selectedProject && (
+        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/40 px-4 py-8 backdrop-blur-sm">
+          <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[2rem] border border-gray-200 bg-white p-5 shadow-2xl sm:p-6 md:p-8">
+            <div className="mb-6 flex items-start justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
+                  Project Details
+                </p>
+                <h3 className="mt-2 text-2xl font-black text-gray-900 sm:text-3xl">
+                  {selectedProject.title}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedProject(null)}
+                aria-label="Close project details"
+                className="rounded-xl bg-gray-100 p-3 text-gray-700 transition hover:bg-gray-900 hover:text-white"
+              >
+                <XIcon size={20} weight="bold" />
+              </button>
+            </div>
+
+            <img
+              src={selectedProject.image}
+              alt={selectedProject.title}
+              className="mb-6 h-44 w-full rounded-3xl object-cover sm:h-64"
+            />
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="rounded-3xl border border-gray-200 bg-gray-50 p-5">
+                <h4 className="font-bold text-gray-900">Role</h4>
+                <p className="mt-2 leading-relaxed text-gray-600">
+                  {selectedProject.role}
+                </p>
+              </div>
+              <div className="rounded-3xl border border-gray-200 bg-gray-50 p-5">
+                <h4 className="font-bold text-gray-900">Result</h4>
+                <p className="mt-2 leading-relaxed text-gray-600">
+                  {selectedProject.impact}
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <h4 className="mb-3 font-bold text-gray-900">Highlights</h4>
+              <div className="flex flex-wrap gap-3">
+                {selectedProject.features?.map((feature) => (
+                  <span
+                    key={feature}
+                    className="rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              {hasLink(selectedProject.link) && (
+                <a
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-gray-900 px-5 py-3 font-semibold text-white transition hover:bg-black"
+                >
+                  Live Project
+                  <EyeIcon size={18} weight="bold" />
+                </a>
+              )}
+              {hasLink(selectedProject.github) && (
+                <a
+                  href={selectedProject.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-2xl border border-gray-300 px-5 py-3 font-semibold text-gray-800 transition hover:border-gray-900"
+                >
+                  GitHub
+                  <GithubLogoIcon size={18} weight="bold" />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

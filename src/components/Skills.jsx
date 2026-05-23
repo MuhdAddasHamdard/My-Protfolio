@@ -1,11 +1,8 @@
-// Skills.jsx
-
-import { motion } from "framer-motion";
 import skills from "../skills";
 
 const Skills = () => {
   return (
-    <section id="skills" className="relative overflow-hidden py-24 bg-white">
+    <section id="skills" className="relative overflow-hidden py-16 md:py-20 bg-white">
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
 
@@ -13,7 +10,7 @@ const Skills = () => {
 
       <div className="relative z-10">
         {/* Header */}
-        <div className="text-center mb-20 px-6">
+        <div className="text-center mb-12 md:mb-16 px-6">
           <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
             My Expertise
           </span>
@@ -30,37 +27,26 @@ const Skills = () => {
           <div className="w-24 h-1 bg-gray-900 mx-auto rounded-full mt-6"></div>
         </div>
 
-        {/* Slider */}
-        <div className="relative">
-          {/* Left Fade */}
-          <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-20"></div>
+        {/* Skills Rows */}
+        <div className="skills-marquee-wrap relative mx-auto max-w-7xl px-6 lg:px-12">
+          <div className="overflow-hidden py-2">
+            <div className="skills-marquee-left flex flex-wrap justify-center gap-6 md:gap-8">
+              {skills.map((skill) => {
+                const Icon = skill.icon;
 
-          {/* Right Fade */}
-          <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-20"></div>
-
-          <motion.div
-            className="flex gap-8 w-max"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              repeat: Infinity,
-              duration: 25,
-              ease: "linear",
-            }}
-          >
-            {[...skills, ...skills].map((skill, index) => {
-              const Icon = skill.icon;
-
-              return (
-                <div
-                  key={index}
-                  className="
+                return (
+                  <div
+                    key={skill.name}
+                    className="
                     group
                     flex
                     flex-col
                     items-center
                     justify-center
-                    w-40
-                    h-40
+                    h-36
+                    w-36
+                    sm:h-40
+                    sm:w-40
                     rounded-[2rem]
                     bg-white
                     border
@@ -71,10 +57,10 @@ const Skills = () => {
                     transition-all
                     duration-500
                   "
-                >
-                  {/* Icon Wrapper */}
-                  <div
-                    className="
+                  >
+                    {/* Icon Wrapper */}
+                    <div
+                      className="
                       mb-4
                       p-4
                       rounded-2xl
@@ -82,10 +68,10 @@ const Skills = () => {
                       transition-all
                       duration-500
                     "
-                  >
-                    {/* Colored Icon */}
-                    <Icon
-                      className="
+                    >
+                      {/* Colored Icon */}
+                      <Icon
+                        className="
                         text-5xl
                         transition-all
                         duration-500
@@ -94,23 +80,24 @@ const Skills = () => {
                       style={{
                         color: skill.color,
                       }}
-                    />
-                  </div>
+                      />
+                    </div>
 
-                  {/* Text */}
-                  <p
-                    className="
+                    {/* Text */}
+                    <p
+                      className="
                       text-base
                       font-semibold
                       text-gray-800
                     "
-                  >
-                    {skill.name}
-                  </p>
-                </div>
-              );
-            })}
-          </motion.div>
+                    >
+                      {skill.name}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

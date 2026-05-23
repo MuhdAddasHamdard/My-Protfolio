@@ -3,6 +3,9 @@ import { ListIcon, XIcon, ArrowUpRightIcon } from "@phosphor-icons/react";
 
 import { motion, AnimatePresence } from "framer-motion";
 
+const MotionDiv = motion.div;
+const MotionButton = motion.button;
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -80,9 +83,12 @@ const Navbar = () => {
       <header
         className={`
           fixed
-          top-4
-          left-4
-          right-4
+          top-3
+          left-3
+          right-3
+          sm:top-4
+          sm:left-4
+          sm:right-4
           lg:left-10
           lg:right-10
           z-50
@@ -97,8 +103,8 @@ const Navbar = () => {
           }
         `}
       >
-        <div className="container mx-auto px-6 lg:px-10">
-          <div className="flex items-center justify-between h-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="flex h-16 items-center justify-between sm:h-20">
             {/* Logo */}
             <button
               onClick={() =>
@@ -108,7 +114,8 @@ const Navbar = () => {
                 })
               }
               className="
-                text-2xl
+                text-xl
+                sm:text-2xl
                 font-black
                 tracking-tight
                 text-gray-900
@@ -120,7 +127,7 @@ const Navbar = () => {
             </button>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-2">
+            <nav className="hidden lg:flex items-center gap-2">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
@@ -150,7 +157,7 @@ const Navbar = () => {
                 onClick={() => scrollToSection("contact")}
                 className="
                   hidden
-                  md:inline-flex
+                  lg:inline-flex
                   items-center
                   gap-2
                   px-5
@@ -173,8 +180,10 @@ const Navbar = () => {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMobileMenuOpen}
                 className="
-                  md:hidden
+                  lg:hidden
                   w-11
                   h-11
                   rounded-xl
@@ -200,7 +209,7 @@ const Navbar = () => {
           {isMobileMenuOpen && (
             <>
               {/* Overlay */}
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -211,12 +220,12 @@ const Navbar = () => {
                   bg-black/20
                   backdrop-blur-sm
                   z-40
-                  md:hidden
+                  lg:hidden
                 "
               />
 
               {/* Menu */}
-              <motion.div
+              <MotionDiv
                 variants={menuVariants}
                 initial="hidden"
                 animate="visible"
@@ -227,7 +236,7 @@ const Navbar = () => {
                   left-0
                   w-full
                   z-50
-                  md:hidden
+                  lg:hidden
                   bg-white/95
                   backdrop-blur-2xl
                   border
@@ -239,7 +248,7 @@ const Navbar = () => {
               >
                 <div className="flex flex-col p-4">
                   {navLinks.map((link) => (
-                    <motion.button
+                    <MotionButton
                       key={link.id}
                       variants={itemVariants}
                       onClick={() => scrollToSection(link.id)}
@@ -257,7 +266,7 @@ const Navbar = () => {
                       "
                     >
                       {link.label}
-                    </motion.button>
+                    </MotionButton>
                   ))}
 
                   {/* Mobile CTA */}
@@ -281,7 +290,7 @@ const Navbar = () => {
                     <ArrowUpRightIcon size={18} />
                   </button>
                 </div>
-              </motion.div>
+              </MotionDiv>
             </>
           )}
         </AnimatePresence>
