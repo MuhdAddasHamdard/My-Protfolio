@@ -25,13 +25,10 @@
   }
 }
 
-button,
-input,
-textarea {
-  outline: none;
-}
-h1,
-h2,
-h3 {
-  color: #e5e7eb;
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #111827;
+  outline-offset: 3px;
 }

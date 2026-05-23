@@ -9,6 +9,7 @@ import { portfolioData } from "../mock";
 
 const Projects = () => {
   const { projects } = portfolioData;
+  const hasLink = (href) => href && href !== "#";
 
   return (
     <section id="projects" className="relative overflow-hidden py-24 bg-white">
@@ -85,8 +86,9 @@ const Projects = () => {
                   ></div>
 
                   {/* Floating Buttons */}
-                  <div
-                    className="
+                  {(hasLink(project.link) || hasLink(project.github)) && (
+                    <div
+                      className="
                       absolute
                       top-5
                       right-5
@@ -99,14 +101,14 @@ const Projects = () => {
                       transition-all
                       duration-500
                     "
-                  >
-                    {/* Live Demo */}
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`View ${project.title}`}
-                      className="
+                    >
+                      {hasLink(project.link) && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`View live demo of ${project.title}`}
+                          className="
                         w-12
                         h-12
                         rounded-2xl
@@ -122,17 +124,18 @@ const Projects = () => {
                         duration-300
                         shadow-lg
                       "
-                    >
-                      <EyeIcon size={22} weight="bold" />
-                    </a>
+                        >
+                          <EyeIcon size={22} weight="bold" />
+                        </a>
+                      )}
 
-                    {/* Github */}
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Github repository of ${project.title}`}
-                      className="
+                      {hasLink(project.github) && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`GitHub repository of ${project.title}`}
+                          className="
                         w-12
                         h-12
                         rounded-2xl
@@ -148,10 +151,12 @@ const Projects = () => {
                         duration-300
                         shadow-lg
                       "
-                    >
-                      <GithubLogoIcon size={22} weight="bold" />
-                    </a>
-                  </div>
+                        >
+                          <GithubLogoIcon size={22} weight="bold" />
+                        </a>
+                      )}
+                    </div>
+                  )}
 
                   {/* Bottom Badge */}
                   <div
@@ -229,11 +234,13 @@ const Projects = () => {
 
                     {/* Mobile Icons */}
                     <div className="flex items-center gap-3 md:hidden">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="
+                      {hasLink(project.link) && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`View live demo of ${project.title}`}
+                          className="
                           w-11
                           h-11
                           rounded-xl
@@ -243,15 +250,18 @@ const Projects = () => {
                           justify-center
                           text-gray-700
                         "
-                      >
-                        <EyeIcon size={20} weight="bold" />
-                      </a>
+                        >
+                          <EyeIcon size={20} weight="bold" />
+                        </a>
+                      )}
 
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="
+                      {hasLink(project.github) && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`GitHub repository of ${project.title}`}
+                          className="
                           w-11
                           h-11
                           rounded-xl
@@ -261,9 +271,10 @@ const Projects = () => {
                           justify-center
                           text-gray-700
                         "
-                      >
-                        <GithubLogoIcon size={20} weight="bold" />
-                      </a>
+                        >
+                          <GithubLogoIcon size={20} weight="bold" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>

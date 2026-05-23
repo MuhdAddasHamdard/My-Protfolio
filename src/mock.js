@@ -3,10 +3,10 @@
 export const portfolioData = {
   hero: {
     name: "Gula Khan Hamdard",
-    title: "Web Developer & Educator",
+    title: "Frontend Developer & Educator",
     mission: "Transforming Afghanistan's Education System Through Technology",
     description:
-      "Building digital solutions that empower students, teachers, and communities across Afghanistan to access quality education.",
+      "I build responsive web experiences and education-focused platforms that help students, teachers, and communities access better learning opportunities.",
     cta: "View My Work",
   },
 
@@ -18,38 +18,53 @@ export const portfolioData = {
   projects: [
     {
       id: 1,
-      title: "Shopper ecommerce",
+      title: "Shopper E-commerce",
       image: "/shopper.png",
       link: "https://shopper-sage.vercel.app/",
       github: "https://github.com/MuhdAddasHamdard/shopper",
+      description:
+        "A responsive e-commerce storefront with product browsing, modern UI patterns, and a smooth shopping experience.",
+      tech: ["React", "Tailwind CSS", "Vercel"],
     },
     {
       id: 2,
       title: "Monks Hub",
-      link: "#",
+      link: "",
       image: "/monkshub.png",
-      github: "#",
+      github: "",
+      description:
+        "A polished brand and content website concept focused on clear presentation, responsive layout, and simple navigation.",
+      tech: ["React", "Tailwind CSS", "UI Design"],
     },
     {
       id: 3,
       title: "Certificates.dev",
-      link: "#",
+      link: "",
       image: "/certificates.dev.png",
-      github: "#",
+      github: "",
+      description:
+        "A certificate-focused platform concept for presenting credentials with a clean, trustworthy user interface.",
+      tech: ["React", "JavaScript", "Tailwind CSS"],
     },
     {
       id: 4,
       title: "Upskill Learning Academy",
       link: "https://upskillacademy.tech/",
       image: "/upskill.png",
-      github: "#",
+      github: "",
+      description:
+        "An education website for showcasing courses, programs, and learning opportunities for students.",
+      tech: ["React", "Education", "Responsive UI"],
     },
     {
       id: 5,
       title: "CEO Club Afghanistan",
       link: "https://ceo-club-afghanistan1.vercel.app/",
       image: "/ceo club afg.png",
-      github: "#",
+      github: "",
+      description:
+        "A professional community website designed to present members, events, and organization information clearly.",
+      tech: ["React", "Tailwind CSS", "Vercel"],
     },
   ],
 
@@ -58,7 +73,7 @@ export const portfolioData = {
       {
         institution: "Upskill Learning Center",
         role: "Web Development Instructor",
-        period: "july-2024 - Present",
+        period: "July 2024 - Present",
         description:
           "Teaching full-stack web development to university students, covering modern JavaScript frameworks, databases, and deployment strategies.",
         achievements: [
@@ -111,5 +126,7 @@ export const portfolioData = {
     linkedin: "https://www.linkedin.com/in/gula-khan-hamdard-553b59291/",
     location: "Kabul, Afghanistan",
     whatsApp: "https://wa.me/93748160312",
+    availability:
+      "Open to freelance projects, collaborations, and education-focused web development work.",
   },
 };

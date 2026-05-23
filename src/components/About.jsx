@@ -41,7 +41,7 @@ const About = () => {
               <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl">
                 <img
                   src="/hero.jpg"
-                  alt="About"
+                  alt="Gula Khan Hamdard"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
@@ -54,7 +54,7 @@ const About = () => {
                     Frontend Developer
                   </p>
                   <p className="text-sm text-gray-500">
-                    React • Tailwind • UI/UX
+                    React / Tailwind / UI/UX
                   </p>
                 </div>
               </div>
@@ -95,7 +95,14 @@ const About = () => {
                 </div>
 
                 {/* CTA Button */}
-                <button className="group inline-flex items-center gap-2 bg-gray-900 hover:bg-black transition-all duration-300 text-white px-6 py-3 rounded-xl font-medium shadow-lg">
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById("projects")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="group inline-flex items-center gap-2 bg-gray-900 hover:bg-black transition-all duration-300 text-white px-6 py-3 rounded-xl font-medium shadow-lg"
+                >
                   Learn More
                   <ArrowRightIcon
                     size={18}

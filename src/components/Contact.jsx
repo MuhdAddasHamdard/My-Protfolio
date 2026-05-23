@@ -14,6 +14,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -25,13 +26,19 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Add your form logic here
+    const subject = encodeURIComponent(`Portfolio message from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`,
+    );
+
+    window.location.href = `mailto:${contact.email}?subject=${subject}&body=${body}`;
 
     setFormData({
       name: "",
       email: "",
       message: "",
     });
+    setStatus("Your email app is opening with the message ready to send.");
   };
 
   return (
@@ -49,7 +56,7 @@ const Contact = () => {
             </span>
 
             <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">
-              Get In Touch
+              Get in Touch
             </h2>
 
             <p className="max-w-2xl mx-auto mt-6 text-lg text-gray-600 leading-relaxed">
@@ -69,12 +76,12 @@ const Contact = () => {
                 {/* Left Side */}
                 <div>
                   <h3 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
-                    Let’s Build Something Amazing Together
+                    Let's Build Something Amazing Together
                   </h3>
 
                   <p className="text-gray-600 leading-relaxed mb-8">
                     Feel free to contact me for collaborations, freelance
-                    projects, or just to say hello. I’m always open to
+                    projects, or just to say hello. I'm always open to
                     discussing new ideas and opportunities.
                   </p>
 
@@ -93,7 +100,7 @@ const Contact = () => {
                           Email Me
                         </h4>
                         <p className="text-gray-500 text-sm">
-                          yourmail@gmail.com
+                          {contact.email}
                         </p>
                       </div>
                     </div>
@@ -243,6 +250,11 @@ const Contact = () => {
                       className="group-hover:translate-x-1 transition"
                     />
                   </button>
+                  {status && (
+                    <p className="text-center text-sm text-gray-600">
+                      {status}
+                    </p>
+                  )}
                 </form>
               </div>
             </div>
