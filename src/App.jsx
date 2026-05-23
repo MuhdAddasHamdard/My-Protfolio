@@ -10,13 +10,13 @@ import Contact from "./components/Contact";
 import Vision from "./components/Vision";
 import Teaching from "./components/Teaching";
 import Projects from "./components/Projects";
-import CursorDot from "./components/CursorDot";
+// import CursorDot from "./components/CursorDot";
 // import { Toaster } from "./components/Toaster";
 
 function App() {
   return (
     <>
-      <CursorDot />
+      {/* <CursorDot /> */}
       <Navbar />
       <Hero />
       <About />

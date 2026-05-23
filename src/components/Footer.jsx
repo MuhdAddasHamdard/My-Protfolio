@@ -5,99 +5,154 @@ import {
   GithubLogoIcon,
   LinkedinLogoIcon,
   WhatsappLogoIcon,
+  ArrowUpRightIcon,
 } from "@phosphor-icons/react";
+
 import { portfolioData } from "../mock";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const socialLinks = [
+    {
+      icon: EnvelopeSimpleIcon,
+      href: `mailto:${portfolioData.contact.email}`,
+      label: "Email",
+    },
+    {
+      icon: GithubLogoIcon,
+      href: portfolioData.contact.github,
+      label: "GitHub",
+    },
+    {
+      icon: LinkedinLogoIcon,
+      href: portfolioData.contact.linkedin,
+      label: "LinkedIn",
+    },
+    {
+      icon: WhatsappLogoIcon,
+      href: portfolioData.contact.whatsApp,
+      label: "WhatsApp",
+    },
+  ];
+
   return (
-    <footer className="bg-[#0B1220] backdrop-blur-md border-t border-white/5 text-center text-white py-12">
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Logo/Brand */}
-            <div>
-              <h3 className="text-2xl font-bold mb-2">Gula Khan Hamdard</h3>
-              <p className="text-slate-400 text-sm">Web Developer & Educator</p>
-            </div>
+    <footer className="relative overflow-hidden bg-white border-t border-gray-200">
+      {/* Background Glow */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
 
-            {/* links */}
-            <div className=" z-50  p-2 rounded flex flex-wrap justify-center gap-3 items-center">
-              <div className="flex flex-col hover:text-red-300 justify-center items-center">
-                <a
-                  href={`mailto:${portfolioData.contact.email}`}
-                  className="text-blue-900 hover:text-blue-700 transition-colors"
-                >
-                  <div
-                    className="w-12 h-12 bg-[#111827] border border-white/5 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[#0F766E] hover:border-[#14B8A6]/30 hover:-translate-y-1
-"
-                  >
-                    <EnvelopeSimpleIcon
-                      size={34}
-                      weight="thin"
-                      className="text-slate-300 group-hover:text-white transition-colors"
-                    />
-                  </div>
-                </a>
-              </div>
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto py-16">
+          {/* Main Footer */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            {/* Brand */}
+            <div className="text-center lg:text-left max-w-md">
+              <h2 className="text-3xl font-black text-gray-900 mb-4 tracking-tight">
+                Gula Khan Hamdard
+              </h2>
 
-              <div className="flex flex-col items-center justify-center">
-                <a
-                  href={portfolioData.contact.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-900 hover:text-blue-700 transition-colors"
-                >
-                  <div className="w-12 h-12 bg-[#111827] border border-white/5 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[#0F766E] hover:border-[#14B8A6]/30 hover:-translate-y-1">
-                    <GithubLogoIcon
-                      size={34}
-                      weight="thin"
-                      className="text-slate-300 group-hover:text-white transition-colors"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              <div className="flex flex-col items-center justify-center">
-                <a
-                  href={portfolioData.contact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-900 hover:text-blue-700 transition-colors"
-                >
-                  <div className="w-12 h-12 bg-[#111827] border border-white/5 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[#0F766E] hover:border-[#14B8A6]/30 hover:-translate-y-1">
-                    <LinkedinLogoIcon
-                      size={34}
-                      weight="thin"
-                      className="text-slate-300 group-hover:text-white transition-colors"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              <div className="w-10 rounded-lg flex flex-col items-center justify-center">
-                <a
-                  href={portfolioData.contact.whatsApp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 bg-[#111827] border border-white/5 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[#0F766E] hover:border-[#14B8A6]/30 hover:-translate-y-1"
-                >
-                  <WhatsappLogoIcon
-                    size={46}
-                    weight="thin"
-                    className="text-slate-300 group-hover:text-white transition-colors"
-                  />
-                </a>
-              </div>
-            </div>
-            {/* Copyright */}
-            <div className="text-center md:text-right">
-              <p className="text-slate-400 text-sm flex items-center justify-center gap-2">
-                © {currentYear} Gula Khan Hamdard. Built with
-                <HeartIcon className=" text-red-500" />
-                for education in Afghanistan
+              <p className="text-gray-600 leading-relaxed">
+                Frontend Developer & Educator passionate about building modern,
+                responsive, and user-friendly digital experiences.
               </p>
             </div>
+
+            {/* Social Links */}
+            <div className="flex flex-wrap justify-center gap-4">
+              {socialLinks.map((social, index) => {
+                const Icon = social.icon;
+
+                return (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="
+                      group
+                      relative
+                      w-16
+                      h-16
+                      rounded-2xl
+                      bg-gray-50
+                      border
+                      border-gray-200
+                      flex
+                      items-center
+                      justify-center
+                      shadow-sm
+                      hover:shadow-xl
+                      hover:-translate-y-2
+                      transition-all
+                      duration-300
+                      overflow-hidden
+                    "
+                  >
+                    {/* Hover Background */}
+                    <div
+                      className="
+                        absolute
+                        inset-0
+                        bg-gray-900
+                        scale-0
+                        group-hover:scale-100
+                        transition-transform
+                        duration-300
+                        rounded-2xl
+                      "
+                    ></div>
+
+                    {/* Icon */}
+                    <Icon
+                      size={30}
+                      weight="regular"
+                      className="
+                        relative
+                        z-10
+                        text-gray-700
+                        group-hover:text-white
+                        transition-colors
+                        duration-300
+                      "
+                    />
+
+                    {/* Small Arrow */}
+                    <ArrowUpRightIcon
+                      size={14}
+                      className="
+                        absolute
+                        top-2
+                        right-2
+                        text-gray-400
+                        opacity-0
+                        group-hover:opacity-100
+                        group-hover:text-white
+                        transition-all
+                        duration-300
+                      "
+                    />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-gray-200 my-10"></div>
+
+          {/* Bottom Footer */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center">
+            <p className="text-gray-500 text-sm">
+              © {currentYear} Gula Khan Hamdard. All rights reserved.
+            </p>
+
+            <p className="flex items-center gap-2 text-sm text-gray-500">
+              Built with
+              <HeartIcon size={18} weight="fill" className="text-red-500" />
+              for education in Afghanistan
+            </p>
           </div>
         </div>
       </div>

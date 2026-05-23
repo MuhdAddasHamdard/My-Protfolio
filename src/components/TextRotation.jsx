@@ -1,7 +1,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const words = ["Web Developer", "Educator", "Creative", "Intelligent"];
+const words = [
+  "Frontend Developer",
+  "UI/UX Designer",
+  "Educator",
+  "Creative Thinker",
+  "React Developer",
+];
 
 export default function RotatingText() {
   const [index, setIndex] = useState(0);
@@ -9,24 +15,89 @@ export default function RotatingText() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % words.length);
-    }, 3200); // change every 3.2s
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="h-[40px] mt-5 m-0 overflow-hidden">
+    <div className="relative flex items-center justify-center lg:justify-start h-14 overflow-hidden">
+      {/* Glow Background */}
+      <div
+        className="
+          absolute
+          inset-0
+          bg-gray-100
+          blur-2xl
+          opacity-70
+          rounded-full
+        "
+      ></div>
+
+      {/* Rotating Text */}
       <AnimatePresence mode="wait">
-        <motion.span
+        <motion.div
           key={words[index]}
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -20, opacity: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="block text-primary font-semibold"
+          initial={{
+            opacity: 0,
+            y: 30,
+            filter: "blur(8px)",
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+          }}
+          exit={{
+            opacity: 0,
+            y: -30,
+            filter: "blur(8px)",
+          }}
+          transition={{
+            duration: 0.6,
+            ease: "easeOut",
+          }}
+          className="
+            relative
+            inline-flex
+            items-center
+            gap-3
+            px-6
+            py-3
+            rounded-2xl
+            border
+            border-gray-200
+            bg-white/80
+            backdrop-blur-xl
+            shadow-lg
+          "
         >
-          {words[index]}
-        </motion.span>
+          {/* Animated Dot */}
+          <motion.div
+            animate={{
+              scale: [1, 1.4, 1],
+              opacity: [1, 0.6, 1],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 2,
+            }}
+            className="w-3 h-3 rounded-full bg-green-500"
+          />
+
+          {/* Text */}
+          <span
+            className="
+              text-base
+              md:text-lg
+              font-semibold
+              tracking-wide
+              text-gray-800
+            "
+          >
+            {words[index]}
+          </span>
+        </motion.div>
       </AnimatePresence>
     </div>
   );
