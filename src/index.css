@@ -32,3 +32,41 @@ textarea:focus-visible {
   outline: 3px solid #111827;
   outline-offset: 3px;
 }
+
+.skills-marquee-left {
+  animation: skills-drift-left 7s ease-in-out infinite alternate;
+}
+
+.skills-marquee-right {
+  animation: skills-drift-right 7s ease-in-out infinite alternate;
+}
+
+.skills-marquee-wrap:hover .skills-marquee-left,
+.skills-marquee-wrap:hover .skills-marquee-right {
+  animation-play-state: paused;
+}
+
+@keyframes skills-drift-left {
+  from {
+    transform: translateX(18px);
+  }
+  to {
+    transform: translateX(-18px);
+  }
+}
+
+@keyframes skills-drift-right {
+  from {
+    transform: translateX(-18px);
+  }
+  to {
+    transform: translateX(18px);
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-marquee-left,
+  .skills-marquee-right {
+    animation: none;
+  }
+}
