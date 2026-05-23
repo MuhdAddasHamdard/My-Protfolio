@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
+const MotionDiv = motion.div;
+
 const words = [
   "Frontend Developer",
   "UI/UX Designer",
@@ -36,7 +38,7 @@ export default function RotatingText() {
 
       {/* Rotating Text */}
       <AnimatePresence mode="wait">
-        <motion.div
+        <MotionDiv
           key={words[index]}
           initial={{
             opacity: 0,
@@ -73,7 +75,7 @@ export default function RotatingText() {
           "
         >
           {/* Animated Dot */}
-          <motion.div
+          <MotionDiv
             animate={{
               scale: [1, 1.4, 1],
               opacity: [1, 0.6, 1],
@@ -97,7 +99,7 @@ export default function RotatingText() {
           >
             {words[index]}
           </span>
-        </motion.div>
+        </MotionDiv>
       </AnimatePresence>
     </div>
   );

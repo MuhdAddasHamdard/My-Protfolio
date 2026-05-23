@@ -82,6 +82,30 @@ export const portfolioData = {
           "Introduced project-based learning methodologies",
         ],
       },
+      {
+        institution: "Upskill Learning Academy",
+        role: "Frontend Development Mentor",
+        period: "January 2024 - June 2024",
+        description:
+          "Guided beginner developers through HTML, CSS, JavaScript, React, and responsive interface building with hands-on weekly projects.",
+        achievements: [
+          "Helped students build portfolio-ready frontend projects",
+          "Reviewed code and improved student understanding of reusable components",
+          "Supported learners with practical debugging and deployment practice",
+        ],
+      },
+      {
+        institution: "Community Tech Workshops",
+        role: "Programming Workshop Trainer",
+        period: "September 2023 - December 2023",
+        description:
+          "Led practical web development workshops focused on foundational programming skills, teamwork, and real-world problem solving.",
+        achievements: [
+          "Delivered beginner-friendly sessions on web fundamentals",
+          "Created exercises for JavaScript logic and responsive layouts",
+          "Encouraged project-based learning for first-time developers",
+        ],
+      },
     ],
 
     impact: {

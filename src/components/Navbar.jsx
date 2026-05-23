@@ -3,6 +3,9 @@ import { ListIcon, XIcon, ArrowUpRightIcon } from "@phosphor-icons/react";
 
 import { motion, AnimatePresence } from "framer-motion";
 
+const MotionDiv = motion.div;
+const MotionButton = motion.button;
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -202,7 +205,7 @@ const Navbar = () => {
           {isMobileMenuOpen && (
             <>
               {/* Overlay */}
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
@@ -218,7 +221,7 @@ const Navbar = () => {
               />
 
               {/* Menu */}
-              <motion.div
+              <MotionDiv
                 variants={menuVariants}
                 initial="hidden"
                 animate="visible"
@@ -241,7 +244,7 @@ const Navbar = () => {
               >
                 <div className="flex flex-col p-4">
                   {navLinks.map((link) => (
-                    <motion.button
+                    <MotionButton
                       key={link.id}
                       variants={itemVariants}
                       onClick={() => scrollToSection(link.id)}
@@ -259,7 +262,7 @@ const Navbar = () => {
                       "
                     >
                       {link.label}
-                    </motion.button>
+                    </MotionButton>
                   ))}
 
                   {/* Mobile CTA */}
@@ -283,7 +286,7 @@ const Navbar = () => {
                     <ArrowUpRightIcon size={18} />
                   </button>
                 </div>
-              </motion.div>
+              </MotionDiv>
             </>
           )}
         </AnimatePresence>

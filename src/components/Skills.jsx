@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import skills from "../skills";
 
+const MotionDiv = motion.div;
+
 const Skills = () => {
   return (
     <section id="skills" className="relative overflow-hidden py-24 bg-white">
@@ -38,7 +40,7 @@ const Skills = () => {
           {/* Right Fade */}
           <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-20"></div>
 
-          <motion.div
+          <MotionDiv
             className="flex gap-8 w-max"
             animate={{ x: ["0%", "-50%"] }}
             transition={{
@@ -110,7 +112,7 @@ const Skills = () => {
                 </div>
               );
             })}
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
     </section>
