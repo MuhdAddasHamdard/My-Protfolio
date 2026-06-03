@@ -81,21 +81,7 @@ const Navbar = () => {
   return (
     <>
       <header
-        className={`
-          fixed
-          top-3
-          left-3
-          right-3
-          sm:top-4
-          sm:left-4
-          sm:right-4
-          lg:left-10
-          lg:right-10
-          z-50
-          transition-all
-          duration-300
-          rounded-2xl
-          border
+        className={` fixed top-3 left-3 right-3 sm:top-4 sm:left-4 sm:right-4 lg:left-10 lg:right-10 z-50 transition-all duration-300 rounded-2xl border
           ${
             isScrolled
               ? "bg-white/80 backdrop-blur-xl border-gray-200 shadow-xl"
@@ -113,14 +99,7 @@ const Navbar = () => {
                   behavior: "smooth",
                 })
               }
-              className="
-                text-xl
-                sm:text-2xl
-                font-black
-                tracking-tight
-                text-gray-900
-                hover:opacity-80
-                transition
+              className=" text-2xl sm:text-3xl font-black tracking-tight text-gray-900 hover:opacity-80 transition
               "
             >
               GKH
@@ -132,17 +111,7 @@ const Navbar = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="
-                    relative
-                    px-5
-                    py-2.5
-                    rounded-xl
-                    text-gray-700
-                    hover:text-black
-                    hover:bg-gray-100
-                    font-medium
-                    transition-all
-                    duration-300
+                  className="relative px-5 py-2.5 rounded-xl text-gray-700 hover:text-black hover:bg-gray-100 font-medium text-2xl transition-all duration-300
                   "
                 >
                   {link.label}
@@ -155,22 +124,7 @@ const Navbar = () => {
               {/* CTA Button */}
               <button
                 onClick={() => scrollToSection("contact")}
-                className="
-                  hidden
-                  lg:inline-flex
-                  items-center
-                  gap-2
-                  px-5
-                  py-3
-                  bg-gray-900
-                  hover:bg-black
-                  text-white
-                  rounded-xl
-                  font-medium
-                  transition-all
-                  duration-300
-                  hover:scale-105
-                  shadow-lg
+                className="hidden lg:inline-flex items-center gap-2 px-5 py-3 bg-gray-900 hover:bg-black text-white rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg
                 "
               >
                 Let's Talk
@@ -182,22 +136,13 @@ const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMobileMenuOpen}
-                className="
-                  lg:hidden
-                  w-11
-                  h-11
-                  rounded-xl
-                  bg-gray-100
-                  flex
-                  items-center
-                  justify-center
-                  text-gray-900
+                className="lg:hidden w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-900
                 "
               >
                 {isMobileMenuOpen ? (
-                  <XIcon size={22} weight="bold" />
+                  <XIcon size={40} weight="bold" />
                 ) : (
-                  <ListIcon size={22} weight="bold" />
+                  <ListIcon size={40} weight="bold" />
                 )}
               </button>
             </div>
