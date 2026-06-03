@@ -99,7 +99,7 @@ const Navbar = () => {
                   behavior: "smooth",
                 })
               }
-              className=" text-2xl sm:text-3xl font-black tracking-tight text-gray-900 hover:opacity-80 transition
+              className=" text-4xl sm:text-6xl font-black tracking-tight text-gray-900 hover:opacity-80 transition
               "
             >
               GKH
