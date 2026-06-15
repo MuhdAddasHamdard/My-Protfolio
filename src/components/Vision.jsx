@@ -7,7 +7,10 @@ const Vision = () => {
   const { vision } = portfolioData;
 
   return (
-    <section id="vision" className="relative overflow-hidden py-16 md:py-20 bg-white">
+    <section
+      id="vision"
+      className="relative overflow-hidden py-16 md:py-20 bg-white"
+    >
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
 
@@ -17,7 +20,7 @@ const Vision = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12 md:mb-16">
-            <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
+            <span className="uppercase tracking-[0.2em]  text-gray-500 font-semibold">
               Future Goals
             </span>
 
@@ -25,7 +28,7 @@ const Vision = () => {
               Vision & Impact
             </h2>
 
-            <p className="max-w-2xl mx-auto mt-6 text-lg text-gray-600 leading-relaxed">
+            <p className="max-w-2xl mx-auto mt-6 text-2xl text-gray-600 leading-relaxed">
               A mission focused on education, innovation, and empowering the
               next generation through technology.
             </p>
@@ -95,8 +98,8 @@ const Vision = () => {
               {/* Statement */}
               <p
                 className="
-                  text-lg
-                  md:text-xl
+                  text-2xl
+               
                   text-gray-300
                   leading-relaxed
                   max-w-4xl
@@ -211,6 +214,7 @@ const Vision = () => {
                       group-hover:text-gray-300
                       transition-colors
                       duration-500
+                      text-2xl
                     "
                   >
                     {goal.description}

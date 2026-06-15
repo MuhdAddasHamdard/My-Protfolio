@@ -27,7 +27,9 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const subject = encodeURIComponent(`Portfolio message from ${formData.name}`);
+    const subject = encodeURIComponent(
+      `Portfolio message from ${formData.name}`,
+    );
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`,
     );
@@ -43,7 +45,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-16 md:py-20 bg-white">
+    <section
+      id="contact"
+      className="relative overflow-hidden py-16 md:py-20 bg-white"
+    >
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
@@ -60,7 +65,7 @@ const Contact = () => {
               Get in Touch
             </h2>
 
-            <p className="max-w-2xl mx-auto mt-6 text-lg text-gray-600 leading-relaxed">
+            <p className="max-w-2xl mx-auto mt-6 text-2xl text-gray-600 leading-relaxed">
               {contact.availability}
             </p>
 
@@ -80,7 +85,7 @@ const Contact = () => {
                     Let's Build Something Amazing Together
                   </h3>
 
-                  <p className="text-gray-600 leading-relaxed mb-8">
+                  <p className="text-gray-600 text-2xl leading-relaxed mb-8">
                     Feel free to contact me for collaborations, freelance
                     projects, or just to say hello. I'm always open to
                     discussing new ideas and opportunities.
@@ -100,12 +105,10 @@ const Contact = () => {
                       </div>
 
                       <div>
-                        <h4 className="font-semibold text-gray-900">
+                        <h4 className="font-bold text-xl text-gray-900">
                           Email Me
                         </h4>
-                        <p className="text-gray-500 text-sm">
-                          {contact.email}
-                        </p>
+                        <p className="text-gray-500 text-xl">{contact.email}</p>
                       </div>
                     </a>
 
@@ -120,10 +123,10 @@ const Contact = () => {
                       </div>
 
                       <div>
-                        <h4 className="font-semibold text-gray-900">
+                        <h4 className="font-bold text-xl text-gray-900">
                           WhatsApp
                         </h4>
-                        <p className="break-all text-sm text-gray-500">
+                        <p className="break-all text-xl text-gray-500">
                           Fastest way to reach me
                         </p>
                       </div>
@@ -134,10 +137,10 @@ const Contact = () => {
                         <UserIcon size={22} className="text-gray-800" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900">
+                        <h4 className="font-bold text-xl text-gray-900">
                           Availability
                         </h4>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-xl text-gray-500">
                           Open for freelance projects
                         </p>
                       </div>
@@ -149,7 +152,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name */}
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-700">
+                    <label className="block mb-2 text-xl font-medium text-gray-700">
                       Your Name
                     </label>
 
@@ -168,6 +171,7 @@ const Contact = () => {
                         border
                         border-gray-200
                         bg-gray-50
+                        text-xl
                         text-gray-900
                         placeholder:text-gray-400
                         focus:border-gray-900
@@ -181,7 +185,7 @@ const Contact = () => {
 
                   {/* Email */}
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-700">
+                    <label className="block mb-2 text-xl font-medium text-gray-700">
                       Your Email
                     </label>
 
@@ -200,6 +204,7 @@ const Contact = () => {
                         border
                         border-gray-200
                         bg-gray-50
+                        text-xl
                         text-gray-900
                         placeholder:text-gray-400
                         focus:border-gray-900
@@ -213,7 +218,7 @@ const Contact = () => {
 
                   {/* Message */}
                   <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-700">
+                    <label className="block mb-2 text-xl font-medium text-gray-700">
                       Message
                     </label>
 
@@ -232,6 +237,7 @@ const Contact = () => {
                         border
                         border-gray-200
                         bg-gray-50
+                        text-xl
                         text-gray-900
                         placeholder:text-gray-400
                         focus:border-gray-900
@@ -259,6 +265,7 @@ const Contact = () => {
                       bg-gray-900
                       hover:bg-black
                       text-white
+                      text-xl
                       font-semibold
                       rounded-2xl
                       transition-all

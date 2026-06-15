@@ -52,7 +52,7 @@ const Footer = () => {
                 Gula Khan Hamdard
               </h2>
 
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 text-xl lg:text-lg leading-relaxed">
                 Frontend Developer & Educator passionate about building modern,
                 responsive, and user-friendly digital experiences.
               </p>
@@ -146,13 +146,13 @@ const Footer = () => {
 
           {/* Bottom Footer */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center">
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-500 text-lg">
               © {currentYear} Gula Khan Hamdard. All rights reserved.
             </p>
 
-            <p className="flex items-center gap-2 text-sm text-gray-500">
+            <p className="flex items-center gap-2 text-lg  text-gray-500">
               Built with
-              <HeartIcon size={18} weight="fill" className="text-red-500" />
+              <HeartIcon size={30} weight="fill" className="text-red-500" />
               for education in Afghanistan
             </p>
           </div>
