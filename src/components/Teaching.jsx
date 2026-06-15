@@ -106,15 +106,15 @@ const Teaching = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <header className="text-center mb-12 md:mb-16">
-            <span className="uppercase text-xl tracking-[0.2em]  text-gray-500 font-semibold">
+            <span className="text-base font-semibold uppercase tracking-[0.2em] text-gray-500">
               Education Journey
             </span>
 
-            <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-black text-gray-900">
+            <h2 className="mt-4 text-4xl font-black text-gray-900 md:text-5xl lg:text-6xl">
               Education & Teaching
             </h2>
 
-            <p className="max-w-2xl mx-auto mt-6 text-2xl text-gray-600 leading-relaxed">
+            <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-gray-600 sm:text-2xl lg:text-3xl">
               Empowering future developers through modern education, mentorship,
               and practical learning experiences.
             </p>
@@ -123,7 +123,7 @@ const Teaching = () => {
           </header>
 
           {/* Stats */}
-          <div className="grid lg:grid-cols-4 text-2xl gap-6 mb-12 md:mb-16">
+          <div className="mb-12 grid gap-6 md:mb-16 lg:grid-cols-4">
             {impactStats.map((stat, index) => {
               const Icon = stat.icon;
 
@@ -211,6 +211,7 @@ const Teaching = () => {
                     {/* Title */}
                     <p
                       className="
+                        text-xl
                         text-gray-600
                         font-medium
                         group-hover:text-gray-300
@@ -308,7 +309,9 @@ const Teaching = () => {
                       border
                       border-gray-200
                       rounded-[2rem]
-                      p-8
+                      p-6
+                      sm:p-7
+                      lg:p-6
                       shadow-lg
                       hover:shadow-2xl
                       hover:-translate-y-2
@@ -321,11 +324,11 @@ const Teaching = () => {
                     {/* Top */}
                     <div className="relative flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-6">
                       <div>
-                        <h3 className="text-3xl font-bold text-gray-900 mb-3">
+                        <h3 className="mb-4 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-2xl">
                           {exp.role}
                         </h3>
 
-                        <p className="text-lg font-semibold text-gray-600">
+                        <p className="text-xl font-semibold leading-relaxed text-gray-600 sm:text-2xl lg:text-lg">
                           {exp.institution}
                         </p>
                       </div>
@@ -341,8 +344,11 @@ const Teaching = () => {
                           rounded-2xl
                           bg-gray-100
                           text-gray-700
+                          text-lg
                           font-medium
                           whitespace-nowrap
+                          sm:text-xl
+                          lg:text-base
                         "
                       >
                         {exp.period}
@@ -350,13 +356,13 @@ const Teaching = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="relative text-gray-600 leading-relaxed mb-8">
+                    <p className="relative mb-8 text-xl leading-relaxed text-gray-600 sm:text-2xl lg:text-lg">
                       {exp.description}
                     </p>
 
                     {/* Achievements */}
                     <div className="relative">
-                      <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-gray-500 mb-5">
+                      <h4 className="mb-5 text-base font-bold uppercase tracking-[0.2em] text-gray-500 lg:text-sm">
                         Key Achievements
                       </h4>
 
@@ -402,7 +408,7 @@ const Teaching = () => {
                             </div>
 
                             {/* Text */}
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-xl leading-relaxed text-gray-600 sm:text-2xl lg:text-base">
                               {achievement}
                             </p>
                           </MotionDiv>
