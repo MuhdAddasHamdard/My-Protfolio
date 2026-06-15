@@ -106,7 +106,7 @@ const Teaching = () => {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <header className="text-center mb-12 md:mb-16">
-            <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
+            <span className="uppercase text-xl tracking-[0.2em]  text-gray-500 font-semibold">
               Education Journey
             </span>
 
@@ -114,7 +114,7 @@ const Teaching = () => {
               Education & Teaching
             </h2>
 
-            <p className="max-w-2xl mx-auto mt-6 text-lg text-gray-600 leading-relaxed">
+            <p className="max-w-2xl mx-auto mt-6 text-2xl text-gray-600 leading-relaxed">
               Empowering future developers through modern education, mentorship,
               and practical learning experiences.
             </p>
@@ -123,7 +123,7 @@ const Teaching = () => {
           </header>
 
           {/* Stats */}
-          <div className="grid lg:grid-cols-4 gap-6 mb-12 md:mb-16">
+          <div className="grid lg:grid-cols-4 text-2xl gap-6 mb-12 md:mb-16">
             {impactStats.map((stat, index) => {
               const Icon = stat.icon;
 
@@ -178,7 +178,7 @@ const Teaching = () => {
                       "
                     >
                       <Icon
-                        size={34}
+                        size={40}
                         weight="regular"
                         className="
                           text-gray-800

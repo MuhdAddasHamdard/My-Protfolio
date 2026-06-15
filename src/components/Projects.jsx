@@ -65,7 +65,7 @@ const Projects = () => {
               Featured Projects
             </h2>
 
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
+            <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-gray-600 text-xl">
               A collection of modern, responsive, and impactful projects built
               with clean UI and smooth user experience.
             </p>

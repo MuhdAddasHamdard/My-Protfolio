@@ -6,7 +6,10 @@ const About = () => {
   const { about } = portfolioData;
 
   return (
-    <section id="about" className="relative overflow-hidden py-16 md:py-20 bg-white">
+    <section
+      id="about"
+      className="relative text-3xl overflow-hidden py-16 md:py-20 bg-white"
+    >
       {/* Soft Background Blurs */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
@@ -14,16 +17,16 @@ const About = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12 md:mb-16">
-            <span className="text-gray-500 uppercase tracking-[0.2em] text-sm font-semibold">
+          <div className="text-center text-3xl mb-12 md:mb-16">
+            <span className="text-gray-500 uppercase text-lg tracking-[0.2em]  font-semibold">
               Get To Know Me
             </span>
 
-            <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+            <h2 className="mt-4 text-5xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
               About Me
             </h2>
 
-            <p className="max-w-2xl mx-auto mt-6 text-gray-600 text-lg leading-relaxed">
+            <p className="max-w-2xl mx-auto mt-6 text-gray-600 text-3xl leading-relaxed">
               Passionate about creating modern, responsive, and user-friendly
               web experiences with clean UI and smooth UX.
             </p>
@@ -49,13 +52,11 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
 
                 {/* Floating Badge */}
-                <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md border border-gray-200 px-5 py-3 rounded-xl shadow-lg">
+                <div className="absolute bottom-6 text-3xl left-6 bg-white/90 backdrop-blur-md border border-gray-200 px-5 py-3 rounded-xl shadow-lg">
                   <p className="text-gray-900 font-semibold">
                     Frontend Developer
                   </p>
-                  <p className="text-sm text-gray-500">
-                    React / Tailwind / UI/UX
-                  </p>
+                  <p className="text-gray-500">React / Tailwind / UI/UX</p>
                 </div>
               </div>
             </div>
@@ -69,7 +70,7 @@ const About = () => {
                   Experiences
                 </h3>
 
-                <p className="text-gray-600 leading-relaxed text-lg mb-8">
+                <p className="text-gray-600 leading-relaxed text-2xl mb-8">
                   {about.story}
                 </p>
 
@@ -79,7 +80,7 @@ const About = () => {
                     <h4 className="text-gray-900 font-semibold mb-2">
                       Clean Code
                     </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-600 text-lg ">
                       Writing scalable and maintainable modern frontend code.
                     </p>
                   </div>
@@ -88,7 +89,7 @@ const About = () => {
                     <h4 className="text-gray-900 font-semibold mb-2">
                       Responsive UI
                     </h4>
-                    <p className="text-gray-600 text-sm">
+                    <p className="text-gray-600 text-lg">
                       Creating beautiful layouts for all screen sizes.
                     </p>
                   </div>

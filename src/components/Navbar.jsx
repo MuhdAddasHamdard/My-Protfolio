@@ -99,7 +99,7 @@ const Navbar = () => {
                   behavior: "smooth",
                 })
               }
-              className=" text-4xl sm:text-6xl font-black tracking-tight text-gray-900 hover:opacity-80 transition
+              className=" text-3xl font-black tracking-tight text-gray-900 hover:opacity-80 transition
               "
             >
               GKH
@@ -111,7 +111,7 @@ const Navbar = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="relative px-5 py-2.5 rounded-xl text-gray-700 hover:text-black hover:bg-gray-100 font-medium text-2xl transition-all duration-300
+                  className="relative px-5 py-2.5 rounded-xl text-gray-700 hover:text-black hover:bg-gray-100 font-medium text-xl transition-all duration-300
                   "
                 >
                   {link.label}

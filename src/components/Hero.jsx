@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowRight, DownloadSimpleIcon } from "@phosphor-icons/react";
 import { portfolioData } from "../mock";
 import RotatingText from "./TextRotation";
+import cv from "./../assets/Gula Khan Hamdard-Web Developer CV.pdf";
 
 const Hero = () => {
   const { hero } = portfolioData;
@@ -66,8 +67,7 @@ const Hero = () => {
             {/* Description */}
             <p
               className="
-                text-lg
-                md:text-xl
+                text-3xl
                 text-gray-600
                 leading-relaxed
                 max-w-2xl
@@ -87,6 +87,7 @@ const Hero = () => {
                   inline-flex
                   items-center
                   gap-3
+                  text-2xl
                   px-8
                   py-4
                   bg-gray-900
@@ -103,7 +104,7 @@ const Hero = () => {
                 {hero.cta}
 
                 <ArrowRight
-                  size={20}
+                  size={30}
                   className="group-hover:translate-x-1 transition"
                 />
               </button>
@@ -116,6 +117,7 @@ const Hero = () => {
                   items-center
                   justify-center
                   px-8
+                  text-2xl
                   py-4
                   border
                   border-gray-300
@@ -133,7 +135,7 @@ const Hero = () => {
               </a>
 
               <a
-                href="/gula-khan-hamdard-cv.txt"
+                href={cv}
                 download
                 className="
                   inline-flex
@@ -141,6 +143,8 @@ const Hero = () => {
                   justify-center
                   gap-3
                   px-8
+                  text-2xl
+
                   py-4
                   border
                   border-gray-300
@@ -155,13 +159,13 @@ const Hero = () => {
                 "
               >
                 Download CV
-                <DownloadSimpleIcon size={20} />
+                <DownloadSimpleIcon size={30} />
               </a>
             </div>
           </div>
 
           {/* Right Side */}
-          <div className="relative hidden lg:flex justify-center">
+          <div className="relative text-3xl hidden lg:flex justify-center">
             {/* Glow */}
             <div className="absolute w-[450px] h-[450px] bg-gray-200 rounded-full blur-3xl opacity-60"></div>
 

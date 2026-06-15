@@ -63,7 +63,7 @@ const Skills = () => {
       <div className="relative z-10">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16 px-6">
-          <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
+          <span className="uppercase tracking-[0.2em]  text-gray-500 font-semibold">
             My Expertise
           </span>
 
@@ -71,7 +71,7 @@ const Skills = () => {
             Skills & Technologies
           </h2>
 
-          <p className="max-w-2xl mx-auto mt-6 text-lg text-gray-600 leading-relaxed">
+          <p className="max-w-2xl mx-auto mt-6 text-2xl text-gray-600 leading-relaxed">
             Technologies and tools I use to build modern, responsive, and
             high-performance web applications.
           </p>

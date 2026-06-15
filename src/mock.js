@@ -25,38 +25,14 @@ export const portfolioData = {
       description:
         "A responsive e-commerce storefront with product browsing, modern UI patterns, and a smooth shopping experience.",
       tech: ["React", "Tailwind CSS", "Vercel"],
-      impact: "Designed a clean shopping flow with fast product discovery, reusable UI cards, and a deployment-ready frontend.",
+      impact:
+        "Designed a clean shopping flow with fast product discovery, reusable UI cards, and a deployment-ready frontend.",
       role: "Frontend development, responsive UI, product layout, and deployment.",
       features: ["Product grid", "Responsive layout", "Modern shopping UI"],
     },
-    {
-      id: 2,
-      title: "Monks Hub",
-      link: "",
-      image: "/monkshub.png",
-      github: "",
-      description:
-        "A polished brand and content website concept focused on clear presentation, responsive layout, and simple navigation.",
-      tech: ["React", "Tailwind CSS", "UI Design"],
-      impact: "Created a focused digital presence that makes brand information easier to scan and navigate.",
-      role: "Landing page structure, visual design, and frontend implementation.",
-      features: ["Brand presentation", "Responsive sections", "Clean navigation"],
-    },
+
     {
       id: 3,
-      title: "Certificates.dev",
-      link: "",
-      image: "/certificates.dev.png",
-      github: "",
-      description:
-        "A certificate-focused platform concept for presenting credentials with a clean, trustworthy user interface.",
-      tech: ["React", "JavaScript", "Tailwind CSS"],
-      impact: "Built a credible interface concept for highlighting certificates and learning achievements.",
-      role: "Interface design, component layout, and frontend polish.",
-      features: ["Certificate cards", "Trust-focused UI", "Accessible layout"],
-    },
-    {
-      id: 4,
       title: "Upskill Learning Academy",
       link: "https://upskillacademy.tech/",
       image: "/upskill.png",
@@ -64,12 +40,17 @@ export const portfolioData = {
       description:
         "An education website for showcasing courses, programs, and learning opportunities for students.",
       tech: ["React", "Education", "Responsive UI"],
-      impact: "Improved course presentation with a clear learning-focused layout and stronger calls to action.",
+      impact:
+        "Improved course presentation with a clear learning-focused layout and stronger calls to action.",
       role: "Frontend development, education content layout, and responsive design.",
-      features: ["Course showcase", "Student-focused content", "Mobile-friendly pages"],
+      features: [
+        "Course showcase",
+        "Student-focused content",
+        "Mobile-friendly pages",
+      ],
     },
     {
-      id: 5,
+      id: 4,
       title: "CEO Club Afghanistan",
       link: "https://ceo-club-afghanistan1.vercel.app/",
       image: "/ceo club afg.png",
@@ -77,9 +58,14 @@ export const portfolioData = {
       description:
         "A professional community website designed to present members, events, and organization information clearly.",
       tech: ["React", "Tailwind CSS", "Vercel"],
-      impact: "Created a professional web presence for a business community with clear information architecture.",
+      impact:
+        "Created a professional web presence for a business community with clear information architecture.",
       role: "UI implementation, visual polish, and deployment support.",
-      features: ["Organization profile", "Event-ready layout", "Professional branding"],
+      features: [
+        "Organization profile",
+        "Event-ready layout",
+        "Professional branding",
+      ],
     },
   ],
 
@@ -109,43 +95,32 @@ export const portfolioData = {
       {
         institution: "Upskill Learning Center",
         role: "Web Development Instructor",
-        period: "July 2024 - Present",
+        period: "July 2023 - Present",
         description:
-          "Teaching full-stack web development to university students, covering modern JavaScript frameworks, databases, and deployment strategies.",
+          "Teaching front-end and full-stack web development to university students, covering HTML, CSS, JavaScript, React, Bootstrap, Tailwind CSS, databases, and deployment strategies.",
         achievements: [
-          "Developed comprehensive curriculum for web development program",
-          "Mentored 150+ students, with 85% placement rate",
-          "Introduced project-based learning methodologies",
+          "Developed a comprehensive curriculum for the web development program",
+          "Mentored 500+ students with a strong focus on practical skills and career readiness",
+          "Introduced project-based learning methodologies to enhance student engagement",
         ],
       },
+
       {
-        institution: "Upskill Learning Academy",
-        role: "Frontend Development Mentor",
-        period: "January 2024 - June 2024",
+        institution: "Ulearna",
+        role: "English Trainer",
+        period: "November 2022 - June 2024",
         description:
-          "Guided beginner developers through HTML, CSS, JavaScript, React, and responsive interface building with hands-on weekly projects.",
+          "Delivered English language training to learners of different proficiency levels, focusing on communication skills, grammar, vocabulary development, and confidence building.",
         achievements: [
-          "Helped students build portfolio-ready frontend projects",
-          "Reviewed code and improved student understanding of reusable components",
-          "Supported learners with practical debugging and deployment practice",
-        ],
-      },
-      {
-        institution: "Community Tech Workshops",
-        role: "Programming Workshop Trainer",
-        period: "September 2023 - December 2023",
-        description:
-          "Led practical web development workshops focused on foundational programming skills, teamwork, and real-world problem solving.",
-        achievements: [
-          "Delivered beginner-friendly sessions on web fundamentals",
-          "Created exercises for JavaScript logic and responsive layouts",
-          "Encouraged project-based learning for first-time developers",
+          "Designed interactive lesson plans tailored to students' learning needs",
+          "Improved students' speaking, listening, reading, and writing abilities through practical activities",
+          "Created a supportive classroom environment that encouraged active participation and confidence in using English",
         ],
       },
     ],
 
     impact: {
-      studentsReached: "150+",
+      studentsReached: "500+",
       coursesCreated: "10+",
       hoursOfInstruction: "2000+",
       placementRate: "85%",
