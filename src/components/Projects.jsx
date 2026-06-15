@@ -57,7 +57,7 @@ const Projects = () => {
         <div className="mx-auto max-w-7xl">
           {/* Header */}
           <header className="mb-12 text-center md:mb-16">
-            <span className="text-base font-semibold uppercase tracking-[0.2em] text-gray-500 sm:text-sm">
+            <span className="text-base font-semibold uppercase tracking-[0.2em] text-gray-500">
               My Work
             </span>
 
@@ -218,15 +218,15 @@ const Projects = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-4 sm:p-6">
+                <div className="p-6 sm:p-7 lg:p-6">
                   {/* Title */}
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="mb-3 text-xl font-bold text-gray-900 sm:text-2xl">
+                      <h3 className="mb-4 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-2xl">
                         {project.title}
                       </h3>
 
-                      <p className="text-base leading-relaxed text-gray-600 sm:text-lg">
+                      <p className="text-xl leading-relaxed text-gray-600 sm:text-2xl lg:text-lg">
                         {project.description ||
                           "Modern responsive project with clean design and user-friendly experience."}
                       </p>
@@ -256,12 +256,12 @@ const Projects = () => {
 
                   {/* Impact */}
                   {project.impact && (
-                    <div className="mt-5 rounded-2xl border border-gray-200 bg-gray-50 p-4">
-                      <p className="text-sm font-bold uppercase tracking-[0.18em] text-gray-500">
+                    <div className="mt-6 rounded-2xl border border-gray-200 bg-gray-50 p-5 lg:p-4">
+                      <p className="text-base font-bold uppercase tracking-[0.18em] text-gray-500 lg:text-sm">
                         Impact
                       </p>
 
-                      <p className="mt-2 text-base leading-relaxed text-gray-700">
+                      <p className="mt-2 text-xl leading-relaxed text-gray-700 lg:text-base">
                         {project.impact}
                       </p>
                     </div>
@@ -279,10 +279,11 @@ const Projects = () => {
                             bg-gray-100
                             px-3
                             py-1
-                            text-sm
+                            text-lg
                             font-medium
                             text-gray-700
-                            sm:text-base
+                            sm:text-xl
+                            lg:text-sm
                           "
                         >
                           {tech}
@@ -304,7 +305,7 @@ const Projects = () => {
                           bg-gray-900
                           px-4
                           py-3
-                          text-base
+                          text-xl
                           font-semibold
                           text-white
                         "
