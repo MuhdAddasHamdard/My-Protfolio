@@ -25,7 +25,7 @@ const Testimonials = () => {
             <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-gray-900"></div>
           </header>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
             {testimonials.map((item) => (
               <article
                 key={item.name}
