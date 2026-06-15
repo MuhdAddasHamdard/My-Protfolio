@@ -57,7 +57,7 @@ const Projects = () => {
         <div className="mx-auto max-w-7xl">
           {/* Header */}
           <header className="mb-12 text-center md:mb-16">
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
+            <span className="text-base font-semibold uppercase tracking-[0.2em] text-gray-500 sm:text-sm">
               My Work
             </span>
 
@@ -65,7 +65,7 @@ const Projects = () => {
               Featured Projects
             </h2>
 
-            <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-gray-600 text-xl">
+            <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-gray-600 sm:text-2xl lg:text-3xl">
               A collection of modern, responsive, and impactful projects built
               with clean UI and smooth user experience.
             </p>
@@ -211,7 +211,7 @@ const Projects = () => {
                       backdrop-blur-md
                     "
                   >
-                    <p className="text-xs font-semibold text-gray-800 sm:text-sm">
+                    <p className="text-sm font-semibold text-gray-800">
                       Featured Project
                     </p>
                   </div>
@@ -226,7 +226,7 @@ const Projects = () => {
                         {project.title}
                       </h3>
 
-                      <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
+                      <p className="text-base leading-relaxed text-gray-600 sm:text-lg">
                         {project.description ||
                           "Modern responsive project with clean design and user-friendly experience."}
                       </p>
@@ -257,11 +257,11 @@ const Projects = () => {
                   {/* Impact */}
                   {project.impact && (
                     <div className="mt-5 rounded-2xl border border-gray-200 bg-gray-50 p-4">
-                      <p className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">
+                      <p className="text-sm font-bold uppercase tracking-[0.18em] text-gray-500">
                         Impact
                       </p>
 
-                      <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                      <p className="mt-2 text-base leading-relaxed text-gray-700">
                         {project.impact}
                       </p>
                     </div>
@@ -279,10 +279,10 @@ const Projects = () => {
                             bg-gray-100
                             px-3
                             py-1
-                            text-xs
+                            text-sm
                             font-medium
                             text-gray-700
-                            sm:text-sm
+                            sm:text-base
                           "
                         >
                           {tech}
@@ -304,7 +304,7 @@ const Projects = () => {
                           bg-gray-900
                           px-4
                           py-3
-                          text-sm
+                          text-base
                           font-semibold
                           text-white
                         "
@@ -397,7 +397,7 @@ const Projects = () => {
             {/* Modal Header */}
             <div className="mb-6 flex items-start justify-between gap-4">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">
+                <p className="text-base font-semibold uppercase tracking-[0.2em] text-gray-500 sm:text-sm">
                   Project Details
                 </p>
 
@@ -442,7 +442,7 @@ const Projects = () => {
               <div className="rounded-3xl border border-gray-200 bg-gray-50 p-5">
                 <h4 className="font-bold text-gray-900">Role</h4>
 
-                <p className="mt-2 leading-relaxed text-gray-600">
+                <p className="mt-2 text-base leading-relaxed text-gray-600 sm:text-lg">
                   {selectedProject.role}
                 </p>
               </div>
@@ -450,7 +450,7 @@ const Projects = () => {
               <div className="rounded-3xl border border-gray-200 bg-gray-50 p-5">
                 <h4 className="font-bold text-gray-900">Result</h4>
 
-                <p className="mt-2 leading-relaxed text-gray-600">
+                <p className="mt-2 text-base leading-relaxed text-gray-600 sm:text-lg">
                   {selectedProject.impact}
                 </p>
               </div>
@@ -469,7 +469,7 @@ const Projects = () => {
                       bg-gray-100
                       px-4
                       py-2
-                      text-sm
+                      text-base
                       font-medium
                       text-gray-700
                     "
