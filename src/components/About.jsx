@@ -12,7 +12,10 @@ const About = () => {
   const { about } = portfolioData;
 
   return (
-    <section id="about" className="section-pad relative overflow-hidden scroll-mt-28 bg-red-500">
+    <section
+      id="about"
+      className="section-pad relative overflow-hidden scroll-mt-28 bg-navy"
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute -left-48 top-24 h-[460px] w-[460px] rounded-full bg-teal/5 blur-[140px]"
