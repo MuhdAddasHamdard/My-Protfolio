@@ -1,118 +1,140 @@
 import React from "react";
 import { portfolioData } from "../mock";
-import { ArrowRightIcon } from "@phosphor-icons/react";
+import {
+  ArrowRightIcon,
+  CodeIcon,
+  DeviceMobileIcon,
+} from "@phosphor-icons/react";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
 const About = () => {
   const { about } = portfolioData;
 
   return (
-    <section
-      id="about"
-      className="relative text-3xl overflow-hidden py-16 md:py-20 bg-white"
-    >
-      {/* Soft Background Blurs */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
+    <section id="about" className="section-pad relative overflow-hidden scroll-mt-28 bg-red-500">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-48 top-24 h-[460px] w-[460px] rounded-full bg-teal/5 blur-[140px]"
+      />
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center text-3xl mb-12 md:mb-16">
-            <span className="text-gray-500 uppercase text-lg tracking-[0.2em]  font-semibold">
-              Get To Know Me
-            </span>
+      <div className="container-xl relative z-10">
+        <SectionHeading
+          index="01"
+          eyebrow="Get To Know Me"
+          title="About Me"
+          description="Passionate about creating modern, responsive, and user-friendly web experiences with clean UI and smooth UX."
+        />
 
-            <h2 className="mt-4 text-5xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              About Me
-            </h2>
+        <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+          {/* Portrait — integrated, not boxed */}
+          <Reveal className="relative">
+            <div className="relative mx-auto max-w-[520px]">
+              {/* Offset decorative frame */}
+              <div
+                aria-hidden
+                className="absolute -inset-3 rounded-[28px] border border-accent/10 lg:-inset-4"
+              />
 
-            <p className="max-w-2xl mx-auto mt-6 text-gray-600 text-3xl leading-relaxed">
-              Passionate about creating modern, responsive, and user-friendly
-              web experiences with clean UI and smooth UX.
-            </p>
-
-            <div className="w-24 h-1 bg-gray-900 mx-auto rounded-full mt-6"></div>
-          </div>
-
-          {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-14 items-center">
-            {/* Image Side */}
-            <div className="relative group">
-              {/* Decorative Border */}
-              <div className="absolute -inset-1 bg-gray-300 rounded-3xl blur opacity-40 group-hover:opacity-70 transition duration-500"></div>
-
-              <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-xl">
+              <div className="relative overflow-hidden rounded-[24px] border border-line bg-surface shadow-card">
                 <img
                   src="/hero.jpg"
-                  alt="Gula Khan Hamdard"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt="Gula Khan Hamdard — Web Developer & Educator"
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
                 />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                {/* Cinematic tint */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-navy via-navy/15 to-transparent"
+                />
 
-                {/* Floating Badge */}
-                <div className="absolute bottom-6 text-3xl left-6 bg-white/90 backdrop-blur-md border border-gray-200 px-5 py-3 rounded-xl shadow-lg">
-                  <p className="text-gray-900 font-semibold">
-                    Frontend Developer
+                {/* Teal glow accent */}
+                <div
+                  aria-hidden
+                  className="absolute -bottom-24 left-1/2 h-44 w-44 -translate-x-1/2 rounded-full bg-teal/25 blur-3xl"
+                />
+
+                {/* Floating credential chip */}
+                <div className="absolute bottom-5 left-4 right-4 sm:left-5 sm:right-auto">
+                  <div className="inline-flex items-center gap-3 rounded-2xl border border-line bg-navy/80 px-4 py-3 shadow-card backdrop-blur-xl">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal/20 text-accent">
+                      <CodeIcon size={20} weight="fill" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-subtle">
+                        Frontend Developer
+                      </p>
+                      <p className="text-xs text-muted">
+                        React / Tailwind / UI / UX
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Story */}
+          <Reveal delay={0.12}>
+            <div className="card-surface p-7 sm:p-9 lg:p-10">
+              <h3 className="font-display text-2xl font-bold leading-snug tracking-tight text-subtle sm:text-3xl">
+                Building Beautiful,{" "}
+                <span className="font-serif-accent text-gradient-accent">
+                  Functional
+                </span>{" "}
+                Digital Experiences
+              </h3>
+
+              <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
+                {about.story}
+              </p>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                <div className="group rounded-2xl border border-line-soft bg-navy/50 p-6 transition-all duration-300 hover:border-accent/25 hover:bg-navy/70">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-teal/15 text-accent transition-colors duration-300 group-hover:bg-teal/25">
+                    <CodeIcon size={22} weight="fill" />
+                  </div>
+                  <h4 className="text-base font-semibold text-subtle">
+                    Clean Code
+                  </h4>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    Writing scalable and maintainable modern frontend code.
                   </p>
-                  <p className="text-gray-500">React / Tailwind / UI/UX</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Text Side */}
-            <div>
-              <div className="bg-white border border-gray-200 rounded-3xl p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500">
-                <h3 className="text-3xl font-bold text-gray-900 mb-6 leading-tight">
-                  Building Beautiful &
-                  <span className="text-gray-700"> Functional</span> Digital
-                  Experiences
-                </h3>
-
-                <p className="text-gray-600 leading-relaxed text-2xl mb-8">
-                  {about.story}
-                </p>
-
-                {/* Small Info Cards */}
-                <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                  <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 hover:shadow-md transition">
-                    <h4 className="text-gray-900 font-semibold mb-2">
-                      Clean Code
-                    </h4>
-                    <p className="text-gray-600 text-lg ">
-                      Writing scalable and maintainable modern frontend code.
-                    </p>
-                  </div>
-
-                  <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 hover:shadow-md transition">
-                    <h4 className="text-gray-900 font-semibold mb-2">
-                      Responsive UI
-                    </h4>
-                    <p className="text-gray-600 text-lg">
-                      Creating beautiful layouts for all screen sizes.
-                    </p>
-                  </div>
                 </div>
 
-                {/* CTA Button */}
-                <button
-                  onClick={() =>
-                    document
-                      .getElementById("projects")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
-                  className="group inline-flex items-center gap-2 bg-gray-900 hover:bg-black transition-all duration-300 text-white px-6 py-3 rounded-xl font-medium shadow-lg"
-                >
-                  Learn More
-                  <ArrowRightIcon
-                    size={18}
-                    className="group-hover:translate-x-1 transition"
-                  />
-                </button>
+                <div className="group rounded-2xl border border-line-soft bg-navy/50 p-6 transition-all duration-300 hover:border-accent/25 hover:bg-navy/70">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-teal/15 text-accent transition-colors duration-300 group-hover:bg-teal/25">
+                    <DeviceMobileIcon size={22} weight="fill" />
+                  </div>
+                  <h4 className="text-base font-semibold text-subtle">
+                    Responsive UI
+                  </h4>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    Creating beautiful layouts for all screen sizes.
+                  </p>
+                </div>
               </div>
+
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="group mt-9 inline-flex items-center gap-2 rounded-full text-sm font-semibold text-accent transition-all duration-300 hover:gap-3"
+              >
+                <span className="underline decoration-accent/30 underline-offset-8">
+                  Explore My Work
+                </span>
+                <ArrowRightIcon
+                  size={18}
+                  weight="bold"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </button>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -4,13 +4,15 @@ import {
   UserPlusIcon,
   CertificateIcon,
   BriefcaseIcon,
-  ArrowUpRightIcon,
+  CheckCircleIcon,
 } from "@phosphor-icons/react";
 
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { portfolioData } from "../mock";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 
 const { teaching } = portfolioData;
 const MotionDiv = motion.div;
@@ -45,11 +47,16 @@ const AnimatedStat = ({ value, suffix = "" }) => {
   });
 
   return (
-    <div ref={ref}>
+    <span ref={ref}>
       {inView && (
-        <CountUp end={parseInt(value)} duration={2.5} suffix={suffix} />
+        <CountUp
+          end={parseInt(value)}
+          duration={2}
+          suffix={suffix}
+          enableScrollSpy
+        />
       )}
-    </div>
+    </span>
   );
 };
 
@@ -65,360 +72,136 @@ const Teaching = () => {
     restDelta: 0.001,
   });
 
-  const cardVariants = {
-    hidden: { opacity: 0, y: 70, scale: 0.96, filter: "blur(10px)" },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.75,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const achievementVariants = {
-    hidden: { opacity: 0, x: -16 },
-    visible: (idx) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        delay: 0.2 + idx * 0.08,
-        duration: 0.45,
-        ease: "easeOut",
-      },
-    }),
-  };
-
   return (
-    <section
-      id="teaching"
-      className="relative overflow-hidden py-16 md:py-20 bg-white"
-    >
-      {/* Background Glow */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
+    <section id="teaching" className="section-pad relative overflow-hidden scroll-mt-28 bg-navy">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-40 top-16 h-[480px] w-[480px] rounded-full bg-teal/5 blur-[150px]"
+      />
 
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
+      <div className="container-xl relative z-10">
+        <SectionHeading
+          index="04"
+          eyebrow="Education Journey"
+          title="Education & Teaching"
+          description="Empowering future developers through modern education, mentorship, and practical learning experiences."
+        />
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <header className="text-center mb-12 md:mb-16">
-            <span className="text-base font-semibold uppercase tracking-[0.2em] text-gray-500">
-              Education Journey
-            </span>
+        {/* Stats */}
+        <div className="mb-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {impactStats.map((stat, index) => {
+            const Icon = stat.icon;
 
-            <h2 className="mt-4 text-4xl font-black text-gray-900 md:text-5xl lg:text-6xl">
-              Education & Teaching
-            </h2>
-
-            <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-gray-600 sm:text-2xl lg:text-3xl">
-              Empowering future developers through modern education, mentorship,
-              and practical learning experiences.
-            </p>
-
-            <div className="w-24 h-1 bg-gray-900 mx-auto rounded-full mt-6"></div>
-          </header>
-
-          {/* Stats */}
-          <div className="mb-12 grid gap-6 md:mb-16 lg:grid-cols-4">
-            {impactStats.map((stat, index) => {
-              const Icon = stat.icon;
-
-              return (
-                <div
-                  key={index}
-                  className="
-                    group
-                    relative
-                    overflow-hidden
-                    bg-white
-                    border
-                    border-gray-200
-                    rounded-[2rem]
-                    p-8
-                    shadow-lg
-                    hover:shadow-2xl
-                    hover:-translate-y-3
-                    transition-all
-                    duration-500
-                  "
-                >
-                  {/* Hover Background */}
+            return (
+              <Reveal key={stat.title} delay={index * 0.06}>
+                <div className="group card-surface relative overflow-hidden p-7 pt-9 text-center transition-all duration-500 hover:-translate-y-1.5 hover:border-accent/20 hover:shadow-hover">
                   <div
-                    className="
-                      absolute
-                      inset-0
-                      bg-gray-900
-                      scale-y-0
-                      origin-bottom
-                      group-hover:scale-y-100
-                      transition-transform
-                      duration-500
-                    "
-                  ></div>
+                    aria-hidden
+                    className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"
+                  />
 
-                  <div className="relative z-10 flex flex-col items-center text-center">
-                    {/* Icon */}
-                    <div
-                      className="
-                        w-16
-                        h-16
-                        rounded-2xl
-                        bg-gray-100
-                        flex
-                        items-center
-                        justify-center
-                        mb-6
-                        group-hover:bg-white/10
-                        transition-all
-                        duration-500
-                      "
-                    >
-                      <Icon
-                        size={40}
-                        weight="regular"
-                        className="
-                          text-gray-800
-                          group-hover:text-white
-                          transition-colors
-                          duration-500
-                        "
-                      />
-                    </div>
-
-                    {/* Number */}
-                    <div
-                      className="
-                        text-4xl
-                        font-black
-                        text-gray-900
-                        mb-3
-                        group-hover:text-white
-                        transition-colors
-                        duration-500
-                      "
-                    >
-                      {stat.title === "Placement Rate" ? (
-                        <AnimatedStat value={stat.value} suffix="%" />
-                      ) : (
-                        <AnimatedStat value={stat.value} />
-                      )}
-                    </div>
-
-                    {/* Title */}
-                    <p
-                      className="
-                        text-xl
-                        text-gray-600
-                        font-medium
-                        group-hover:text-gray-300
-                        transition-colors
-                        duration-500
-                      "
-                    >
-                      {stat.title}
-                    </p>
+                  <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-teal/15 text-accent transition-all duration-500 group-hover:bg-teal/25">
+                    <Icon size={24} weight="regular" />
                   </div>
+
+                  <div className="font-display text-4xl font-extrabold tabular-nums text-accent sm:text-[2.75rem]">
+                    {stat.title === "Placement Rate" ? (
+                      <AnimatedStat value={stat.value} suffix="%" />
+                    ) : (
+                      <AnimatedStat value={stat.value} />
+                    )}
+                  </div>
+
+                  <p className="mt-2 text-sm font-medium text-muted transition-colors duration-500 group-hover:text-slate-300">
+                    {stat.title}
+                  </p>
                 </div>
-              );
-            })}
-          </div>
+              </Reveal>
+            );
+          })}
+        </div>
 
-          {/* Experience Timeline */}
-          <div ref={timelineRef} className="relative">
-            {/* Vertical Line */}
-            <div
-              className="
-                absolute
-                left-4
-                top-0
-                bottom-0
-                w-px
-                bg-gray-200
-                hidden
-                md:block
-              "
-            ></div>
-            <MotionDiv
-              style={{ scaleY: timelineScale }}
-              className="
-                absolute
-                left-4
-                top-0
-                bottom-0
-                w-px
-                origin-top
-                bg-gray-900
-                hidden
-                md:block
-              "
-            />
+        {/* Experience timeline */}
+        <div ref={timelineRef} className="relative">
+          {/* Base line */}
+          <div
+            aria-hidden
+            className="absolute bottom-0 left-4 top-0 hidden w-px bg-white/8 md:block"
+          />
+          {/* Animated progress line */}
+          <MotionDiv
+            style={{ scaleY: timelineScale }}
+            aria-hidden
+            className="absolute bottom-0 left-4 top-0 hidden w-px origin-top bg-gradient-to-b from-accent via-accent/60 to-teal md:block"
+          />
 
-            <div className="space-y-10">
-              {teaching.experience.map((exp, index) => (
-                <MotionDiv
-                  key={index}
-                  variants={cardVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.35 }}
-                  className="
-                    relative
-                    md:pl-16
-                  "
-                >
-                  {/* Timeline Dot */}
-                  <MotionDiv
-                    initial={{ scale: 0, rotate: -45 }}
-                    whileInView={{ scale: 1, rotate: 0 }}
-                    viewport={{ once: true, amount: 0.7 }}
-                    transition={{
-                      delay: 0.18 + index * 0.16,
-                      duration: 0.5,
-                      ease: "backOut",
-                    }}
-                    className="
-                      hidden
-                      md:flex
-                      absolute
-                      left-0
-                      top-10
-                      w-8
-                      h-8
-                      rounded-full
-                      bg-black
-                      items-center
-                      justify-center
-                      shadow-lg
-                    "
+          <div className="space-y-10">
+            {teaching.experience.map((exp, index) => (
+              <Reveal key={index} delay={index * 0.08}>
+                <div className="group relative md:pl-16">
+                  {/* Timeline node */}
+                  <div
+                    aria-hidden
+                    className="absolute left-0 top-2 hidden h-9 w-9 items-center justify-center rounded-full border border-accent/30 bg-surface shadow-glow md:flex"
                   >
-                    <div className="w-3 h-3 rounded-full bg-white"></div>
-                  </MotionDiv>
+                    <span className="h-3 w-3 rounded-full bg-accent/80 shadow-[0_0_12px_rgba(94,234,212,0.7)]" />
+                  </div>
 
                   {/* Card */}
-                  <MotionDiv
-                    whileHover={{ y: -8, rotateX: 1.5, rotateY: -1.5 }}
-                    className="
-                      group
-                      relative
-                      overflow-hidden
-                      bg-white
-                      border
-                      border-gray-200
-                      rounded-[2rem]
-                      p-6
-                      sm:p-7
-                      lg:p-6
-                      shadow-lg
-                      hover:shadow-2xl
-                      hover:-translate-y-2
-                      transition-all
-                      duration-500
-                    "
-                  >
-                    <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-gray-900/30 to-transparent"></div>
-                    <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gray-100 blur-2xl transition-transform duration-700 group-hover:scale-150"></div>
+                  <div className="card-surface relative overflow-hidden p-6 transition-all duration-500 hover:-translate-y-1.5 hover:border-accent/20 hover:shadow-hover sm:p-8">
+                    <div
+                      aria-hidden
+                      className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-accent/25 to-transparent"
+                    />
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-teal/10 blur-2xl transition-transform duration-700 group-hover:scale-150"
+                    />
+
                     {/* Top */}
-                    <div className="relative flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-6">
+                    <div className="relative mb-6 flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
                       <div>
-                        <h3 className="mb-4 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-2xl">
+                        <h3 className="text-xl font-bold leading-snug text-subtle">
                           {exp.role}
                         </h3>
-
-                        <p className="text-xl font-semibold leading-relaxed text-gray-600 sm:text-2xl lg:text-lg">
+                        <p className="mt-1.5 text-sm font-medium text-accent">
                           {exp.institution}
                         </p>
                       </div>
 
-                      {/* Period */}
-                      <div
-                        className="
-                          inline-flex
-                          items-center
-                          gap-2
-                          px-5
-                          py-3
-                          rounded-2xl
-                          bg-gray-100
-                          text-gray-700
-                          text-lg
-                          font-medium
-                          whitespace-nowrap
-                          sm:text-xl
-                          lg:text-base
-                        "
-                      >
+                      <span className="inline-flex w-fit items-center gap-2 whitespace-nowrap rounded-full border border-line bg-white/5 px-4 py-2 text-xs font-medium text-slate-300">
                         {exp.period}
-                      </div>
+                      </span>
                     </div>
 
                     {/* Description */}
-                    <p className="relative mb-8 text-xl leading-relaxed text-gray-600 sm:text-2xl lg:text-lg">
+                    <p className="relative mb-8 text-sm leading-relaxed text-muted sm:text-base">
                       {exp.description}
                     </p>
 
                     {/* Achievements */}
                     <div className="relative">
-                      <h4 className="mb-5 text-base font-bold uppercase tracking-[0.2em] text-gray-500 lg:text-sm">
+                      <h4 className="mb-5 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
                         Key Achievements
                       </h4>
 
                       <div className="space-y-4">
                         {exp.achievements.map((achievement, idx) => (
-                          <MotionDiv
-                            key={idx}
-                            variants={achievementVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.6 }}
-                            custom={idx}
-                            className="
-                                flex
-                                items-start
-                                gap-4
-                                group/item
-                              "
-                          >
-                            {/* Icon */}
-                            <div
-                              className="
-                                  mt-1
-                                  w-8
-                                  h-8
-                                  rounded-full
-                                  bg-gray-100
-                                  flex
-                                  items-center
-                                  justify-center
-                                  flex-shrink-0
-                                  group-hover/item:bg-black
-                                  transition-all
-                                "
-                            >
-                              <ArrowUpRightIcon
-                                size={16}
-                                className="
-                                    text-gray-700
-                                    group-hover/item:text-white
-                                  "
-                              />
-                            </div>
-
-                            {/* Text */}
-                            <p className="text-xl leading-relaxed text-gray-600 sm:text-2xl lg:text-base">
+                          <div key={idx} className="flex items-start gap-3.5">
+                            <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal/15 text-accent">
+                              <CheckCircleIcon size={14} weight="fill" />
+                            </span>
+                            <p className="text-sm leading-relaxed text-slate-300 sm:text-base">
                               {achievement}
                             </p>
-                          </MotionDiv>
+                          </div>
                         ))}
                       </div>
                     </div>
-                  </MotionDiv>
-                </MotionDiv>
-              ))}
-            </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </div>

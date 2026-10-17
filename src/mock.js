@@ -6,7 +6,7 @@ export const portfolioData = {
     title: "Frontend Developer & Educator",
     mission: "Transforming Afghanistan's Education System Through Technology",
     description:
-      "I build responsive web experiences and education-focused platforms that help students, teachers, and communities access better learning opportunities.",
+      "Building digital solutions that empower students, teachers, and communities across Afghanistan to access quality education.",
     cta: "View My Work",
   },
 

@@ -7,22 +7,21 @@ import {
 } from "@phosphor-icons/react";
 
 import { portfolioData } from "../mock";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
+import { motion, AnimatePresence } from "framer-motion";
+
+const MotionDiv = motion.div;
+
+const hasLink = (href) => href && href !== "#";
 
 const Projects = () => {
   const { projects } = portfolioData;
-
   const [selectedProject, setSelectedProject] = useState(null);
-
-  const hasLink = (href) => href && href !== "#";
 
   // Lock body scroll when modal opens
   useEffect(() => {
-    if (selectedProject) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
+    document.body.style.overflow = selectedProject ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -31,138 +30,58 @@ const Projects = () => {
   // Close modal on ESC
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === "Escape") {
-        setSelectedProject(null);
-      }
+      if (e.key === "Escape") setSelectedProject(null);
     };
-
     window.addEventListener("keydown", handleEscape);
-
-    return () => {
-      window.removeEventListener("keydown", handleEscape);
-    };
+    return () => window.removeEventListener("keydown", handleEscape);
   }, []);
 
   return (
-    <section
-      id="projects"
-      className="relative overflow-hidden bg-white py-16 md:py-20"
-    >
-      {/* Background Glow */}
-      <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-gray-100 blur-3xl" />
+    <section id="projects" className="section-pad relative overflow-hidden scroll-mt-28 bg-navy">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full bg-teal/5 blur-[160px]"
+      />
 
-      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-gray-200 blur-3xl" />
+      <div className="container-xl relative z-10">
+        <SectionHeading
+          index="03"
+          eyebrow="My Work"
+          title="Featured Projects"
+          description="A collection of modern, responsive, and impactful projects built with clean UI and smooth user experience."
+        />
 
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          {/* Header */}
-          <header className="mb-12 text-center md:mb-16">
-            <span className="text-base font-semibold uppercase tracking-[0.2em] text-gray-500">
-              My Work
-            </span>
-
-            <h2 className="mt-4 text-4xl font-black text-gray-900 sm:text-5xl lg:text-6xl">
-              Featured Projects
-            </h2>
-
-            <p className="mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-gray-600 sm:text-2xl lg:text-3xl">
-              A collection of modern, responsive, and impactful projects built
-              with clean UI and smooth user experience.
-            </p>
-
-            <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-gray-900" />
-          </header>
-
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:gap-8">
-            {projects.map((project) => (
-              <article
-                key={project.id}
-                className="
-                  group
-                  overflow-hidden
-                  rounded-[2rem]
-                  border
-                  border-gray-200
-                  bg-white
-                  shadow-lg
-                  transition-all
-                  duration-500
-                  lg:hover:-translate-y-3
-                  lg:hover:shadow-2xl
-                "
-              >
+        {/* Projects grid */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {projects.map((project, index) => (
+            <Reveal key={project.id} delay={(index % 2) * 0.08}>
+              <article className="group card-surface h-full overflow-hidden !rounded-[22px] transition-all duration-500 hover:-translate-y-2 hover:border-accent/20 hover:shadow-hover">
                 {/* Image */}
                 <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    loading="lazy"
-                    className="
-                      h-56
-                      w-full
-                      object-cover
-                      transition-transform
-                      duration-700
-                      sm:h-72
-                      lg:group-hover:scale-110
-                    "
-                  />
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                    />
+                  </div>
 
-                  {/* Overlay */}
-                  <div
-                    className="
-                      absolute
-                      inset-0
-                      bg-gradient-to-t
-                      from-black/60
-                      via-black/10
-                      to-transparent
-                    "
-                  />
+                  {/* Cinematic hover overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/25 to-transparent opacity-90 transition-opacity duration-500" />
 
-                  {/* Desktop Floating Actions */}
+                  {/* Floating actions on hover */}
                   {(hasLink(project.link) || hasLink(project.github)) && (
-                    <div
-                      className="
-                        absolute
-                        top-5
-                        right-5
-                        hidden
-                        translate-y-4
-                        gap-3
-                        opacity-0
-                        transition-all
-                        duration-500
-                        lg:flex
-                        lg:group-hover:translate-y-0
-                        lg:group-hover:opacity-100
-                      "
-                    >
+                    <div className="absolute right-4 top-4 flex translate-y-2 gap-2.5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                       {hasLink(project.link) && (
                         <a
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`View live demo of ${project.title}`}
-                          className="
-                            flex
-                            h-12
-                            w-12
-                            items-center
-                            justify-center
-                            rounded-2xl
-                            bg-white/90
-                            text-gray-900
-                            shadow-lg
-                            backdrop-blur-md
-                            transition-all
-                            duration-300
-                            hover:bg-black
-                            hover:text-white
-                          "
+                          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/10 text-subtle backdrop-blur-md transition-all duration-300 hover:border-accent/40 hover:bg-accent hover:text-navy"
                         >
-                          <EyeIcon size={22} weight="bold" />
+                          <EyeIcon size={18} weight="bold" />
                         </a>
                       )}
 
@@ -172,96 +91,66 @@ const Projects = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`GitHub repository of ${project.title}`}
-                          className="
-                            flex
-                            h-12
-                            w-12
-                            items-center
-                            justify-center
-                            rounded-2xl
-                            bg-white/90
-                            text-gray-900
-                            shadow-lg
-                            backdrop-blur-md
-                            transition-all
-                            duration-300
-                            hover:bg-black
-                            hover:text-white
-                          "
+                          className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/10 text-subtle backdrop-blur-md transition-all duration-300 hover:border-accent/40 hover:bg-accent hover:text-navy"
                         >
-                          <GithubLogoIcon size={22} weight="bold" />
+                          <GithubLogoIcon size={18} weight="bold" />
                         </a>
                       )}
                     </div>
                   )}
 
-                  {/* Badge */}
-                  <div
-                    className="
-                      absolute
-                      bottom-4
-                      left-4
-                      rounded-xl
-                      border
-                      border-white/30
-                      bg-white/90
-                      px-4
-                      py-2
-                      shadow-lg
-                      backdrop-blur-md
-                    "
-                  >
-                    <p className="text-sm font-semibold text-gray-800">
+                  {/* Featured badge */}
+                  <div className="absolute bottom-4 left-4">
+                    <span className="chip !border-accent/25 !bg-navy/70">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
                       Featured Project
-                    </p>
+                    </span>
                   </div>
+
+                  {/* Watermark number */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -bottom-6 right-3 font-display text-[7rem] font-extrabold leading-none text-white/[0.04] transition-colors duration-500 group-hover:text-accent/[0.07]"
+                  >
+                    0{index + 1}
+                  </span>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 sm:p-7 lg:p-6">
-                  {/* Title */}
+                <div className="p-6 sm:p-7 lg:p-8">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="mb-4 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-2xl">
+                      <span className="text-[11px] font-medium uppercase tracking-[0.24em] text-accent/70">
+                        Case Study · 0{index + 1}
+                      </span>
+
+                      <h3 className="mt-2.5 text-xl font-bold leading-snug text-subtle transition-colors duration-300 group-hover:text-accent sm:text-2xl">
                         {project.title}
                       </h3>
 
-                      <p className="text-xl leading-relaxed text-gray-600 sm:text-2xl lg:text-lg">
+                      <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
                         {project.description ||
                           "Modern responsive project with clean design and user-friendly experience."}
                       </p>
                     </div>
 
-                    {/* Desktop Details Button */}
                     <button
                       type="button"
                       onClick={() => setSelectedProject(project)}
                       aria-label={`View details for ${project.title}`}
-                      className="
-                        hidden
-                        rounded-xl
-                        bg-gray-100
-                        p-3
-                        text-gray-500
-                        transition-all
-                        duration-300
-                        hover:bg-gray-900
-                        hover:text-white
-                        lg:block
-                      "
+                      className="hidden shrink-0 rounded-full border border-line bg-white/5 p-3 text-slate-300 transition-all duration-300 hover:border-accent/30 hover:bg-teal/10 hover:text-accent lg:block"
                     >
-                      <ArrowUpRightIcon size={20} />
+                      <ArrowUpRightIcon size={18} weight="bold" />
                     </button>
                   </div>
 
                   {/* Impact */}
                   {project.impact && (
-                    <div className="mt-6 rounded-2xl border border-gray-200 bg-gray-50 p-5 lg:p-4">
-                      <p className="text-base font-bold uppercase tracking-[0.18em] text-gray-500 lg:text-sm">
+                    <div className="mt-6 rounded-2xl border border-line-soft bg-navy/50 p-5">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
                         Impact
                       </p>
-
-                      <p className="mt-2 text-xl leading-relaxed text-gray-700 lg:text-base">
+                      <p className="mt-2 text-sm leading-relaxed text-slate-300">
                         {project.impact}
                       </p>
                     </div>
@@ -269,46 +158,23 @@ const Projects = () => {
 
                   {/* Footer */}
                   <div className="mt-6 flex flex-col gap-4">
-                    {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2">
-                      {project.tech?.slice(0, 3).map((tech) => (
+                      {project.tech?.slice(0, 4).map((tech) => (
                         <span
                           key={tech}
-                          className="
-                            rounded-full
-                            bg-gray-100
-                            px-3
-                            py-1
-                            text-lg
-                            font-medium
-                            text-gray-700
-                            sm:text-xl
-                            lg:text-sm
-                          "
+                          className="rounded-full border border-line bg-white/5 px-3 py-1 text-xs font-medium text-slate-300"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    {/* Mobile Actions */}
+                    {/* Mobile actions */}
                     <div className="flex items-center gap-3 lg:hidden">
                       <button
                         type="button"
                         onClick={() => setSelectedProject(project)}
-                        className="
-                          inline-flex
-                          flex-1
-                          items-center
-                          justify-center
-                          rounded-xl
-                          bg-gray-900
-                          px-4
-                          py-3
-                          text-xl
-                          font-semibold
-                          text-white
-                        "
+                        className="inline-flex flex-1 items-center justify-center rounded-full bg-teal px-4 py-3 text-sm font-semibold text-subtle transition-colors duration-300 hover:bg-teal-deep"
                       >
                         View Details
                       </button>
@@ -318,18 +184,10 @@ const Projects = () => {
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="
-                            flex
-                            h-12
-                            w-12
-                            items-center
-                            justify-center
-                            rounded-xl
-                            bg-gray-100
-                            text-gray-700
-                          "
+                          aria-label={`View live demo of ${project.title}`}
+                          className="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-white/5 text-slate-300 transition-colors hover:text-accent"
                         >
-                          <EyeIcon size={20} weight="bold" />
+                          <EyeIcon size={18} weight="bold" />
                         </a>
                       )}
 
@@ -338,203 +196,135 @@ const Projects = () => {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="
-                            flex
-                            h-12
-                            w-12
-                            items-center
-                            justify-center
-                            rounded-xl
-                            bg-gray-100
-                            text-gray-700
-                          "
+                          aria-label={`GitHub repository of ${project.title}`}
+                          className="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-white/5 text-slate-300 transition-colors hover:text-accent"
                         >
-                          <GithubLogoIcon size={20} weight="bold" />
+                          <GithubLogoIcon size={18} weight="bold" />
                         </a>
                       )}
                     </div>
                   </div>
                 </div>
               </article>
-            ))}
-          </div>
+            </Reveal>
+          ))}
         </div>
       </div>
 
       {/* Modal */}
-      {selectedProject && (
-        <div
-          onClick={() => setSelectedProject(null)}
-          className="
-            fixed
-            inset-0
-            z-[80]
-            flex
-            items-center
-            justify-center
-            bg-black/50
-            px-4
-            py-6
-            backdrop-blur-sm
-          "
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="
-              max-h-[90vh]
-              w-full
-              max-w-3xl
-              overflow-y-auto
-              rounded-[2rem]
-              border
-              border-gray-200
-              bg-white
-              p-5
-              shadow-2xl
-              sm:p-6
-              md:p-8
-            "
+      <AnimatePresence>
+        {selectedProject && (
+          <MotionDiv
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setSelectedProject(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${selectedProject.title} details`}
+            className="fixed inset-0 z-[80] flex items-center justify-center bg-navy-deep/80 px-4 py-6 backdrop-blur-sm"
           >
-            {/* Modal Header */}
-            <div className="mb-6 flex items-start justify-between gap-4">
-              <div>
-                <p className="text-base font-semibold uppercase tracking-[0.2em] text-gray-500 sm:text-sm">
-                  Project Details
-                </p>
+            <MotionDiv
+              initial={{ opacity: 0, y: 28, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.97 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[24px] border border-white/10 bg-surface p-6 shadow-card-lg sm:p-8"
+            >
+              {/* Header */}
+              <div className="mb-6 flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+                    Project Details
+                  </p>
+                  <h3 className="mt-2 font-display text-2xl font-bold text-subtle sm:text-3xl">
+                    {selectedProject.title}
+                  </h3>
+                </div>
 
-                <h3 className="mt-2 text-2xl font-black text-gray-900 sm:text-3xl">
-                  {selectedProject.title}
-                </h3>
+                <button
+                  type="button"
+                  onClick={() => setSelectedProject(null)}
+                  aria-label="Close project details"
+                  className="rounded-full border border-line bg-white/5 p-3 text-slate-300 transition-colors hover:border-accent/30 hover:text-accent"
+                >
+                  <XIcon size={18} weight="bold" />
+                </button>
               </div>
 
-              <button
-                type="button"
-                onClick={() => setSelectedProject(null)}
-                className="
-                  rounded-xl
-                  bg-gray-100
-                  p-3
-                  text-gray-700
-                  transition
-                  hover:bg-gray-900
-                  hover:text-white
-                "
-              >
-                <XIcon size={20} weight="bold" />
-              </button>
-            </div>
+              {/* Image */}
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="mb-6 h-48 w-full rounded-2xl border border-line object-cover sm:h-64"
+              />
 
-            {/* Modal Image */}
-            <img
-              src={selectedProject.image}
-              alt={selectedProject.title}
-              className="
-                mb-6
-                h-48
-                w-full
-                rounded-3xl
-                object-cover
-                sm:h-64
-              "
-            />
+              {/* Info */}
+              <div className="grid gap-5 md:grid-cols-2">
+                <div className="rounded-2xl border border-line-soft bg-navy/50 p-5">
+                  <h4 className="text-sm font-semibold text-subtle">Role</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+                    {selectedProject.role}
+                  </p>
+                </div>
 
-            {/* Info */}
-            <div className="grid gap-5 md:grid-cols-2">
-              <div className="rounded-3xl border border-gray-200 bg-gray-50 p-5">
-                <h4 className="font-bold text-gray-900">Role</h4>
-
-                <p className="mt-2 text-base leading-relaxed text-gray-600 sm:text-lg">
-                  {selectedProject.role}
-                </p>
+                <div className="rounded-2xl border border-line-soft bg-navy/50 p-5">
+                  <h4 className="text-sm font-semibold text-subtle">Result</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+                    {selectedProject.impact}
+                  </p>
+                </div>
               </div>
 
-              <div className="rounded-3xl border border-gray-200 bg-gray-50 p-5">
-                <h4 className="font-bold text-gray-900">Result</h4>
-
-                <p className="mt-2 text-base leading-relaxed text-gray-600 sm:text-lg">
-                  {selectedProject.impact}
-                </p>
+              {/* Features */}
+              <div className="mt-6">
+                <h4 className="mb-3 text-sm font-semibold text-subtle">
+                  Highlights
+                </h4>
+                <div className="flex flex-wrap gap-2.5">
+                  {selectedProject.features?.map((feature) => (
+                    <span
+                      key={feature}
+                      className="rounded-full border border-line bg-white/5 px-4 py-1.5 text-sm font-medium text-slate-300"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Features */}
-            <div className="mt-6">
-              <h4 className="mb-3 font-bold text-gray-900">Highlights</h4>
-
-              <div className="flex flex-wrap gap-3">
-                {selectedProject.features?.map((feature) => (
-                  <span
-                    key={feature}
-                    className="
-                      rounded-full
-                      bg-gray-100
-                      px-4
-                      py-2
-                      text-base
-                      font-medium
-                      text-gray-700
-                    "
+              {/* Actions */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                {hasLink(selectedProject.link) && (
+                  <a
+                    href={selectedProject.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
                   >
-                    {feature}
-                  </span>
-                ))}
+                    Live Project
+                    <EyeIcon size={18} weight="bold" />
+                  </a>
+                )}
+
+                {hasLink(selectedProject.github) && (
+                  <a
+                    href={selectedProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-ghost"
+                  >
+                    GitHub
+                    <GithubLogoIcon size={18} weight="bold" />
+                  </a>
+                )}
               </div>
-            </div>
-
-            {/* Actions */}
-            <div className="mt-8 flex flex-wrap gap-3">
-              {hasLink(selectedProject.link) && (
-                <a
-                  href={selectedProject.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    inline-flex
-                    items-center
-                    gap-2
-                    rounded-2xl
-                    bg-gray-900
-                    px-5
-                    py-3
-                    font-semibold
-                    text-white
-                    transition
-                    hover:bg-black
-                  "
-                >
-                  Live Project
-                  <EyeIcon size={18} weight="bold" />
-                </a>
-              )}
-
-              {hasLink(selectedProject.github) && (
-                <a
-                  href={selectedProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                    inline-flex
-                    items-center
-                    gap-2
-                    rounded-2xl
-                    border
-                    border-gray-300
-                    px-5
-                    py-3
-                    font-semibold
-                    text-gray-800
-                    transition
-                    hover:border-gray-900
-                  "
-                >
-                  GitHub
-                  <GithubLogoIcon size={18} weight="bold" />
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+            </MotionDiv>
+          </MotionDiv>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

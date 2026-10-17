@@ -37,125 +37,78 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-white border-t border-gray-200">
-      {/* Background Glow */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
+    <footer className="relative overflow-hidden border-t border-line bg-navy">
+      {/* Oversized watermark */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-[58%] select-none font-display text-[24vw] font-extrabold leading-none tracking-tighter text-white/[0.02] lg:block"
+      >
+        GKH
+      </span>
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="max-w-7xl mx-auto py-12 md:py-16">
-          {/* Main Footer */}
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-            {/* Brand */}
-            <div className="text-center lg:text-left max-w-md">
-              <h2 className="text-3xl font-black text-gray-900 mb-4 tracking-tight">
-                Gula Khan Hamdard
-              </h2>
+      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
 
-              <p className="text-gray-600 text-xl lg:text-lg leading-relaxed">
-                Frontend Developer & Educator passionate about building modern,
-                responsive, and user-friendly digital experiences.
-              </p>
-            </div>
+      <div className="container-xl relative z-10">
+        <div className="flex flex-col items-center justify-between gap-10 py-14 lg:flex-row lg:gap-0 lg:py-16">
+          {/* Brand */}
+          <div className="max-w-md text-center lg:text-left">
+            <h2 className="text-gradient-accent font-display text-2xl font-extrabold tracking-tight">
+              Gula Khan Hamdard
+            </h2>
 
-            {/* Social Links */}
-            <div className="flex flex-wrap justify-center gap-4">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              Web Developer & Educator passionate about building modern,
+              responsive, and user-friendly digital experiences.
+            </p>
+          </div>
 
-                return (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="
-                      group
-                      relative
-                      w-14
-                      h-14
-                      sm:w-16
-                      sm:h-16
-                      rounded-2xl
-                      bg-gray-50
-                      border
-                      border-gray-200
-                      flex
-                      items-center
-                      justify-center
-                      shadow-sm
-                      hover:shadow-xl
-                      hover:-translate-y-2
-                      transition-all
-                      duration-300
-                      overflow-hidden
-                    "
+          {/* Socials — unified dark icon buttons */}
+          <nav className="flex items-center gap-3" aria-label="Social links">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+
+              return (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="group relative flex h-12 w-12 items-center justify-center rounded-xl border border-line bg-surface text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-teal hover:bg-teal hover:shadow-glow-soft"
+                >
+                  <Icon
+                    size={22}
+                    weight="regular"
+                    className="transition-colors duration-300 group-hover:text-accent"
+                  />
+
+                  <span
+                    aria-hidden
+                    className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-surface border border-line opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   >
-                    {/* Hover Background */}
-                    <div
-                      className="
-                        absolute
-                        inset-0
-                        bg-gray-900
-                        scale-0
-                        group-hover:scale-100
-                        transition-transform
-                        duration-300
-                        rounded-2xl
-                      "
-                    ></div>
+                    <ArrowUpRightIcon size={10} className="text-accent" />
+                  </span>
+                </a>
+              );
+            })}
+          </nav>
+        </div>
 
-                    {/* Icon */}
-                    <Icon
-                      size={30}
-                      weight="regular"
-                      className="
-                        relative
-                        z-10
-                        text-gray-700
-                        group-hover:text-white
-                        transition-colors
-                        duration-300
-                      "
-                    />
+        {/* Bottom */}
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-line py-7 text-center md:flex-row">
+          <p className="text-sm text-muted">
+            © {currentYear} Gula Khan Hamdard. All rights reserved.
+          </p>
 
-                    {/* Small Arrow */}
-                    <ArrowUpRightIcon
-                      size={14}
-                      className="
-                        absolute
-                        top-2
-                        right-2
-                        text-gray-400
-                        opacity-0
-                        group-hover:opacity-100
-                        group-hover:text-white
-                        transition-all
-                        duration-300
-                      "
-                    />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="w-full h-px bg-gray-200 my-10"></div>
-
-          {/* Bottom Footer */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center">
-            <p className="text-gray-500 text-lg">
-              © {currentYear} Gula Khan Hamdard. All rights reserved.
-            </p>
-
-            <p className="flex items-center gap-2 text-lg  text-gray-500">
-              Built with
-              <HeartIcon size={30} weight="fill" className="text-red-500" />
-              for education in Afghanistan
-            </p>
-          </div>
+          <p className="flex items-center gap-1.5 text-sm text-muted">
+            Built with
+            <HeartIcon
+              size={14}
+              weight="fill"
+              className="text-accent"
+            />
+            for education in Afghanistan
+          </p>
         </div>
       </div>
     </footer>

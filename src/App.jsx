@@ -13,6 +13,7 @@ import Testimonials from "./components/Testimonials";
 function App() {
   return (
     <>
+      <div className="grain" aria-hidden />
       <Navbar />
       <Hero />
       <About />

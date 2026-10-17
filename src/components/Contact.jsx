@@ -6,6 +6,8 @@ import {
   WhatsappLogoIcon,
 } from "@phosphor-icons/react";
 import { portfolioData } from "../mock";
+import SectionHeading from "./SectionHeading";
+import Reveal from "./Reveal";
 
 const Contact = () => {
   const { contact } = portfolioData;
@@ -44,244 +46,185 @@ const Contact = () => {
     setStatus("Your email app is opening with the message ready to send.");
   };
 
+  const inputClass = `
+    w-full
+    rounded-xl border border-white/10 bg-navy/50 px-4 py-3.5 text-sm text-slate-200
+    placeholder:text-slate-500 outline-none transition-all duration-300
+    focus:border-accent/50 focus:bg-navy/70 focus:ring-4 focus:ring-accent/10
+  `;
+
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden py-16 md:py-20 bg-white"
-    >
-      {/* Background Glow */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-gray-200 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-gray-100 blur-3xl rounded-full"></div>
+    <section id="contact" className="section-pad relative overflow-hidden scroll-mt-28 bg-navy">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-44 top-1/4 h-[480px] w-[480px] rounded-full bg-teal/6 blur-[160px]"
+      />
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12 md:mb-16">
-            <span className="uppercase tracking-[0.2em] text-sm text-gray-500 font-semibold">
-              Contact Me
-            </span>
+      <div className="container-xl relative z-10">
+        <SectionHeading
+          index="07"
+          eyebrow="Contact Me"
+          title="Get in Touch"
+          description={contact.availability}
+        />
 
-            <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">
-              Get in Touch
-            </h2>
-
-            <p className="max-w-2xl mx-auto mt-6 text-2xl text-gray-600 leading-relaxed">
-              {contact.availability}
-            </p>
-
-            <div className="w-24 h-1 bg-gray-900 mx-auto rounded-full mt-6"></div>
-          </div>
-
-          {/* Contact Card */}
+        <Reveal>
           <div className="relative">
-            {/* Glow Border */}
-            <div className="absolute -inset-1 bg-gray-300 rounded-3xl blur opacity-40"></div>
+            {/* Soft halo above the panel */}
+            <div
+              aria-hidden
+              className="absolute -inset-x-10 -top-10 h-40 rounded-full bg-teal/10 blur-3xl"
+            />
 
-            <div className="relative bg-white border border-gray-200 rounded-3xl shadow-2xl p-5 sm:p-8 lg:p-12">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Left Side */}
+            <div className="relative overflow-hidden rounded-[28px] border border-line bg-surface p-6 shadow-card-lg sm:p-10 lg:p-14">
+              <div
+                aria-hidden
+                className="absolute inset-x-16 top-0 h-px bg-gradient-to-r from-transparent via-accent/25 to-transparent"
+              />
+
+              <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+                {/* Left */}
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6 leading-tight sm:text-3xl">
-                    Let's Build Something Amazing Together
+                  <h3 className="font-display text-2xl font-bold leading-snug text-subtle sm:text-3xl">
+                    Let's Build Something{" "}
+                    <span className="font-serif-accent text-gradient-accent">
+                      Amazing
+                    </span>{" "}
+                    Together
                   </h3>
 
-                  <p className="text-gray-600 text-2xl leading-relaxed mb-8">
+                  <p className="mt-5 text-base leading-relaxed text-muted">
                     Feel free to contact me for collaborations, freelance
                     projects, or just to say hello. I'm always open to
                     discussing new ideas and opportunities.
                   </p>
 
-                  {/* Small Info Cards */}
-                  <div className="space-y-4">
+                  <div className="mt-8 space-y-3.5">
                     <a
                       href={`mailto:${contact.email}`}
-                      className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4 transition hover:border-gray-900 hover:bg-white"
+                      className="group flex items-center gap-4 rounded-2xl border border-line-soft bg-navy/50 p-4 transition-all duration-300 hover:border-accent/25 hover:bg-navy/70"
                     >
-                      <div className="p-3 rounded-xl bg-white shadow">
-                        <EnvelopeSimpleIcon
-                          size={22}
-                          className="text-gray-800"
-                        />
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-xl text-gray-900">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal/15 text-accent transition-colors duration-300 group-hover:bg-teal/25">
+                        <EnvelopeSimpleIcon size={20} weight="bold" />
+                      </span>
+                      <span>
+                        <span className="block text-sm font-semibold text-subtle">
                           Email Me
-                        </h4>
-                        <p className="text-gray-500 text-xl">{contact.email}</p>
-                      </div>
+                        </span>
+                        <span className="mt-0.5 block text-sm text-muted">
+                          {contact.email}
+                        </span>
+                      </span>
                     </a>
 
                     <a
                       href={contact.whatsApp}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4 transition hover:border-gray-900 hover:bg-white"
+                      className="group flex items-center gap-4 rounded-2xl border border-line-soft bg-navy/50 p-4 transition-all duration-300 hover:border-accent/25 hover:bg-navy/70"
                     >
-                      <div className="p-3 rounded-xl bg-white shadow">
-                        <WhatsappLogoIcon size={22} className="text-gray-800" />
-                      </div>
-
-                      <div>
-                        <h4 className="font-bold text-xl text-gray-900">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal/15 text-accent transition-colors duration-300 group-hover:bg-teal/25">
+                        <WhatsappLogoIcon size={20} weight="bold" />
+                      </span>
+                      <span>
+                        <span className="block text-sm font-semibold text-subtle">
                           WhatsApp
-                        </h4>
-                        <p className="break-all text-xl text-gray-500">
+                        </span>
+                        <span className="mt-0.5 block text-sm text-muted">
                           Fastest way to reach me
-                        </p>
-                      </div>
+                        </span>
+                      </span>
                     </a>
 
-                    <div className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-4">
-                      <div className="rounded-xl bg-white p-3 shadow">
-                        <UserIcon size={22} className="text-gray-800" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-xl text-gray-900">
+                    <div className="flex items-center gap-4 rounded-2xl border border-line-soft bg-navy/50 p-4">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal/15 text-accent">
+                        <UserIcon size={20} weight="bold" />
+                      </span>
+                      <span>
+                        <span className="block text-sm font-semibold text-subtle">
                           Availability
-                        </h4>
-                        <p className="text-xl text-gray-500">
+                        </span>
+                        <span className="mt-0.5 block text-sm text-muted">
                           Open for freelance projects
-                        </p>
-                      </div>
+                        </span>
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name */}
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <label className="block mb-2 text-xl font-medium text-gray-700">
+                    <label
+                      htmlFor="contact-name"
+                      className="mb-2 block text-sm font-medium text-slate-300"
+                    >
                       Your Name
                     </label>
-
                     <input
+                      id="contact-name"
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
                       placeholder="John Doe"
-                      className="
-                        w-full
-                        px-5
-                        py-4
-                        rounded-2xl
-                        border
-                        border-gray-200
-                        bg-gray-50
-                        text-xl
-                        text-gray-900
-                        placeholder:text-gray-400
-                        focus:border-gray-900
-                        focus:ring-4
-                        focus:ring-gray-200
-                        transition-all
-                        outline-none
-                      "
+                      className={inputClass}
                     />
                   </div>
 
-                  {/* Email */}
                   <div>
-                    <label className="block mb-2 text-xl font-medium text-gray-700">
+                    <label
+                      htmlFor="contact-email"
+                      className="mb-2 block text-sm font-medium text-slate-300"
+                    >
                       Your Email
                     </label>
-
                     <input
+                      id="contact-email"
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
                       placeholder="example@gmail.com"
-                      className="
-                        w-full
-                        px-5
-                        py-4
-                        rounded-2xl
-                        border
-                        border-gray-200
-                        bg-gray-50
-                        text-xl
-                        text-gray-900
-                        placeholder:text-gray-400
-                        focus:border-gray-900
-                        focus:ring-4
-                        focus:ring-gray-200
-                        transition-all
-                        outline-none
-                      "
+                      className={inputClass}
                     />
                   </div>
 
-                  {/* Message */}
                   <div>
-                    <label className="block mb-2 text-xl font-medium text-gray-700">
+                    <label
+                      htmlFor="contact-message"
+                      className="mb-2 block text-sm font-medium text-slate-300"
+                    >
                       Message
                     </label>
-
                     <textarea
+                      id="contact-message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
                       rows="6"
                       placeholder="Write your message..."
-                      className="
-                        w-full
-                        px-5
-                        py-4
-                        rounded-2xl
-                        border
-                        border-gray-200
-                        bg-gray-50
-                        text-xl
-                        text-gray-900
-                        placeholder:text-gray-400
-                        focus:border-gray-900
-                        focus:ring-4
-                        focus:ring-gray-200
-                        transition-all
-                        outline-none
-                        resize-none
-                      "
+                      className={`${inputClass} resize-none`}
                     ></textarea>
                   </div>
 
-                  {/* Button */}
                   <button
                     type="submit"
-                    className="
-                      group
-                      w-full
-                      inline-flex
-                      items-center
-                      justify-center
-                      gap-3
-                      px-6
-                      py-4
-                      bg-gray-900
-                      hover:bg-black
-                      text-white
-                      text-xl
-                      font-semibold
-                      rounded-2xl
-                      transition-all
-                      duration-300
-                      hover:scale-[1.02]
-                      shadow-xl
-                    "
+                    className="group flex w-full items-center justify-center gap-2.5 rounded-xl bg-teal px-6 py-4 text-base font-semibold text-subtle transition-all duration-300 hover:bg-teal-deep hover:shadow-glow-soft"
                   >
                     Send Message
                     <PaperPlaneTiltIcon
-                      size={20}
-                      className="group-hover:translate-x-1 transition"
+                      size={18}
+                      weight="bold"
+                      className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
                     />
                   </button>
+
                   {status && (
-                    <p className="text-center text-sm text-gray-600">
+                    <p className="rounded-xl border border-accent/20 bg-teal/10 px-4 py-3 text-center text-sm text-accent">
                       {status}
                     </p>
                   )}
@@ -289,7 +232,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
